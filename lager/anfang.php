@@ -5,8 +5,8 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8mb4" />
         <title>Lager</title>
-        <link rel="stylesheet" type="text/css" href="/media/lager.css">
-        <?php include $_SERVER[ "DOCUMENT_ROOT"]. '/includes/lager.php' ?>
+        <link rel="stylesheet" type="text/css" href="../media/lager.css">
+        <?php include $_SERVER["DOCUMENT_ROOT"]. '/includes/lager.php' ?>
     </head>
 
     <body>

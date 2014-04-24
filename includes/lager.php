@@ -78,7 +78,7 @@ function anfang_row ($typ) {
         echo "<div class=name>".full_name($typ)."</div>";
         echo       "<div class=anzahl><input type=number step=any value=0 min=0 name=anzahl_k ></div>";
         echo       "<div class=anzahl><input type=number step=any value=0 min=0 name=anzahl_fl ></div>";
-        echo "<div class=save><input type=submit form=".$typ." name=".$typ." src=\"/media/save.png\"></div>";
+        echo "<div class=save><input type=submit form=".$typ." name=".$typ." src=\"../media/save.png\"></div>";
         echo   "</form>";
 
     }
@@ -109,7 +109,7 @@ function ende_row ($typ) {
         echo       "<div class=anzahl><input type=number step=any value=0 min=0 name=anzahl_k ></div>";
         echo       "<div class=anzahl><input type=number step=any value=0 min=0 name=anzahl_fl ></div>";
         echo       "<div class=anzahl><input type=number step=any value=0 min=0 name=abgang ></div>";
-        echo "<div class=save><input type=submit form=".$typ." name=".$typ." src=\"/media/save.png\"></div>";
+        echo "<div class=save><input type=submit form=".$typ." name=".$typ." src=\"../media/save.png\"></div>";
         echo   "</form>";
 
     }
@@ -135,7 +135,7 @@ function liefer_row ($typ) {
         echo "<input type=hidden name=datum value=".get_date().">";
         echo "<div class=name>".full_name($typ)."</div>";
         echo "<div class=anzahl><input type=number step=any value=0 min=0 name=anzahl_k ></div>";
-        echo "<div class=save><input type=submit form=".$typ." name=".$typ." src=\"/media/save.png\"></div>";
+        echo "<div class=save><input type=submit form=".$typ." name=".$typ." src=\"../media/save.png\"></div>";
         echo "</form>";
     }
 }
