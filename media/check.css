@@ -1,0 +1,45 @@
+/*colors
+ * 
+ * schwarz #252120
+ * rot #e73c1e
+ * 
+ * 
+ * 
+ * 
+ * 
+ * */
+
+
+
+body {
+    background-color: #252120;
+    margin: 0; 
+    padding: 0;
+    text-align: center;
+}
+input[type=number] {
+    margin: 0 auto;
+    width: 400px;
+    height: auto;
+/*    padding: 4px;*/
+    font-size: 140px;
+}
+input[type=image] {
+    margin: auto;
+    width: 400px;
+}
+.result {
+    margin: auto;
+    font-size: 90px;
+    color: #fff;
+    font-family: sans-serif;
+}
+.error {
+    margin: auto;
+    font-size: 90px;
+    color: #e73c1e;
+    font-family: sans-serif;
+}
+.ratte {
+    width: 150px;
+}
