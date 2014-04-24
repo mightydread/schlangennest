@@ -1,11 +1,5 @@
 <?php
-$con = mysqli_connect(localhost,user,scandale,Lager);
-
-// set vars
-$debug="";
-$id="";
-$idErr="";
-$exist="";
+$con = mysqli_connect(localhost,user,scandale,members);
 // functions
 function test_input ($data) {
 	$data  = trim($data);
@@ -13,49 +7,40 @@ function test_input ($data) {
 	$data  = htmlspecialchars($data);
 	return $data;
 }
-function select_row ($data) {
-	global $con;
-	$sql   = "SELECT * FROM members WHERE id =".$data."";
-    $result = mysqli_query($con,$sql);
-    if (mysqli_fetch_row($result)) { $exist=true; }
-    else { $exist=false; }
-    return $exist;
-}
 
 function door_check ($data) {
-    global $exist,$row,$count;
-    select_row($data);
-    if  (!$exist)   {
-        echo "<img src=\"../media/error.png\" >";
-    }
-    elseif  ($exist)    {
-        echo $row['name'];
+    global $con;
+    $sql   = "SELECT * FROM members WHERE id=".$data."";
+    $result = mysqli_query($con,$sql);
+    if (mysqli_fetch_row($result)) {
+        $array = mysqli_fetch_array(mysqli_query($con,$sql));
+        echo $array['name'];
         echo "<br>";
-        for ($x=1; $x<=$row['ratten']; $x++)    {
+        for ($x=1; $x<=$array['ratten']; $x++)    {
             echo "<img class=\"ratte\" src=\"../media/ratte.png\">";
         }
     }
+    else   {
+        echo "<img src=\"../media/error.png\" >";
+    }
+
 }
 function add_lastvisit ($data) {
-	$db    = new MyDB();
+	global $con;
     $time  = time() - (12 * 60 * 60);
-	$date  = date("d.m.y", $time);
-	$sql   =<<<SQL
-    UPDATE members set lastvisit="$date" where "id"=$data;
-SQL;
-	$ret   = $db->exec($sql);
-    $db->close();
+    $datum  = date("Y-m-d", $time);
+	$sql   = "UPDATE members SET lastvisit='".$datum."' WHERE id=".$data."";
+	mysqli_query($con,$sql);
 }
 function visit_counter ($data) {
-    global $row;
-    select_row($data);
-	$count = $row['visit_count'];
-	$count = $count+1;
-	$db    = new MyDB();
-	$write =<<<SQL
-	UPDATE members SET visit_count="$count" WHERE "id"=$data;
-SQL;
-	$ret   = $db->exec($write);
-    $db->close();
+    global $con;
+    $sql   = "SELECT * FROM members WHERE id=".$data."";
+    $result = mysqli_query($con,$sql);
+    while ($row =mysqli_fetch_array($result)) {
+        $count = $row['visit count'];
+        $count = $count+1;
+        $sql2 = "UPDATE members SET visit_count=".$count." WHERE id=".$data."";
+        mysqli_query($con,$sql2);
+    }
 }
 ?>
