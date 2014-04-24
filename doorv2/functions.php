@@ -9,7 +9,7 @@ function test_input ($data) {
 }
 
 function door_check ($data) {
-    global $con;
+    global $con,$exist;
     $sql   = "SELECT * FROM members WHERE id=".$data."";
     $result = mysqli_query($con,$sql);
     if (mysqli_fetch_row($result)) {
@@ -19,6 +19,7 @@ function door_check ($data) {
         for ($x=1; $x<=$array['ratten']; $x++)    {
             echo "<img class=\"ratte\" src=\"../media/ratte.png\">";
         }
+        $exist = true;
     }
     else   {
         echo "<img src=\"../media/error.png\" >";
