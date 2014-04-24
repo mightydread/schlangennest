@@ -21,7 +21,7 @@
     <div class="id_form">
         <form method="post" id="check_id" name="check_id" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
             <input type="number" name="id"><br>
-            <input form="check_id" alt="Check" name="check_button" type="image" src="/media/check_number.png">
+            <input form="check_id" alt="Check" name="check_button" type="image" src="../media/check_number.png">
         </form>
     </div>
     <?php
@@ -37,7 +37,7 @@
         <div>
             <form method="post" id="check_in_form" name="check_in_form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                 <input type="hidden" name="visit" value="<?php echo "$id"; ?>">
-                <input type="image" alt="Check In" name="check_in_button" form="check_in_form" src="/media/check_in.png">
+                <input type="image" alt="Check In" name="check_in_button" form="check_in_form" src="../media/check_in.png">
             </form>
     <?php } } ?>
 </body>
