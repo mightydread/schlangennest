@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Tür Check</title>
-    <?php require 'functions.php' ?>
+    <?php require '../includes/door.php' ?>
     <?php if ($_SERVER["REQUEST_METHOD"]=="POST" ) {
         if (empty($_POST['id']) and empty($_POST['visit'])) {
             $idErr="Nummer eingeben" ;
