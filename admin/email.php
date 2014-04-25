@@ -4,7 +4,7 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>Email liste</title>
-    <?php include 'admin_functions.php' ?>
+    <?php include '../includes/admin.php' ?>
     <link rel="stylesheet" type="text/css" href="../media/global.css">
     <link rel="stylesheet" type="text/css" href="../media/admin.css">
 </head>

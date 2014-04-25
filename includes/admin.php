@@ -4,7 +4,7 @@ $all_id = array();
 $email_array    = array();
 $email_array_all    = array();
 $cond="";
-class MyDB extends SQLite3 { 
+class MyDB extends SQLite3 {
     function __construct() {
         $this->open(__DIR__.'/../db/scandale.db');
     }
@@ -18,7 +18,7 @@ SQL;
     $ret   = $db->query($sql);
 	$row   = $ret->fetchArray(SQLITE3_ASSOC);
 	if (!$row) {
-        $exist=false;        
+        $exist=false;
     }
 	else   {
         $exist=true;
@@ -121,7 +121,7 @@ function create_edit_table ($input) {
     echo    "<div class=save><input name=new value=NEU type=image form=new src=\"/media/new.png\"></div>";
     echo    "<div class=lastvisit></div>";
     echo    "<div class=visit_count></div>";
-    echo    "</form>"; 
+    echo    "</form>";
 }
 function update_db ($data1,$data2,$data3) {
     $db    = new MyDB();

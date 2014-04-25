@@ -1,5 +1,5 @@
 <?php
-class MyDB extends SQLite3 { 
+class MyDB extends SQLite3 {
     function __construct() {
         $this->open(__DIR__.'/../db/scandale.db');
     }
@@ -14,7 +14,7 @@ function test_input ($data) {
 	$data  = trim($data);
 	$data  = stripslashes($data);
 	$data  = htmlspecialchars($data);
-	return $data; 
+	return $data;
 }
 function select_row ($data) {
 	global $debug,$exist,$row;
@@ -25,7 +25,7 @@ SQL;
     $ret   = $db->query($sql);
 	$row   = $ret->fetchArray(SQLITE3_ASSOC);
 	if (!$row) {
-        $exist=false;        
+        $exist=false;
     }
 	else   {
         $exist=true;
@@ -55,7 +55,7 @@ function add_lastvisit ($data) {
 SQL;
 	$ret   = $db->exec($sql);
     $db->close();
-} 
+}
 function visit_counter ($data) {
     global $row;
     select_row($data);
