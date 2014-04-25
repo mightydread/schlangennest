@@ -15,6 +15,7 @@
             $id=test_input($_POST['id']);
         }
     } ?>
+    <link rel="stylesheet" type="text/css" href="../media/global.css">
     <link rel="stylesheet" type="text/css" href="../media/check.css">
 </head>
 <body>

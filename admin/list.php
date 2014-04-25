@@ -6,6 +6,7 @@
     <title>Administrator</title>
     <?php include 'admin_functions.php' ?>
     <?php include 'update.php' ?>
+    <link rel="stylesheet" type="text/css" href="../media/global.css">
     <link rel="stylesheet" type="text/css" href="/media/admin.css">
 </head>
 

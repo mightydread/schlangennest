@@ -9,14 +9,7 @@
  * 
  * */
 
-body {
-    background-color: #252120;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    color: #000;
-    font-family: sans-serif;
-}
+
 #nav {
     display: -webkit-box;
     display: -webkit-flex;
@@ -60,13 +53,7 @@ body {
 }
 /* Select */
 
-.select_button {
-    margin-left: 20px;
-    margin-right: 20px;
-    margin-top: 20px;
-    margin-bottom: auto;
-    height: 400px;
-}
+
 /* Member list */
 #content_list {
     display: -webkit-box;
