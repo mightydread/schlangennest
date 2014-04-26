@@ -12,7 +12,13 @@
     <div id="wrap">
     Under Development
 
-    <?php foreach (waren(kasten) as $typ) { echo full_name($typ); } ?>
+    <?php
+    foreach (waren(kasten) as $typ) {
+        echo "<div class=typ>";
+        echo full_name($typ);
+        echo "</div>";
+    }
+    ?>
     </div>
 </body>
 </html>

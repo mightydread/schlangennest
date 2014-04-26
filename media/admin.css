@@ -328,3 +328,10 @@ input[name=telefon] {
     font-size: 12px;
     font-weight: bold;
 }
+/* Lager */
+.typ {
+    width: 1200px;
+    background-color: #1c9169;
+    font-weight: bold;
+    font-size: 30px;
+}
