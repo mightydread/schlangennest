@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8mb4" />
     <title>Email liste</title>
     <?php include '../includes/admin.php' ?>
     <link rel="stylesheet" type="text/css" href="../media/global.css">
@@ -11,7 +11,7 @@
 
 <body>
     <?php include 'navbar.php' ?>
-    <div id="content_email">
+    <div id="wrap">
         <div id=email_select>
             <?php create_email_form(); ?>
         </div>

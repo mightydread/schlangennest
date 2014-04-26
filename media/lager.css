@@ -9,32 +9,9 @@
  *
  * */
 body {
-    !color: #fff;
+    color: #fff;
 }
-#nav {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    background-color: #1c9169;
-    height: 52px;
-    padding: 2px;
-}
-.nav_button {
-    margin: auto;
-    height: 50px;
-    width: 50px;
-}
+
 .select_button {
     margin-left: 20px;
     margin-right: 20px;
@@ -44,21 +21,7 @@ body {
     width: 400px;
     background-color: #1c9169;
 }
-#wrap {
-     display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-flow: column nowrap;
-    -ms-flex-flow: column nowrap;
-    flex-flow: column nowrap;
 
-    width: 1200px;
-    height: auto;
-    overflow: visible;
-    margin: auto;
-    padding: 5px 10px 10px 10px;
-}
 #legend {
     height: 50px;
     display: -webkit-box;

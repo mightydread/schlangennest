@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8mb4" />
     <title>Tür Check</title>
     <?php require '../includes/doorv2.php' ?>
     <?php if ($_SERVER["REQUEST_METHOD"]=="POST" ) {

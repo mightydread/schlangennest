@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8mb4" />
     <title>Administrator</title>
     <?php include '../includes/admin.php' ?>
     <?php include 'update.php' ?>
@@ -12,7 +12,7 @@
 
 <body>
     <?php include 'navbar.php' ?>
-    <div id="content_list">
+    <div id="wrap">
         <?php if(isset($_POST[ 'ratten'])){create_edit_table($_POST[ 'ratten']);}?>
         <?php include 'add.php' ?>
     </div>
