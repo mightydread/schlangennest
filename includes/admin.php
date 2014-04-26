@@ -1,4 +1,5 @@
 <?php
+$con = mysqli_connect(localhost,user,scandale,Lager);
 // define vars
 $all_id = array();
 $email_array    = array();
@@ -179,5 +180,20 @@ function create_email_form ()   {
     echo    "<div class=email_checkbox><input name=studenten value=1 type=checkbox>studenten</div>";
     echo    "<div class=email_checkbox><input name=kleinkunst value=1 type=checkbox>kleinkunst</div>";
     echo    "<div class=save><input name=save value=save type=image form=email src=\"/media/save.png\"></div>";
+}
+
+function full_name ($typ) {
+    global $con;
+    $sql= "SELECT full_name FROM namen WHERE db_name = '".$typ."'";
+    $array = mysqli_fetch_array(mysqli_query($con,$sql));
+    return $array['full_name'];
+}
+function waren ($typ) {
+    global $con;
+    $sql = "SELECT db_name FROM namen WHERE typ = '".$typ."'";
+    $result = mysqli_query($con,$sql);
+    $array = array();
+    while  ($row = mysqli_fetch_array($result,MYSQLI_NUM)) { $array[] = $row['0']; }
+    return $array;
 }
 ?>
