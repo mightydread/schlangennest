@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <?php include 'navbar.php' ?>
     <div id="wrap">
     Under Development
 
@@ -16,6 +17,19 @@
     foreach (waren(kasten) as $typ) {
         echo "<div class=typ>";
         echo full_name($typ);
+        echo "<br>";
+        echo "<div class=tabelle>";
+        tabelle_kasten($typ);
+        echo "</div>";
+        echo "</div>";
+    }
+foreach (waren(flasche) as $typ) {
+        echo "<div class=typ>";
+        echo full_name($typ);
+        echo "<br>";
+        echo "<div class=tabelle>";
+        tabelle_flasche($typ);
+        echo "</div>";
         echo "</div>";
     }
     ?>

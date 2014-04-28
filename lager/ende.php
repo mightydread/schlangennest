@@ -25,7 +25,7 @@
             <div class=anzahl>abgang</div>
             <div class=save></div>
         </div>
-        <?php foreach (waren(kasten) as $typ) { ende_row($typ); } ?>
+        <?php foreach (waren(kasten) as $typ) { ende_row($typ,kasten); } ?>
         <div class=legend_row>
             <div class=name>Flaschenware</div>
             <div class=anzahl>volle Falschen</div>
@@ -33,7 +33,7 @@
             <div class=anzahl>abgang</div>
             <div class=save></div>
         </div>
-        <?php foreach (waren(flasche) as $typ) { ende_row($typ); } ?>
+        <?php foreach (waren(flasche) as $typ) { ende_row($typ,flasche); } ?>
     </div>
 
 </body>

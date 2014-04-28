@@ -22,8 +22,8 @@
         <div class="wrap">
             <?php
 if (isset($_GET['datum'])) {
-    foreach (waren(kasten) as $typ) { liefer_row($typ); }
-    foreach (waren(flasche) as $typ) { liefer_row($typ); }
+    foreach (waren(kasten) as $typ) { liefer_row($typ,kasten); }
+    foreach (waren(flasche) as $typ) { liefer_row($typ,flasche); }
 }
 else {
     echo "<form id=datum method=get action=\"".$_SERVER["PHP_SELF"]."\">";

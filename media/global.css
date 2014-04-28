@@ -21,10 +21,12 @@ body {
     -webkit-flex-flow: column nowrap;
     -ms-flex-flow: column nowrap;
     flex-flow: column nowrap;
+    align-items: center;
     background-color: #e73c1e;
     width: 1200px;
     height: auto;
     overflow: visible;
     margin: auto;
+    text-align: center;
     padding: 5px 10px 10px 10px;
 }

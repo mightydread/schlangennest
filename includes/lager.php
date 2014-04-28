@@ -1,8 +1,8 @@
 <?php
 $con = mysqli_connect(localhost,user,scandale,Lager);
 function get_date () {
-    if (isset($_GET['datum'])) {
-        return $_GET['datum'];
+    if (isset($_POST['datum'])) {
+        return $_POST['datum'];
     }
     else {
         $time  = time() - (12 * 60 * 60);
@@ -42,13 +42,14 @@ function ende_flaschen ($typ,$anzahl) {
     $sql = "UPDATE ".$typ." SET ende_flaschen=".$anzahl." WHERE datum='".get_date()."'";
     if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
 }
-function verbrauch ($typ) {
+function verbrauch ($typ,$art) {
     global $con;
     $sql = "SELECT * FROM ".$typ." WHERE datum='".get_date()."'";
     $result = mysqli_query($con,$sql);
     while ($row =mysqli_fetch_array($result)) {
         $verbrauch = ($row['anfang_kasten']*$row['st']+$row['anfang_flaschen']+($row['zugang']*$row['st']))-($row['ende_kasten']*$row['st']+$row['ende_flaschen']);
-        $umsatz = $verbrauch*$row['preis'];
+        if ($art == flasche) {$umsatz = ($verbrauch*($row['preis'] / $row['st']));}
+        elseif ($art == kasten) {$umsatz = $verbrauch*$row['preis'];}
         $sql2 = "UPDATE ".$typ." SET verbrauch=".$verbrauch." WHERE datum='".get_date()."'";
         if (!mysqli_query($con,$sql2)) { die('Error: ' . mysqli_error($con)); }
         $sql2 = "UPDATE ".$typ." SET umsatz=".$umsatz." WHERE datum='".get_date()."'";
@@ -57,12 +58,12 @@ function verbrauch ($typ) {
 }
 function anfang_row ($typ) {
 
-    if (isset($_GET[$typ])) {
+    if (isset($_POST[$typ])) {
         echo "<div class=lager_ok>";
         $_SESSION[$typ] = "ok";
-        add_row($_GET['typ']);
-        anfang_kisten($_GET['typ'],$_GET['anzahl_k']);
-        anfang_flaschen($_GET['typ'],$_GET['anzahl_fl']);
+        add_row($_POST['typ']);
+        anfang_kisten($_POST['typ'],$_POST['anzahl_k']);
+        anfang_flaschen($_POST['typ'],$_POST['anzahl_fl']);
         echo full_name($typ);
         echo "</div>";
     }
@@ -72,7 +73,7 @@ function anfang_row ($typ) {
         echo "</div>";
     }
     else {
-        echo "<form class=lager_row id=".$typ." method=get action=\"".$_SERVER["PHP_SELF"]."\" >";
+        echo "<form class=lager_row id=".$typ." method=post action=\"".$_SERVER["PHP_SELF"]."\" >";
         echo "<input type=hidden name=typ value=".$typ.">";
         echo "<input type=hidden name=datum value=".get_date().">";
         echo "<div class=name>".full_name($typ)."</div>";
@@ -83,15 +84,15 @@ function anfang_row ($typ) {
 
     }
 }
-function ende_row ($typ) {
-    if (isset($_GET[$typ])) {
+function ende_row ($typ,$art) {
+    if (isset($_POST[$typ])) {
         echo "<div class=lager_ok>";
         $_SESSION[$typ] = "ok";
-        add_row($_GET['typ']);
-        ende_kisten($_GET['typ'],$_GET['anzahl_k']);
-        ende_flaschen($_GET['typ'],$_GET['anzahl_fl']);
-        abgang($_GET['typ'],$_GET['abgang']);
-        verbrauch($_GET['typ']);
+        add_row($_POST['typ']);
+        ende_kisten($_POST['typ'],$_POST['anzahl_k']);
+        ende_flaschen($_POST['typ'],$_POST['anzahl_fl']);
+        abgang($_POST['typ'],$_POST['abgang']);
+        verbrauch($_POST['typ'],$_POST['art']);
         echo full_name($typ);
         echo "</div>";
     }
@@ -102,8 +103,9 @@ function ende_row ($typ) {
     }
     else {
 
-        echo "<form id=".$typ." class=lager_row method=get action=\"".$_SERVER["PHP_SELF"]."\" >";
+        echo "<form id=".$typ." class=lager_row method=post action=\"".$_SERVER["PHP_SELF"]."\" >";
         echo "<input type=hidden name=typ value=".$typ.">";
+        echo "<input type=hidden name=art value=".$art.">";
         echo "<input type=hidden name=datum value=".get_date().">";
         echo "<div class=name>".full_name($typ)."</div>";
         echo       "<div class=anzahl><input type=number step=any value=0 min=0 name=anzahl_k ></div>";
@@ -114,12 +116,13 @@ function ende_row ($typ) {
 
     }
 }
-function liefer_row ($typ) {
-    if (isset($_GET[$typ])) {
+function liefer_row ($typ,$art) {
+    if (isset($_POST[$typ])) {
         echo "<div class=lager_ok>";
         $_SESSION[$typ] = "ok";
-        add_row($_GET['typ']);
-        zugang($_GET['typ'],$_GET['anzahl_k']);
+        add_row($_POST['typ']);
+        zugang($_POST['typ'],$_POST['anzahl_k']);
+        verbrauch($_POST['typ'],$art);
         echo full_name($typ);
         echo "</div>";
     }
@@ -130,7 +133,7 @@ function liefer_row ($typ) {
     }
     else {
 
-        echo "<form id=".$typ." class=lager_row method=get action=\"".$_SERVER["PHP_SELF"]."\" >";
+        echo "<form id=".$typ." class=lager_row method=post action=\"".$_SERVER["PHP_SELF"]."\" >";
         echo "<input type=hidden name=typ value=".$typ.">";
         echo "<input type=hidden name=datum value=".get_date().">";
         echo "<div class=name>".full_name($typ)."</div>";
