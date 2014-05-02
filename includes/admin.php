@@ -1,56 +1,35 @@
 <?php
-$con = mysqli_connect(localhost,user,scandale,Lager);
+$con_lager = mysqli_connect(localhost,user,scandale,Lager);
+$con_members = mysqli_connect(localhost,user,scandale,members);
 // define vars
-$all_id = array();
+
 $email_array    = array();
 $email_array_all    = array();
-$cond="";
-class MyDB extends SQLite3 {
-    function __construct() {
-        $this->open(__DIR__.'/../db/scandale.db');
-    }
-}
 function select_row ($data) {
-	global $debug,$exist,$row;
-	$db    = new MyDB();
-	$sql   =<<<SQL
-        SELECT * FROM members WHERE "id"=$data;
-SQL;
-    $ret   = $db->query($sql);
-	$row   = $ret->fetchArray(SQLITE3_ASSOC);
-	if (!$row) {
-        $exist=false;
-    }
-	else   {
-        $exist=true;
-    }
-    $db->close();
+	global $con_members,$exist;
+	$sql   = "SELECT * FROM members WHERE id=".$data."";
+    $result = mysqli_query($con_members,$sql);
+	return mysqli_fetch_array($result,MYSQLI_ASSOC);
+}
+function check_for_row ($data) {
+    global $con_members,$exist;
+    $sql   = "SELECT * FROM members WHERE id=".$data." LIMIT 1";
+    $result = mysqli_query($con,$sql);
+    if (mysqli_fetch_array !== false) { $exist = true;}
+    else { $exist = false; }
 }
 function create_id_array($data) {
-    global $all_id;
-    $db = new MyDB();
-    if  ($data==3)  {
-        $cond="ratten=3";
-    }
-    elseif  ($data==2)  {
-        $cond="ratten=2";
-    }
-    elseif  ($data==1)  {
-        $cond="ratten=1";
-    }
-    $sql=<<<SQL
-        SELECT id FROM members WHERE $cond ORDER BY id;
-SQL;
-    $ret = $db->query($sql);
-    while ($row=$ret->fetchArray(SQLITE3_ASSOC)) {
+    global $con_members;
+    $sql="SELECT id FROM members WHERE ratten =".$data." ORDER BY id";
+    $result = mysqli_query($con_members,$sql);
+    $all_id = array();
+    while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
         $all_id=array_merge_recursive($all_id,$row);
     }
     $all_id=$all_id['id'];
-    $db->close();
+    return $all_id;
 }
 function create_edit_table ($input) {
-    global $all_id,$row;
-    create_id_array($input);
     echo    "<div id=legend>";
     echo    "<div class=nummer><img alt=ID src=\"/media/id.png\"></div>";
     echo    "<div class=name><img alt=NAME src=\"/media/name.png\"></div>";
@@ -70,8 +49,8 @@ function create_edit_table ($input) {
     echo    "<div class=lastvisit><img alt=DATUM src=\"/media/clock.png\"></div>";
     echo    "<div class=visit_count><img alt=BESUCHE src=\"/media/times.png\"></div>";
     echo    "</div>";
-    foreach ($all_id as $data) {
-        select_row($data);
+    foreach (create_id_array($input) as $data) {
+        $row = select_row($data);
         echo    "<form method=post class=table_row action=\"".htmlspecialchars($_SERVER["PHP_SELF"])."\" id=".$data.">";
         echo    "<input type=hidden name=ratten value=".$row['ratten'].">";
         echo    "<input name=\"id\" value=".$row['id']." type=hidden>";
@@ -98,7 +77,7 @@ function create_edit_table ($input) {
         echo    "<div class=checkbox><input name=\"kleinkunst\" value=1 type=\"checkbox\""; if($row['kleinkunst']==1) {echo "checked";} echo ">kleinkunst</div>";
         echo    "</div>";
         echo    "<div class=save><input name=save value=save type=image form=".$data." src=\"/media/save.png\"></div>";
-        echo    "<div class=lastvisit>". $row['lastvisit'] . "</div>";
+        echo    "<div class=lastvisit>". date('d/m', strtotime($row['lastvisit'])) . "</div>";
         echo    "<div class=visit_count>" . $row['visit_count'] . "</div>";
         echo    "</form>";
 //        echo    "<br>";
@@ -125,48 +104,38 @@ function create_edit_table ($input) {
     echo    "</form>";
 }
 function update_db ($data1,$data2,$data3) {
-    $db    = new MyDB();
-    $sql   =<<<SQL
-        UPDATE members set $data3="$data2" where "id"=$data1;
-SQL;
-    $ret   = $db->exec($sql);
-    $db->close();
+    global $con_members;
+    $sql   ="UPDATE members SET ".$data3."=".$data2." WHERE id =".$data1."";
+    mysqli_query($con_members,$sql);
 }
 function add_to_db ($nummer,$name,$ratten)  {
-    $db    = new MyDB();
-    $sql   =<<<SQL
-        INSERT INTO members (id,name,ratten) VALUES ("$nummer","$name","$ratten");
-SQL;
-    $ret   = $db->exec($sql);
-    $db->close();
+    global $con_members;
+    $sql   ="INSERT INTO members (id,name,ratten) VALUES (".$nummer.",'".$name."',".$ratten.")";
+    mysqli_query($con_members,$sql);
 }
+
+// Email functions
+
 function edit_email_array($cond) {
-    global $email_array;
-    $db = new MyDB();
-    $sql=<<<SQL
-        SELECT email FROM members WHERE $cond=1 ORDER BY id;
-SQL;
-    $ret = $db->query($sql);
+    global $con_members,$email_array;
+    $sql= "SELECT email FROM members WHERE ".$cond."=1 ORDER BY id";
+    $result = mysqli_query($con_members,$sql);
     $email_temp = array();
-    while ($row=$ret->fetchArray(SQLITE3_ASSOC)) {
+    while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
         $email_temp=array_merge_recursive($email_temp,$row);
     }
     $email_temp    = array_diff($email_temp['email'],$email_array);
-    $db->close();
     $email_array    = array_merge($email_array,$email_temp);
 }
 function email_array() {
-    global $email_array_all;
-    $db = new MyDB();
-    $sql=<<<SQL
-        SELECT email FROM members ORDER BY id;
-SQL;
-    $ret = $db->query($sql);
-    while ($row=$ret->fetchArray(SQLITE3_ASSOC)) {
+    global $con_members,$email_array_all;
+    $email_array_all = array();
+    $sql="SELECT email FROM members ORDER BY id";
+    $result = mysqli_query($con_members,$sql);
+    while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
         $email_array_all=array_merge_recursive($email_array_all,$row);
     }
     $email_array_all    = $email_array_all['email'];
-    $db->close();
 }
 function create_email_form ()   {
     echo    "<form method=post class=table_row action=\"".htmlspecialchars($_SERVER["PHP_SELF"])."\" id=email>";
@@ -182,24 +151,26 @@ function create_email_form ()   {
     echo    "<div class=save><input name=save value=save type=image form=email src=\"/media/save.png\"></div>";
 }
 
+// Lager Functions
+
 function full_name ($typ) {
-    global $con;
+    global $con_lager;
     $sql= "SELECT full_name FROM namen WHERE db_name = '".$typ."'";
-    $array = mysqli_fetch_array(mysqli_query($con,$sql));
+    $array = mysqli_fetch_array(mysqli_query($con_lager,$sql));
     return $array['full_name'];
 }
 function waren ($typ) {
-    global $con;
+    global $con_lager;
     $sql = "SELECT db_name FROM namen WHERE typ = '".$typ."'";
-    $result = mysqli_query($con,$sql);
+    $result = mysqli_query($con_lager,$sql);
     $array = array();
     while  ($row = mysqli_fetch_array($result,MYSQLI_NUM)) { $array[] = $row['0']; }
     return $array;
 }
 function tabelle_kasten ($typ) {
-    global $con;
+    global $con_lager;
     $sql = "SELECT * FROM ".$typ."";
-    $result = mysqli_query($con,$sql);
+    $result = mysqli_query($con_lager,$sql);
     echo "<div class=tabelle_row>";
     echo "<div class=tabcell_number>";
     echo "Datum";
@@ -273,9 +244,9 @@ function tabelle_kasten ($typ) {
     }
 }
 function tabelle_flasche ($typ) {
-    global $con;
+    global $con_lager;
     $sql = "SELECT * FROM ".$typ."";
-    $result = mysqli_query($con,$sql);
+    $result = mysqli_query($con_lager,$sql);
     echo "<div class=tabelle_row>";
     echo "<div class=tabcell_number>";
     echo "Datum";
