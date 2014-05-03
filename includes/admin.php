@@ -6,7 +6,7 @@ $con_members = mysqli_connect(localhost,user,scandale,members);
 $email_array    = array();
 $email_array_all    = array();
 function select_row ($data) {
-	global $con_members,$exist;
+	global $con_members;
 	$sql   = "SELECT * FROM members WHERE id=".$data."";
     $result = mysqli_query($con_members,$sql);
 	return mysqli_fetch_array($result,MYSQLI_ASSOC);
@@ -28,6 +28,63 @@ function create_id_array($data) {
     }
     $all_id=$all_id['id'];
     return $all_id;
+}
+function search_name ($search) {
+    global $con_members;
+    $search_term_esc = AddSlashes($search);
+    $sql = "SELECT * FROM members WHERE name LIKE '%$search_term_esc%'";
+    $result = mysqli_query($con_members,$sql);
+    echo    "<div id=legend>";
+    echo    "<div class=nummer><img alt=ID src=\"/media/id.png\"></div>";
+    echo    "<div class=name><img alt=NAME src=\"/media/name.png\"></div>";
+    echo    "<div class=email><img alt=EMAIL src=\"/media/email_transp.png\"></div>";
+    echo    "<div class=telefon><img alt=TELEFON src=\"/media/tel.png\"></div>";
+    echo    "<div class=boxes>";
+    echo    "<div class=checkbox></div>";
+    echo    "<div class=checkbox></div>";
+    echo    "<div class=checkbox></div>";
+    echo    "<div class=checkbox></div>";
+    echo    "<div class=checkbox></div>";
+    echo    "<div class=checkbox></div>";
+    echo    "<div class=checkbox></div>";
+    echo    "<div class=checkbox></div>";
+    echo    "</div>";
+    echo    "<div class=save></div>";
+    echo    "<div class=lastvisit><img alt=DATUM src=\"/media/clock.png\"></div>";
+    echo    "<div class=visit_count><img alt=BESUCHE src=\"/media/times.png\"></div>";
+    echo    "</div>";
+    while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+        echo    "<form method=post class=table_row action=\"".htmlspecialchars($_SERVER["PHP_SELF"])."\" id=".$row['id'].">";
+        echo    "<input type=hidden name=ratten value=".$row['ratten'].">";
+        echo    "<input name=\"id\" value=".$row['id']." type=hidden>";
+        echo    "<div class=nummer>".$row['id']."</div>";
+        echo    "<div class=name><input name=\"name\" value=\"" . $row['name'] . "\" type=text></div>";
+        echo    "<div class=email><input name=\"email\" value=\"" . $row['email'] . "\" type=text></div>";
+        echo    "<div class=telefon><input name=\"telefon\" value=\"" . $row['telefon'] . "\" type=text></div>";
+        echo    "<div class=boxes>";
+        echo    "<input type=hidden name=electro value=0>";
+        echo    "<div class=checkbox><input name=\"electro\" value=1 type=\"checkbox\""; if($row['electro']==1) {echo "checked";} echo "/>elektro</div>";
+        echo    "<input type=hidden name=alternativ value=0>";
+        echo    "<div class=checkbox><input name=\"alternativ\" value=1 type=\"checkbox\""; if($row['alternativ']==1) {echo "checked";} echo ">alternativ</div>";
+        echo    "<input type=hidden name=hiphop value=0>";
+        echo    "<div class=checkbox><input name=\"hiphop\" value=1 type=\"checkbox\""; if($row['hiphop']==1) {echo "checked";} echo ">hiphop</div>";
+        echo    "<input type=hidden name=live value=0>";
+        echo    "<div class=checkbox><input name=\"live\" value=1 type=\"checkbox\""; if($row['live']==1) {echo "checked";} echo ">live</div>";
+        echo    "<input type=hidden name=good_taste value=0>";
+        echo    "<div class=checkbox><input name=\"good_taste\" value=1 type=\"checkbox\""; if($row['good_taste']==1) {echo "checked";} echo ">goodtaste</div>";
+        echo    "<input type=hidden name=quiz value=0>";
+        echo    "<div class=checkbox><input name=\"quiz\" value=1 type=\"checkbox\""; if($row['quiz']==1) {echo "checked";} echo ">quiz</div>";
+        echo    "<input type=hidden name=studenten value=0>";
+        echo    "<div class=checkbox><input name=\"studenten\" value=1 type=\"checkbox\""; if($row['studenten']==1) {echo "checked";} echo ">studenten</div>";
+        echo    "<input type=hidden name=kleinkunst value=0>";
+        echo    "<div class=checkbox><input name=\"kleinkunst\" value=1 type=\"checkbox\""; if($row['kleinkunst']==1) {echo "checked";} echo ">kleinkunst</div>";
+        echo    "</div>";
+        echo    "<div class=save><input name=save value=save type=image form=".$row['id']." src=\"/media/save.png\"></div>";
+        echo    "<div class=lastvisit>". date('d/m', strtotime($row['lastvisit'])) . "</div>";
+        echo    "<div class=visit_count>" . $row['visit_count'] . "</div>";
+        echo    "</form>";
+//        echo    "<br>";
+    }
 }
 function create_edit_table ($input) {
     echo    "<div id=legend>";

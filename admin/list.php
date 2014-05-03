@@ -27,8 +27,10 @@
 <body>
     <?php include 'navbar.php' ?>
     <div id="wrap">
-        <?php if(isset($_POST['ratten'])){create_edit_table($_POST['ratten']);}?>
-        <?php if    (isset($_POST['new'])) {
+        <?php if(isset($_POST['ratten'])){create_edit_table($_POST['ratten']);}
+            elseif (isset($_GET['namesearch'])){search_name($_POST['namesearch']);}
+            else {create_edit_table(3);}
+         if    (isset($_POST['new'])) {
     check_for_row($_POST['id']);
     if  ($exist == true)    {   echo "<div class=message>Nummer existiert schon!</div>";   }
     elseif ($exist == false)    {
