@@ -376,4 +376,13 @@ function tabelle_flasche ($typ) {
         echo "</div>";
     }
 }
+
+function bestand ($typ) {
+     global $con_lager;
+     $sql = "SELECT * FROM ".$typ." ORDER BY datum DESC LIMIT 1";
+     $result = mysqli_query($con_lager,$sql);
+     $row = mysqli_fetch_array($result);
+//    print_r($row);
+     echo full_name($typ).": ".$row['ende_kasten']."/".$row['ende_flaschen']." ";
+}
 ?>

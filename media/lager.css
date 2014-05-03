@@ -84,7 +84,10 @@ input[type=number] {
     font-weight: bold;
     background-color: #1c9169;
 }
+input[type=submit] {
 
+    background-color: #1c9169;
+}
 .anzahl {
     margin: auto;
     width: 50px;
@@ -98,5 +101,4 @@ input[type=number] {
 .save {
     margin: auto;
     width: 50px;
-
 }

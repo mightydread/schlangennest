@@ -7,7 +7,7 @@
     <title>Lager</title>
     <link rel="stylesheet" type="text/css" href="../media/global.css">
     <link rel="stylesheet" type="text/css" href="../media/lager.css">
-    <?php include $_SERVER["DOCUMENT_ROOT"].'/includes/lager.php' ?>
+    <?php require $_SERVER["DOCUMENT_ROOT"].'/includes/lager.php' ?>
 </head>
 
 <body>

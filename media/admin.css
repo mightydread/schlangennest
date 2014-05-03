@@ -344,6 +344,24 @@ input[name=telefon] {
     font-weight: bold;
 }
 /* Lager */
+#bestand {
+    padding: 2px;
+    width: 1200px;
+    background-color: #1c9169;
+    display: flex;
+    height: 300px;
+    margin-bottom: 5px;
+    justify-content: space-around;
+    flex-flow: column wrap;
+}
+.bestand {
+    font-weight: bold;
+    width: 120px;
+    height: 60px;
+    margin: auto;
+    color: #fff;
+    background-color: #252120;
+}
 .typ {
     width: 1200px;
     background-color: #1c9169;

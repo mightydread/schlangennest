@@ -1,15 +1,15 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8mb4" />
     <title>Tür Check</title>
     <?php require '../includes/door.php' ?>
     <?php if ($_SERVER["REQUEST_METHOD"]=="POST" ) {
-        if (empty($_POST['id']) and empty($_POST['visit'])) { 
+        if (empty($_POST['id']) and empty($_POST['visit'])) {
             $idErr="Nummer eingeben" ;
         }
         elseif  (empty($_POST['id']) and isset($_POST['visit']))    {
-            
+
         }
         else {
             $id=test_input($_POST['id']);
@@ -25,15 +25,15 @@
             <input form="check_id" alt="Check" name="check_button" type="image" src="../media/check_number.png">
         </form>
     </div>
-    <?php 
+    <?php
         if ($idErr) {echo "<br><div class=\"error\">" .$idErr. "</div>";}
         if(isset($_POST['visit'])) {add_lastvisit($_POST['visit']);visit_counter($_POST['visit']);}
         elseif ($id){ ?>
         <div class="result">
         <br>
-    <?php 
+    <?php
         door_check($id);
-        echo "</div>"; 
+        echo "</div>";
         if ($exist){ ?>
         <div>
             <form method="post" id="check_in_form" name="check_in_form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">

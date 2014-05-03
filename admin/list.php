@@ -3,8 +3,8 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8mb4" />
-    <title>Administrator</title>
-    <?php include '../includes/admin.php' ?>
+    <title>Mitglieder</title>
+    <?php require '../includes/admin.php' ?>
     <?php
     if    (isset($_POST['save'])) {
     if  (isset($_POST['name'])) {update_db($_POST['id'],$_POST['name'],name);}
