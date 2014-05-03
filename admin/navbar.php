@@ -4,7 +4,7 @@
     <div class="nav_button"><a href="lager_out.php"><img alt=lager src="/media/lager_small.png"></a></div>
     <div id=search>
         <form id=search method=post action=list.php>
-            Suche: <input type="search" name="namesearch">
+            Suche: <input type="search" name="namesearch" value=Name>
             </form>
         </div>
     <div id=ratten>
