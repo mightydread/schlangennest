@@ -15,8 +15,8 @@ function check_for_row ($data) {
     global $con_members,$exist;
     $sql   = "SELECT * FROM members WHERE id=".$data." LIMIT 1";
     $result = mysqli_query($con,$sql);
-    if (mysqli_fetch_array !== false) { $exist = true;}
-    else { $exist = false; }
+    if (mysqli_fetch_row($result)) { $exist=true; }
+    else { $exist=false; }
 }
 function create_id_array($data) {
     global $con_members;
@@ -162,7 +162,7 @@ function create_edit_table ($input) {
 }
 function update_db ($data1,$data2,$data3) {
     global $con_members;
-    $sql   ="UPDATE members SET ".$data3."=".$data2." WHERE id =".$data1."";
+    $sql   ="UPDATE members SET ".$data3."='".$data2."' WHERE id =".$data1."";
     mysqli_query($con_members,$sql);
 }
 function add_to_db ($nummer,$name,$ratten)  {
