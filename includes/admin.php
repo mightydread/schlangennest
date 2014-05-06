@@ -383,6 +383,7 @@ function bestand ($typ) {
      $result = mysqli_query($con_lager,$sql);
      $row = mysqli_fetch_array($result);
 //    print_r($row);
-     echo full_name($typ).": ".$row['ende_kasten']."/".$row['ende_flaschen']." ";
+    if ($row['ende_kasten'] == 0 and $row['ende_flaschen'] == 0) { echo full_name($typ).": ".$row['anfang_kasten']."/".$row['anfang_flaschen']." "; }
+    else { echo full_name($typ).": ".$row['ende_kasten']."/".$row['ende_flaschen']." ";}
 }
 ?>

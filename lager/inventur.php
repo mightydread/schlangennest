@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8mb4" />
-    <title>Lager Ende</title>
+    <title>Lager Inventur</title>
     <link rel="stylesheet" type="text/css" href="../media/global.css">
     <link rel="stylesheet" type="text/css" href="../media/lager.css">
     <?php require $_SERVER["DOCUMENT_ROOT"].'/includes/lager.php' ?>
@@ -22,18 +22,16 @@
             <div class=name>Kastenware</div>
             <div class=anzahl>kasten</div>
             <div class=anzahl>flaschen</div>
-            <div class=anzahl>abgang</div>
             <div class=save></div>
         </div>
-        <?php foreach (waren(kasten) as $typ) { ende_row($typ,kasten); } ?>
+        <?php foreach (waren(kasten) as $typ) { inventur_row($typ); } ?>
         <div class=legend_row>
             <div class=name>Flaschenware</div>
             <div class=anzahl>volle Falschen</div>
             <div class=anzahl>anbruch</div>
-            <div class=anzahl>abgang</div>
             <div class=save></div>
         </div>
-        <?php foreach (waren(flasche) as $typ) { ende_row($typ,flasche); } ?>
+        <?php foreach (waren(flasche) as $typ) { inventur_row($typ); } ?>
     </div>
 
 </body>

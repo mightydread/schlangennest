@@ -42,6 +42,22 @@ function ende_flaschen ($typ,$anzahl) {
     $sql = "UPDATE ".$typ." SET ende_flaschen=".$anzahl." WHERE datum='".get_date()."'";
     if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
 }
+function inventur_kisten ($typ,$anzahl) {
+    global $con;
+    $sql = "UPDATE ".$typ." SET anfang_kasten=".$anzahl." WHERE datum='".get_date()."'";
+    if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
+     $sql = "UPDATE ".$typ." SET ende_kasten=".$anzahl." WHERE datum='".get_date()."'";
+    //  echo $sql;
+    if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
+}
+function inventur_flaschen ($typ,$anzahl) {
+    global $con;
+    $sql = "UPDATE ".$typ." SET anfang_flaschen=".$anzahl." WHERE datum='".get_date()."'";
+    if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
+    $sql = "UPDATE ".$typ." SET ende_flaschen=".$anzahl." WHERE datum='".get_date()."'";
+    if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
+}
+
 function verbrauch ($typ,$art) {
     global $con;
     $sql = "SELECT * FROM ".$typ." WHERE datum='".get_date()."'";
@@ -140,6 +156,34 @@ function liefer_row ($typ,$art) {
         echo "<div class=anzahl><input type=number step=any value=0 min=0 name=anzahl_k ></div>";
         echo "<div class=save><input type=submit form=".$typ." name=".$typ." src=\"../media/save.png\"></div>";
         echo "</form>";
+    }
+}
+function inventur_row ($typ) {
+
+    if (isset($_POST[$typ])) {
+        echo "<div class=lager_ok>";
+        $_SESSION[$typ] = "ok";
+        add_row($_POST['typ']);
+        inventur_kisten($_POST['typ'],$_POST['anzahl_k']);
+        inventur_flaschen($_POST['typ'],$_POST['anzahl_fl']);
+        echo full_name($typ);
+        echo "</div>";
+    }
+    elseif (isset($_SESSION[$typ])) {
+        echo "<div class=lager_ok>";
+        echo full_name($typ);
+        echo "</div>";
+    }
+    else {
+        echo "<form class=lager_row id=".$typ." method=post action=\"".$_SERVER["PHP_SELF"]."\" >";
+        echo "<input type=hidden name=typ value=".$typ.">";
+        echo "<input type=hidden name=datum value=".get_date().">";
+        echo "<div class=name>".full_name($typ)."</div>";
+        echo       "<div class=anzahl><input type=number step=any value=0 min=0 name=anzahl_k ></div>";
+        echo       "<div class=anzahl><input type=number step=any value=0 min=0 name=anzahl_fl ></div>";
+        echo "<div class=save><input type=submit form=".$typ." name=".$typ." src=\"../media/save.png\"></div>";
+        echo   "</form>";
+
     }
 }
 function zugang ($typ,$anzahl) {

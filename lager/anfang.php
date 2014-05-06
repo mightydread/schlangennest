@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8mb4" />
-    <title>Lager</title>
+    <title>Lager Anfang</title>
     <link rel="stylesheet" type="text/css" href="../media/global.css">
     <link rel="stylesheet" type="text/css" href="../media/lager.css">
     <?php require $_SERVER["DOCUMENT_ROOT"].'/includes/lager.php' ?>
