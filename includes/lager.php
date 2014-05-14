@@ -60,11 +60,14 @@ function inventur_flaschen ($typ,$anzahl) {
 
 function verbrauch ($typ,$art) {
     global $con;
+    $sql = "SELECT einheit FROM namen WHERE db_name = '".$typ."'";
+    $result = mysqli_query($con,$sql);
+    while ($row = mysqli_fetch_array($result)) {$einheit=$row['einheit'];}
     $sql = "SELECT * FROM ".$typ." WHERE datum='".get_date()."'";
     $result = mysqli_query($con,$sql);
     while ($row =mysqli_fetch_array($result)) {
-        $verbrauch = ($row['anfang_kasten']*$row['st']+$row['anfang_flaschen']+($row['zugang']*$row['st']))-($row['ende_kasten']*$row['st']+$row['ende_flaschen']);
-        if ($art == flasche) {$umsatz = ($verbrauch*($row['preis'] / $row['st']));}
+        $verbrauch = ($row['anfang_kasten']*$einheit+$row['anfang_flaschen']+($row['zugang']*$einheit))-($row['ende_kasten']*$einheit+$row['ende_flaschen']);
+        if ($art == flasche) {$umsatz = ($verbrauch*($row['preis'] / $einheit));}
         elseif ($art == kasten) {$umsatz = $verbrauch*$row['preis'];}
         $sql2 = "UPDATE ".$typ." SET verbrauch=".$verbrauch." WHERE datum='".get_date()."'";
         if (!mysqli_query($con,$sql2)) { die('Error: ' . mysqli_error($con)); }
