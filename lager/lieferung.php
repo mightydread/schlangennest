@@ -21,12 +21,12 @@
         </div>
         <div class="wrap">
             <?php
-if (isset($_GET['datum'])) {
+if (isset($_POST['datum'])) {
     foreach (waren(kasten) as $typ) { liefer_row($typ,kasten); }
     foreach (waren(flasche) as $typ) { liefer_row($typ,flasche); }
 }
 else {
-    echo "<form id=datum method=get action=\"".$_SERVER["PHP_SELF"]."\">";
+    echo "<form id=datum method=post action=\"".$_SERVER["PHP_SELF"]."\">";
     echo "<input type=date name=datum >";
     echo "<input type=submit >";
     echo "</form>";
