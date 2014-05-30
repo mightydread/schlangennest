@@ -6,7 +6,7 @@
         <?php require '../includes/admin.php' ?>
         <?php require '../includes/door.php' ?>
         <?php require '../includes/lager.php' ?>
-        <link rel="stylesheet" type="text/css" href="../media/global.css">
+
         <link rel="stylesheet" type="text/css" href="../media/admin.css">
     </head>
     <body>

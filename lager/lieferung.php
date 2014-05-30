@@ -4,8 +4,8 @@
     <head>
         <meta name="viewport" content="width=1200px">
         <title>Lager Lieferung</title>
-        <link rel="stylesheet" type="text/css" href="/media/global.css">
-        <link rel="stylesheet" type="text/css" href="/media/lager.css">
+
+        <link rel="stylesheet" type="text/css" href="/media/css/lager.css">
         <?php require $_SERVER["DOCUMENT_ROOT"].'/includes/lager.php' ?>
     </head>
     <body>

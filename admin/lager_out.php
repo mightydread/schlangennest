@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=1200px">
         <title>Lager Ausgabe</title>
         <?php require '../includes/admin.php' ?>
-        <link rel="stylesheet" type="text/css" href="../media/global.css">
-        <link rel="stylesheet" type="text/css" href="../media/admin.css">
+
+        <link rel="stylesheet" type="text/css" href="/media/css/admin.css">
     </head>
     <body>
         <?php include 'navbar.php' ?>

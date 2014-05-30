@@ -34,10 +34,10 @@ function search_name ($search) {
     $sql = "SELECT * FROM members WHERE name LIKE '%$search_term_esc%'";
     $result = mysqli_query($con_members,$sql);
     echo    "<div id=legend>";
-    echo    "<div class=nummer><img alt=ID src=\"/media/id.png\"></div>";
-    echo    "<div class=name><img alt=NAME src=\"/media/name.png\"></div>";
-    echo    "<div class=email><img alt=EMAIL src=\"/media/email_transp.png\"></div>";
-    echo    "<div class=telefon><img alt=TELEFON src=\"/media/tel.png\"></div>";
+    echo    "<div class=nummer><img alt=ID src=\"/media/images/id.png\"></div>";
+    echo    "<div class=name><img alt=NAME src=\"/media/images/name.png\"></div>";
+    echo    "<div class=email><img alt=EMAIL src=\"/media/images/email_transp.png\"></div>";
+    echo    "<div class=telefon><img alt=TELEFON src=\"/media/images/tel.png\"></div>";
     echo    "<div class=boxes>";
     echo    "<div class=checkbox></div>";
     echo    "<div class=checkbox></div>";
@@ -49,7 +49,7 @@ function search_name ($search) {
     echo    "<div class=checkbox></div>";
     echo    "</div>";
     echo    "<div class=save></div>";
-    echo    "<div class=lastvisit><img alt=DATUM src=\"/media/clock.png\"></div>";
+    echo    "<div class=lastvisit><img alt=DATUM src=\"/media/images/clock.png\"></div>";
     echo    "<div class=visit_count><img alt=BESUCHE src=\"/media/times.png\"></div>";
     echo    "</div>";
     while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
@@ -78,7 +78,7 @@ function search_name ($search) {
         echo    "<input type=hidden name=kleinkunst value=0>";
         echo    "<div class=checkbox><input name=\"kleinkunst\" value=1 type=\"checkbox\""; if($row['kleinkunst']==1) {echo "checked";} echo ">kleinkunst</div>";
         echo    "</div>";
-        echo    "<div class=save><input name=save value=save type=image form=".$row['id']." src=\"/media/save.png\"></div>";
+        echo    "<div class=save><input name=save value=save type=image form=".$row['id']." src=\"/media/images/save.png\"></div>";
         echo    "<div class=lastvisit>". date('d/m', strtotime($row['lastvisit'])) . "</div>";
         echo    "<div class=visit_count>" . $row['visit_count'] . "</div>";
         echo    "</form>";
@@ -87,10 +87,10 @@ function search_name ($search) {
 }
 function create_edit_table ($input) {
     echo    "<div id=legend>";
-    echo    "<div class=nummer><img alt=ID src=\"/media/id.png\"></div>";
-    echo    "<div class=name><img alt=NAME src=\"/media/name.png\"></div>";
-    echo    "<div class=email><img alt=EMAIL src=\"/media/email_transp.png\"></div>";
-    echo    "<div class=telefon><img alt=TELEFON src=\"/media/tel.png\"></div>";
+    echo    "<div class=nummer><img alt=ID src=\"/media/images/id.png\"></div>";
+    echo    "<div class=name><img alt=NAME src=\"/media/images/name.png\"></div>";
+    echo    "<div class=email><img alt=EMAIL src=\"/media/images/email_transp.png\"></div>";
+    echo    "<div class=telefon><img alt=TELEFON src=\"/media/images/tel.png\"></div>";
     echo    "<div class=boxes>";
     echo    "<div class=checkbox></div>";
     echo    "<div class=checkbox></div>";
@@ -102,8 +102,8 @@ function create_edit_table ($input) {
     echo    "<div class=checkbox></div>";
     echo    "</div>";
     echo    "<div class=save></div>";
-    echo    "<div class=lastvisit><img alt=DATUM src=\"/media/clock.png\"></div>";
-    echo    "<div class=visit_count><img alt=BESUCHE src=\"/media/times.png\"></div>";
+    echo    "<div class=lastvisit><img alt=DATUM src=\"/media/images/clock.png\"></div>";
+    echo    "<div class=visit_count><img alt=BESUCHE src=\"/media/images/times.png\"></div>";
     echo    "</div>";
     foreach (create_id_array($input) as $data) {
         $row = select_row($data);
@@ -132,7 +132,7 @@ function create_edit_table ($input) {
         echo    "<input type=hidden name=kleinkunst value=0>";
         echo    "<div class=checkbox><input name=\"kleinkunst\" value=1 type=\"checkbox\""; if($row['kleinkunst']==1) {echo "checked";} echo ">kleinkunst</div>";
         echo    "</div>";
-        echo    "<div class=save><input name=save value=save type=image form=".$data." src=\"/media/save.png\"></div>";
+        echo    "<div class=save><input name=save value=save type=image form=".$data." src=\"/media/images/save.png\"></div>";
         echo    "<div class=lastvisit>". date('d/m', strtotime($row['lastvisit'])) . "</div>";
         echo    "<div class=visit_count>" . $row['visit_count'] . "</div>";
         echo    "</form>";
@@ -154,7 +154,7 @@ function create_edit_table ($input) {
     echo    "<div class=checkbox></div>";
     echo    "<div class=checkbox></div>";
     echo    "</div>";
-    echo    "<div class=save><input name=new value=NEU type=image form=new src=\"/media/new.png\"></div>";
+    echo    "<div class=save><input name=new value=NEU type=image form=new src=\"/media/images/new.png\"></div>";
     echo    "<div class=lastvisit></div>";
     echo    "<div class=visit_count></div>";
     echo    "</form>";
@@ -202,7 +202,7 @@ function create_email_form ()   {
     echo    "<div class=email_checkbox><input name=quiz value=1 type=checkbox>quiz</div>";
     echo    "<div class=email_checkbox><input name=studenten value=1 type=checkbox>studenten</div>";
     echo    "<div class=email_checkbox><input name=kleinkunst value=1 type=checkbox>kleinkunst</div>";
-    echo    "<div class=save><input name=save value=save type=image form=email src=\"/media/save.png\"></div>";
+    echo    "<div class=save><input name=save value=save type=image form=email src=\"/media/images/save.png\"></div>";
 }
 // Lager Functions
 function full_name ($typ) {

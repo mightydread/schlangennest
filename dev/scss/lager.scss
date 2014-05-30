@@ -1,17 +1,4 @@
-/*colors
- *
- * schwarz #252120
- * rot #e73c1e
- * gruen #1c9169
- *
- *
- *
- *
- * */
-body {
-    color: #fff;
-}
-
+@import "global";
 .select_button {
     margin-left: 20px;
     margin-right: 20px;
@@ -19,7 +6,7 @@ body {
     margin-bottom: auto;
     height:  400px;
     width: 400px;
-    background-color: #1c9169;
+    background-color: $gruen;
 }
 
 #legend {
@@ -40,14 +27,14 @@ body {
     margin-bottom: 5px;
 }
 .lager_ok {
-    background-color: #1c9169;
+    background-color: $gruen;
     font-size: 40px;
     font-weight: bolder;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 .legend_row {
-    background-color: #252120;
+    background-color: $schwarz;
     height: 50px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -60,7 +47,7 @@ body {
     margin-bottom: 5px;
 }
 .lager_row {
-    background-color: #e73c1e;
+    background-color: $rot;
     height: 50px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -77,16 +64,16 @@ input[type=number] {
     width: 50px;
     -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid #1c9169;
+    border: 2px solid $gruen;
     text-align: center;
     color: #fff;
     font-size: 30px;
     font-weight: bold;
-    background-color: #1c9169;
+    background-color: $gruen;
 }
 input[type=submit] {
 
-    background-color: #1c9169;
+    background-color: $gruen;
 }
 .anzahl {
     margin: auto;

@@ -16,12 +16,12 @@ function door_check ($data) {
         echo $array['name'];
         echo "<br>";
         for ($x=1; $x<=$array['ratten']; $x++)    {
-            echo "<img class=\"ratte\" src=\"../media/ratte.png\">";
+            echo "<img class=\"ratte\" src=\"/media/images/ratte.png\">";
         }
         $exist = true;
     }
     else   {
-        echo "<img src=\"../media/error.png\" >";
+        echo "<img src=\"../media/images/error.png\" >";
     }
 
 }

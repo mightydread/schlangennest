@@ -20,8 +20,8 @@
     if  (isset($_POST['kleinkunst'])) {update_db($_POST['id'],$_POST['kleinkunst'],kleinkunst);}
 }
         ?>
-        <link rel="stylesheet" type="text/css" href="../media/global.css">
-        <link rel="stylesheet" type="text/css" href="/media/admin.css">
+
+        <link rel="stylesheet" type="text/css" href="/media/css/admin.css">
     </head>
     <body>
         <?php include 'navbar.php' ?>

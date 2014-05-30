@@ -1,9 +1,14 @@
+// Colors
+$schwarz: #252120;
+$rot: #e73c1e;
+$gruen: #1c9169;
+
 body {
-    background-color: #252120;
+    background-color: $schwarz;
     margin: 0;
     padding: 0;
     text-align: center;
-    color: #000;
+    color: #fff;
     font-family: sans-serif;
 }
 .select_button {
@@ -14,7 +19,7 @@ body {
     height: 400px;
 }
 #wrap {
-     display: -webkit-box;
+    display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -22,7 +27,7 @@ body {
     -ms-flex-flow: column nowrap;
     flex-flow: column nowrap;
     align-items: center;
-    background-color: #e73c1e;
+    background-color: $rot;
     width: 1200px;
     height: auto;
     overflow: visible;

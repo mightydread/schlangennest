@@ -1,14 +1,4 @@
-/*colors
- * 
- * schwarz #252120
- * rot #e73c1e
- * gruen #1c9169
- * 
- * 
- * 
- * 
- * */
-
+@import "global";
 #nav {
     display: -webkit-box;
     display: -webkit-flex;
@@ -24,7 +14,7 @@
     align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: #1c9169;
+    background-color: $gruen;
     height: 52px;
     padding: 2px;
 }
@@ -259,42 +249,42 @@ input[name=id] {
     width: 40px;
     -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid #252120;
+    border: 2px solid $schwarz;
     text-align: center;
     color: #fff;
     font-weight: bold;
-    background-color: #252120;
+    background-color: $schwarz;
 }
 input[name=name] {
     width: 180px;
     -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid #252120;
+    border: 2px solid $schwarz;
     text-align: center;
     color: #fff;
     font-weight: bold;
-    background-color: #252120;
+    background-color: $schwarz;
 }
 input[name=email] {
     width: 200px;
     -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid #252120;
+    border: 2px solid $schwarz;
     text-align: center;
     color: #fff;
     font-weight: bold;
-    background-color: #252120;
+    background-color: $schwarz;
 }
 input[name=telefon] {
     padding: 0px;
     width: 100px;
     -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid #252120;
+    border: 2px solid $schwarz;
     text-align: center;
     color: #fff;
     font-weight: bold;
-    background-color: #252120;
+    background-color: $schwarz;
 }
 /* Email Area*/
 
@@ -310,7 +300,7 @@ input[name=telefon] {
     height: auto;
     overflow: visible;
     margin: auto;
-    background-color: #e73c1e;
+    background-color: $rot;
     padding: 5px 10px 10px 10px;
 }
 #email_select {
@@ -345,7 +335,7 @@ input[name=telefon] {
 #bestand {
     padding: 2px;
     width: 1200px;
-    background-color: #1c9169;
+    background-color: $gruen;
     display: flex;
     height: 300px;
     margin-bottom: 5px;
@@ -358,11 +348,11 @@ input[name=telefon] {
     height: 60px;
     margin: auto;
     color: #fff;
-    background-color: #252120;
+    background-color: $schwarz;
 }
 .typ {
     width: 1200px;
-    background-color: #1c9169;
+    background-color: $gruen;
     font-weight: bold;
     font-size: 30px;
     text-align: left;
@@ -407,18 +397,18 @@ input[name=telefon] {
     align-items: center;
     flex-wrap: wrap;
     width: 160px;
-    background-color: #252120;
+    background-color: $schwarz;
     color: #fff;
 }
 .tabcell_big {
     min-width: 160px;
-    background-color: #252120;
+    background-color: $schwarz;
     color: #fff;
     text-align: center;
 }
 .tabcell_number {
     width: 80px;
-    background-color: #252120;
+    background-color: $schwarz;
     color: #fff;
     text-align: center;
 }
