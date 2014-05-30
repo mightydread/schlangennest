@@ -1,4 +1,4 @@
-AuthUserFile /var/www_scandale/admin/.htpasswd
+AuthUserFile .htpasswd
 AuthType Basic
 AuthName "Scandale Administration"
 Require valid-user

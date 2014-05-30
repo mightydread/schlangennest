@@ -5,8 +5,8 @@
     <div id=search>
         <form id=search method=post action=list.php>
             Suche: <input type="search" name="namesearch" value=Name>
-            </form>
-        </div>
+        </form>
+    </div>
     <div id=ratten>
         <input type=image form=rat_select src="/media/list_small.png">
         <form id=rat_select method=post action=list.php>

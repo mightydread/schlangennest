@@ -1,0 +1,5 @@
+AuthType Basic
+AuthName "Devel Area"
+AuthUserFile .htpasswd
+Require valid-user
+

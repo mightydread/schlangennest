@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect(localhost,user,scandale,Lager);
+$con_lager = mysqli_connect(localhost,user,scandale,Lager);
 function get_date () {
     if (isset($_POST['datum'])) {
         return $_POST['datum'];
@@ -10,69 +10,73 @@ function get_date () {
         return date("Y-m-d", strtotime($datum));
     }
 }
-function full_name ($typ) {
-    global $con;
-    $sql= "SELECT full_name FROM namen WHERE db_name = '".$typ."'";
-    $array = mysqli_fetch_array(mysqli_query($con,$sql));
-    return $array['full_name'];
+if (!function_exists('full_name')) {
+    function full_name ($typ) {
+        global $con_lager;
+        $sql= "SELECT full_name FROM namen WHERE db_name = '".$typ."'";
+        $array = mysqli_fetch_array(mysqli_query($con_lager,$sql));
+        return $array['full_name'];
+    }
 }
-function waren ($typ) {
-    global $con;
-    $sql = "SELECT db_name FROM namen WHERE typ = '".$typ."'";
-    $result = mysqli_query($con,$sql);
-    $array = array();
-    while  ($row = mysqli_fetch_array($result,MYSQLI_NUM)) { $array[] = $row['0']; }
-    return $array;
+if (!function_exists('waren')) {
+    function waren ($art) {
+        global $con_lager;
+        $sql = "SELECT db_name FROM namen WHERE art = '".$art."'";
+        $result = mysqli_query($con_lager,$sql);
+        $array = array();
+        while  ($row = mysqli_fetch_array($result,MYSQLI_NUM)) { $array[] = $row['0']; }
+        return $array;
+    }
 }
 function add_row ($typ,$datum) {
-    global $con;
+    global $con_lager;
     $sql = "SELECT 1 FROM ".$typ." WHERE datum ='".$datum."' LIMIT 1";
-    $result = mysqli_query($con,$sql);
+    $result = mysqli_query($con_lager,$sql);
     if (mysqli_fetch_row($result)) { }
     else {
         $sql = "INSERT INTO ".$typ." (datum) VALUES ('".$datum."')";
-        if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
+        if (!mysqli_query($con_lager,$sql)) { die('Error: ' . mysqli_error($con_lager)); }
     }
 }
 function verbrauch ($typ,$datum) {
-    global $con;
+    global $con_lager;
     $sql = "SELECT * FROM namen WHERE db_name = '".$typ."'";
-    $result = mysqli_query($con,$sql);
+    $result = mysqli_query($con_lager,$sql);
     while ($row = mysqli_fetch_array($result)) {$einheit=$row['einheit'];$art=$row['art'];}
     $sql = "SELECT * FROM ".$typ." WHERE datum='".$datum."'";
-    $result = mysqli_query($con,$sql);
+    $result = mysqli_query($con_lager,$sql);
     while ($row =mysqli_fetch_array($result)) {
         $verbrauch = (($row['anfang_kasten']*$einheit)+$row['anfang_flaschen']+($row['zugang']*$einheit))-(($row['ende_kasten']*$einheit)+$row['ende_flaschen']);
         if ($art == flasche) {$umsatz = ($verbrauch*($row['preis'] / $einheit));}
         elseif ($art == kasten) {$umsatz = $verbrauch*$row['preis'];}
         $sql2 = "UPDATE ".$typ." SET verbrauch=".$verbrauch." WHERE datum='".$datum."'";
-        if (!mysqli_query($con,$sql2)) { die('Error: ' . mysqli_error($con)); }
+        if (!mysqli_query($con_lager,$sql2)) { die('Error: ' . mysqli_error($con_lager)); }
         $sql2 = "UPDATE ".$typ." SET umsatz=".$umsatz." WHERE datum='".$datum."'";
-        if (!mysqli_query($con,$sql2)) { die('Error: ' . mysqli_error($con)); }
+        if (!mysqli_query($con_lager,$sql2)) { die('Error: ' . mysqli_error($con_lager)); }
     }
 }
 function anfang ($typ,$kasten,$flaschen,$abgang,$datum) {
-    global $con;
+    global $con_lager;
     $sql = "UPDATE ".$typ." SET anfang_kasten='".$kasten."', anfang_flaschen='".$flaschen."', abgang='".$abgang."' WHERE datum='".$datum."'";
-    if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
+    if (!mysqli_query($con_lager,$sql)) { die('Error: ' . mysqli_error($con_lager)); }
 }
 function ende ($typ,$kasten,$flaschen) {
-     global $con;
-     $sql = "SELECT * FROM ".$typ." ORDER BY datum DESC LIMIT 1";
-     $result = mysqli_query($con,$sql);
-     $row = mysqli_fetch_array($result);
-//    print_r($row);
+    global $con_lager;
+    $sql = "SELECT * FROM ".$typ." ORDER BY datum DESC LIMIT 1";
+    $result = mysqli_query($con_lager,$sql);
+    $row = mysqli_fetch_array($result);
+    //    print_r($row);
     if ($row['ende_kasten'] == 0 and $row['ende_flaschen'] == 0) {
         $sql2 = "UPDATE ".$typ." SET ende_kasten=".$kasten.", ende_flaschen=".$flaschen." WHERE datum='".$row['datum']."'";
         echo $sql2;
-        if (!mysqli_query($con,$sql2)) { die('Error: ' . mysqli_error($con));}
+        if (!mysqli_query($con_lager,$sql2)) { die('Error: ' . mysqli_error($con_lager));}
         verbrauch($typ,$row['datum']);
     }
 }
 function zugang ($typ,$anzahl,$datum) {
-    global $con;
+    global $con_lager;
     $sql = "UPDATE ".$typ." SET zugang=".$anzahl." WHERE datum='".$datum."'";
-    if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
+    if (!mysqli_query($con_lager,$sql)) { die('Error: ' . mysqli_error($con_lager)); }
 }
 function inventur_row ($typ) {
 

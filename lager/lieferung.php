@@ -1,17 +1,13 @@
 <?php session_start(); ?>
 <!DOCTYPE html>
-
-
 <html lang="de">
-
     <head>
-
+        <meta name="viewport" content="width=1200px">
         <title>Lager Lieferung</title>
         <link rel="stylesheet" type="text/css" href="/media/global.css">
         <link rel="stylesheet" type="text/css" href="/media/lager.css">
         <?php require $_SERVER["DOCUMENT_ROOT"].'/includes/lager.php' ?>
     </head>
-
     <body>
         <div>
             <?php if (isset($_GET['restart'])) { session_destroy(); } ?>
@@ -37,5 +33,4 @@ else {
             ?>
         </div>
     </body>
-
 </html>

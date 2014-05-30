@@ -2,14 +2,13 @@
 $con_lager = mysqli_connect(localhost,user,scandale,Lager);
 $con_members = mysqli_connect(localhost,user,scandale,members);
 // define vars
-
 $email_array    = array();
 $email_array_all    = array();
 function select_row ($data) {
-	global $con_members;
-	$sql   = "SELECT * FROM members WHERE id=".$data."";
+    global $con_members;
+    $sql   = "SELECT * FROM members WHERE id=".$data."";
     $result = mysqli_query($con_members,$sql);
-	return mysqli_fetch_array($result,MYSQLI_ASSOC);
+    return mysqli_fetch_array($result,MYSQLI_ASSOC);
 }
 function check_for_row ($data) {
     global $con_members,$exist;
@@ -83,7 +82,7 @@ function search_name ($search) {
         echo    "<div class=lastvisit>". date('d/m', strtotime($row['lastvisit'])) . "</div>";
         echo    "<div class=visit_count>" . $row['visit_count'] . "</div>";
         echo    "</form>";
-//        echo    "<br>";
+        //        echo    "<br>";
     }
 }
 function create_edit_table ($input) {
@@ -137,7 +136,7 @@ function create_edit_table ($input) {
         echo    "<div class=lastvisit>". date('d/m', strtotime($row['lastvisit'])) . "</div>";
         echo    "<div class=visit_count>" . $row['visit_count'] . "</div>";
         echo    "</form>";
-//        echo    "<br>";
+        //        echo    "<br>";
     }
     echo    "<form method=post class=table_row action=\"".htmlspecialchars($_SERVER["PHP_SELF"])."\" id=new>";
     echo    "<input type=hidden name=ratten value=".$_POST['ratten'].">";
@@ -170,9 +169,7 @@ function add_to_db ($nummer,$name,$ratten)  {
     $sql   ="INSERT INTO members (id,name,ratten) VALUES (".$nummer.",'".$name."',".$ratten.")";
     mysqli_query($con_members,$sql);
 }
-
 // Email functions
-
 function edit_email_array($cond) {
     global $con_members,$email_array;
     $sql= "SELECT email FROM members WHERE ".$cond."=1 ORDER BY id";
@@ -207,18 +204,16 @@ function create_email_form ()   {
     echo    "<div class=email_checkbox><input name=kleinkunst value=1 type=checkbox>kleinkunst</div>";
     echo    "<div class=save><input name=save value=save type=image form=email src=\"/media/save.png\"></div>";
 }
-
 // Lager Functions
-
 function full_name ($typ) {
     global $con_lager;
     $sql= "SELECT full_name FROM namen WHERE db_name = '".$typ."'";
     $array = mysqli_fetch_array(mysqli_query($con_lager,$sql));
     return $array['full_name'];
 }
-function waren ($typ) {
+function waren ($art) {
     global $con_lager;
-    $sql = "SELECT db_name FROM namen WHERE typ = '".$typ."'";
+    $sql = "SELECT db_name FROM namen WHERE art = '".$art."'";
     $result = mysqli_query($con_lager,$sql);
     $array = array();
     while  ($row = mysqli_fetch_array($result,MYSQLI_NUM)) { $array[] = $row['0']; }
@@ -376,13 +371,12 @@ function tabelle_flasche ($typ) {
         echo "</div>";
     }
 }
-
 function bestand ($typ) {
-     global $con_lager;
-     $sql = "SELECT * FROM ".$typ." ORDER BY datum DESC LIMIT 1";
-     $result = mysqli_query($con_lager,$sql);
-     $row = mysqli_fetch_array($result);
-//    print_r($row);
+    global $con_lager;
+    $sql = "SELECT * FROM ".$typ." ORDER BY datum DESC LIMIT 1";
+    $result = mysqli_query($con_lager,$sql);
+    $row = mysqli_fetch_array($result);
+    //    print_r($row);
     if ($row['ende_kasten'] == 0 and $row['ende_flaschen'] == 0) { echo full_name($typ).": ".$row['anfang_kasten']."/".$row['anfang_flaschen']." "; }
     else { echo full_name($typ).": ".$row['ende_kasten']."/".$row['ende_flaschen']." ";}
 }
