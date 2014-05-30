@@ -38,7 +38,7 @@ function verbrauch ($typ,$datum) {
     global $con;
     $sql = "SELECT * FROM namen WHERE db_name = '".$typ."'";
     $result = mysqli_query($con,$sql);
-    while ($row = mysqli_fetch_array($result)) {$einheit=$row['einheit'];$art=$row['typ'];}
+    while ($row = mysqli_fetch_array($result)) {$einheit=$row['einheit'];$art=$row['art'];}
     $sql = "SELECT * FROM ".$typ." WHERE datum='".$datum."'";
     $result = mysqli_query($con,$sql);
     while ($row =mysqli_fetch_array($result)) {
