@@ -37,7 +37,7 @@ function visit_counter ($data) {
     $sql   = "SELECT * FROM members WHERE id=".$data."";
     $result = mysqli_query($con_members,$sql);
     while ($row =mysqli_fetch_array($result)) {
-        $count = $row['visit count'];
+        $count = $row['visit_count'];
         $count = $count+1;
         $sql2 = "UPDATE members SET visit_count=".$count." WHERE id=".$data."";
         mysqli_query($con_members,$sql2);

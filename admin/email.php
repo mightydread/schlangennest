@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <meta name="viewport" content="width=1200px">
+        <meta name="viewport" content="width=850px">
         <meta http-equiv="content-type" content="text/html; charset=utf-8mb4" />
         <title>Email liste</title>
         <?php require '../includes/admin.php' ?>
@@ -9,8 +9,9 @@
         <link rel="stylesheet" type="text/css" href="/media/css/admin.css">
     </head>
     <body>
-        <?php include 'navbar.php' ?>
+        
         <div id="wrap">
+            <?php include 'navbar.php' ?>
             <div id=email_select>
                 <?php create_email_form(); ?>
             </div>

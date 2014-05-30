@@ -3,7 +3,7 @@
 <html lang="">
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8mb4" />
-        <meta name="viewport" content="width=1200px">
+        <meta name="viewport" content="width=850px">
         <title>Lager Inventur</title>
 
         <link rel="stylesheet" type="text/css" href="/media/css/lager.css">

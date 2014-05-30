@@ -7,9 +7,17 @@
         <?php require '../includes/door.php' ?>
         <?php require '../includes/lager.php' ?>
 
-        <link rel="stylesheet" type="text/css" href="../media/admin.css">
+        <link rel="stylesheet" type="text/css" href="../media/css/admin.css">
     </head>
     <body>
         Sucess!!!
+        <?php
+    verbrauch(premium_bier,get_date());
+    
+    
+    
+    
+    
+    ?>
     </body>
 </html>

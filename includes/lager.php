@@ -68,7 +68,6 @@ function ende ($typ,$kasten,$flaschen) {
     //    print_r($row);
     if ($row['ende_kasten'] == 0 and $row['ende_flaschen'] == 0) {
         $sql2 = "UPDATE ".$typ." SET ende_kasten=".$kasten.", ende_flaschen=".$flaschen." WHERE datum='".$row['datum']."'";
-        echo $sql2;
         if (!mysqli_query($con_lager,$sql2)) { die('Error: ' . mysqli_error($con_lager));}
         verbrauch($typ,$row['datum']);
     }

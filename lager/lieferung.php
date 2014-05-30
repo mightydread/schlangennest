@@ -4,7 +4,7 @@
     <head>
         <title>Lager Lieferung</title>
         <?php if (isset($_POST['datum'])) { ?>
-        <meta name="viewport" content="width=1200px">
+        <meta name="viewport" content="width=850px">
         <?php } else { ?>
         <meta name="viewport" content="width=200px">
         <?php } ?>

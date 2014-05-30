@@ -1,31 +1,55 @@
 @import "global";
-#nav {
+#navbar {
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: $gruen;
     width: 800px;
-    height: 54px;
-    padding: 2px;
-    list-style: none;
-    li {
-        float: left;
-        margin: auto;
-        width: auto;
-        height: 50px;
-        a {
-            width: 50px;
-            min-height: 50px;
-        }
+    height: 50px;
+    padding: 5px;
+    ul {
+        margin: 0px;
+        padding: 0px;
+        list-style: none;
     }
-    #rat_select {
-        margin: auto;
-        height: 50px;
+    #home {
+        background: url(/media/images/home.png);
+    }
+    #email {
+        background: url(/media/images/email_small.png);
+    }
+    #lager {
+        background: url(/media/images/lager_small.png);
     }
     #search {
-        margin: auto;
+        margin-top: 12px;
+        width: 200px;
+    }
+    #ratte1 {
+        height: 20px;
+        background: url(../images/list_small.png) 0 0;
+    }
+    #ratte2{
+        height: 30px;
+        background: url(/media/images/list_small.png) 0 0;
+    }
+    #ratte3{
+        height: 50px;
+        background: url(/media/images/list_small.png) 0 0;
+    }
+    li {
+        float: left;
+        margin: 0px 21.4px;
+        width: 50px;
+        height: 50px;
+    }
+    a {
+        display: block;
+        width: 50px;
         height: 50px;
     }
 }
+
+
 
 /* Member list */
 
@@ -62,6 +86,31 @@
     align-items: center;
     margin-top: 5px;
     margin-bottom: 5px;
+    article {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    article:target {
+        width: 100%;
+        height: 100%;
+        padding: 100px 0;
+        margin: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: center;
+        background: rgba(0, 0, 0, .8);
+        z-index: 1;
+    }
+    figure {
+        background: $rot;
+        width: 600px;
+        margin: auto;
+    }
 }
 .nummer {
     display: -webkit-box;
@@ -129,18 +178,8 @@
     margin: auto;
 }
 .boxes {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-justify-content: space-around;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
-    width: 410px;
+    
+    width: 50px;
     height: 27px;
 }
 .checkbox {
@@ -305,10 +344,10 @@ input[name=telefon] {
 
 #bestand {
     padding: 2px;
-    width: 1200px;
+    width: 850px;
     background-color: $gruen;
     display: flex;
-    height: 300px;
+    height: 450px;
     margin-bottom: 5px;
     justify-content: space-around;
     flex-flow: column wrap;
@@ -322,7 +361,7 @@ input[name=telefon] {
     background-color: $schwarz;
 }
 .typ {
-    width: 1200px;
+    width: 850px;
     background-color: $gruen;
     font-weight: bold;
     font-size: 30px;

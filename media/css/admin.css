@@ -1,1 +1,521 @@
-body{background-color:#252120;margin:0;padding:0;text-align:center;color:#fff;font-family:sans-serif}.select_button{margin:20px 20px 0px 20px;height:400px}#wrap{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-flow:column nowrap;-ms-flex-flow:column nowrap;flex-flow:column nowrap;align-items:center;background-color:#e73c1e;width:1200px;height:auto;overflow:visible;margin:auto;text-align:center;padding:5px 10px 10px 10px}#nav{margin-top:10px;margin-bottom:10px;background-color:#1c9169;width:800px;height:54px;padding:2px;list-style:none}#nav li{float:left;margin:auto;width:auto;height:50px}#nav li a{width:50px;min-height:50px}#nav #rat_select{margin:auto;height:50px}#nav #search{margin:auto;height:50px}#legend{height:50px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;margin-top:5px;margin-bottom:5px}.table_row{height:27px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;margin-top:5px;margin-bottom:5px}.nummer{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;width:50px;height:27px;margin:auto;font-weight:bold}.name{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;width:200px;height:27px;margin:auto}.email{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;width:230px;height:27px;margin:auto}.telefon{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;width:120px;height:27px;margin:auto}.boxes{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;width:410px;height:27px}.checkbox{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;height:27px;margin:auto;font-size:9px;font-weight:bold}.save{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;width:50px;height:27px;margin:auto}.lastvisit{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;width:80px;height:27px;margin:auto;font-weight:bold}.visit_count{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;width:50px;height:27px;margin:auto;font-weight:bold}.message{height:50px;color:#fff;font-weight:bold;text-align:center}input[name=id]{width:40px;-webkit-box-shadow:0px 0px 8px rgba(0,0,0,0.3);box-shadow:0px 0px 8px rgba(0,0,0,0.3);border:2px solid #252120;text-align:center;color:#fff;font-weight:bold;background-color:#252120}input[name=name]{width:180px;-webkit-box-shadow:0px 0px 8px rgba(0,0,0,0.3);box-shadow:0px 0px 8px rgba(0,0,0,0.3);border:2px solid #252120;text-align:center;color:#fff;font-weight:bold;background-color:#252120}input[name=email]{width:200px;-webkit-box-shadow:0px 0px 8px rgba(0,0,0,0.3);box-shadow:0px 0px 8px rgba(0,0,0,0.3);border:2px solid #252120;text-align:center;color:#fff;font-weight:bold;background-color:#252120}input[name=telefon]{padding:0px;width:100px;-webkit-box-shadow:0px 0px 8px rgba(0,0,0,0.3);box-shadow:0px 0px 8px rgba(0,0,0,0.3);border:2px solid #252120;text-align:center;color:#fff;font-weight:bold;background-color:#252120}#content_email{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-flow:column nowrap;-ms-flex-flow:column nowrap;flex-flow:column nowrap;width:800px;height:auto;overflow:visible;margin:auto;background-color:#e73c1e;padding:5px 10px 10px 10px}#email_select{margin:auto;margin-bottom:10px}#email_result{width:600px;margin:auto;margin-top:10px;font-weight:bold}.email_checkbox{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;height:27px;margin:auto;font-size:12px;font-weight:bold}#bestand{padding:2px;width:1200px;background-color:#1c9169;display:flex;height:300px;margin-bottom:5px;justify-content:space-around;flex-flow:column wrap}.bestand{font-weight:bold;width:120px;height:60px;margin:auto;color:#fff;background-color:#252120}.typ{width:1200px;background-color:#1c9169;font-weight:bold;font-size:30px;text-align:left;margin-bottom:5px}.tabelle{width:750px;font-size:16px;text-align:center;margin:auto}.tabelle_row{height:20px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;margin-top:2px;margin-bottom:2px;padding:5px 5px 5px 5px}.tabcell_head{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;flex-wrap:wrap;width:160px;background-color:#252120;color:#fff}.tabcell_big{min-width:160px;background-color:#252120;color:#fff;text-align:center}.tabcell_number{width:80px;background-color:#252120;color:#fff;text-align:center}
+/* line 6, ../../dev/scss/global.scss */
+body {
+  background-color: #252120;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  color: #fff;
+  font-family: sans-serif;
+}
+
+/* line 14, ../../dev/scss/global.scss */
+.select_button {
+  margin: 20px 20px 0px 20px;
+  height: 400px;
+}
+
+/* line 18, ../../dev/scss/global.scss */
+#wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  align-items: center;
+  background-color: #e73c1e;
+  width: 850px;
+  height: auto;
+  overflow: visible;
+  margin: auto;
+  text-align: center;
+  padding: 5px 10px 10px 10px;
+}
+
+/* line 2, ../../dev/scss/admin.scss */
+#navbar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: #1c9169;
+  width: 800px;
+  height: 50px;
+  padding: 5px;
+}
+/* line 9, ../../dev/scss/admin.scss */
+#navbar ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+/* line 14, ../../dev/scss/admin.scss */
+#navbar #home {
+  background: url(/media/images/home.png);
+}
+/* line 17, ../../dev/scss/admin.scss */
+#navbar #email {
+  background: url(/media/images/email_small.png);
+}
+/* line 20, ../../dev/scss/admin.scss */
+#navbar #lager {
+  background: url(/media/images/lager_small.png);
+}
+/* line 23, ../../dev/scss/admin.scss */
+#navbar #search {
+  margin-top: 12px;
+  width: 200px;
+}
+/* line 27, ../../dev/scss/admin.scss */
+#navbar #ratte1 {
+  height: 20px;
+  background: url(../images/list_small.png) 0 0;
+}
+/* line 31, ../../dev/scss/admin.scss */
+#navbar #ratte2 {
+  height: 30px;
+  background: url(/media/images/list_small.png) 0 0;
+}
+/* line 35, ../../dev/scss/admin.scss */
+#navbar #ratte3 {
+  height: 50px;
+  background: url(/media/images/list_small.png) 0 0;
+}
+/* line 39, ../../dev/scss/admin.scss */
+#navbar li {
+  float: left;
+  margin: 0px 21.4px;
+  width: 50px;
+  height: 50px;
+}
+/* line 45, ../../dev/scss/admin.scss */
+#navbar a {
+  display: block;
+  width: 50px;
+  height: 50px;
+}
+
+/* Member list */
+/* line 56, ../../dev/scss/admin.scss */
+#legend {
+  height: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* line 73, ../../dev/scss/admin.scss */
+.table_row {
+  height: 27px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+/* line 89, ../../dev/scss/admin.scss */
+.table_row article {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 97, ../../dev/scss/admin.scss */
+.table_row article:target {
+  width: 100%;
+  height: 100%;
+  padding: 100px 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+}
+/* line 109, ../../dev/scss/admin.scss */
+.table_row figure {
+  background: #e73c1e;
+  width: 600px;
+  margin: auto;
+}
+
+/* line 115, ../../dev/scss/admin.scss */
+.nummer {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  width: 50px;
+  height: 27px;
+  margin: auto;
+  font-weight: bold;
+}
+
+/* line 132, ../../dev/scss/admin.scss */
+.name {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  width: 200px;
+  height: 27px;
+  margin: auto;
+}
+
+/* line 148, ../../dev/scss/admin.scss */
+.email {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  width: 230px;
+  height: 27px;
+  margin: auto;
+}
+
+/* line 164, ../../dev/scss/admin.scss */
+.telefon {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  width: 120px;
+  height: 27px;
+  margin: auto;
+}
+
+/* line 180, ../../dev/scss/admin.scss */
+.boxes {
+  width: 50px;
+  height: 27px;
+}
+
+/* line 185, ../../dev/scss/admin.scss */
+.checkbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  height: 27px;
+  margin: auto;
+  font-size: 9px;
+  font-weight: bold;
+}
+
+/* line 202, ../../dev/scss/admin.scss */
+.save {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  width: 50px;
+  height: 27px;
+  margin: auto;
+}
+
+/* line 218, ../../dev/scss/admin.scss */
+.lastvisit {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  width: 80px;
+  height: 27px;
+  margin: auto;
+  font-weight: bold;
+}
+
+/* line 235, ../../dev/scss/admin.scss */
+.visit_count {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  width: 50px;
+  height: 27px;
+  margin: auto;
+  font-weight: bold;
+}
+
+/* line 252, ../../dev/scss/admin.scss */
+.message {
+  height: 50px;
+  color: #fff;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* line 258, ../../dev/scss/admin.scss */
+input[name=id] {
+  width: 40px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid #252120;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  background-color: #252120;
+}
+
+/* line 268, ../../dev/scss/admin.scss */
+input[name=name] {
+  width: 180px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid #252120;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  background-color: #252120;
+}
+
+/* line 278, ../../dev/scss/admin.scss */
+input[name=email] {
+  width: 200px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid #252120;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  background-color: #252120;
+}
+
+/* line 288, ../../dev/scss/admin.scss */
+input[name=telefon] {
+  padding: 0px;
+  width: 100px;
+  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+  border: 2px solid #252120;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  background-color: #252120;
+}
+
+/* Email Area*/
+/* line 301, ../../dev/scss/admin.scss */
+#content_email {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-flow: column nowrap;
+  -ms-flex-flow: column nowrap;
+  flex-flow: column nowrap;
+  width: 800px;
+  height: auto;
+  overflow: visible;
+  margin: auto;
+  background-color: #e73c1e;
+  padding: 5px 10px 10px 10px;
+}
+
+/* line 316, ../../dev/scss/admin.scss */
+#email_select {
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+/* line 320, ../../dev/scss/admin.scss */
+#email_result {
+  width: 600px;
+  margin: auto;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* line 326, ../../dev/scss/admin.scss */
+.email_checkbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: space-around;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  height: 27px;
+  margin: auto;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Lager */
+/* line 345, ../../dev/scss/admin.scss */
+#bestand {
+  padding: 2px;
+  width: 850px;
+  background-color: #1c9169;
+  display: flex;
+  height: 450px;
+  margin-bottom: 5px;
+  justify-content: space-around;
+  flex-flow: column wrap;
+}
+
+/* line 355, ../../dev/scss/admin.scss */
+.bestand {
+  font-weight: bold;
+  width: 120px;
+  height: 60px;
+  margin: auto;
+  color: #fff;
+  background-color: #252120;
+}
+
+/* line 363, ../../dev/scss/admin.scss */
+.typ {
+  width: 850px;
+  background-color: #1c9169;
+  font-weight: bold;
+  font-size: 30px;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+/* line 371, ../../dev/scss/admin.scss */
+.tabelle {
+  width: 750px;
+  font-size: 16px;
+  text-align: center;
+  margin: auto;
+}
+
+/* line 377, ../../dev/scss/admin.scss */
+.tabelle_row {
+  height: 20px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  padding: 5px 5px 5px 5px;
+}
+
+/* line 395, ../../dev/scss/admin.scss */
+.tabcell_head {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 160px;
+  background-color: #252120;
+  color: #fff;
+}
+
+/* line 413, ../../dev/scss/admin.scss */
+.tabcell_big {
+  min-width: 160px;
+  background-color: #252120;
+  color: #fff;
+  text-align: center;
+}
+
+/* line 419, ../../dev/scss/admin.scss */
+.tabcell_number {
+  width: 80px;
+  background-color: #252120;
+  color: #fff;
+  text-align: center;
+}

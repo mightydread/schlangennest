@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <meta name="viewport" content="width=1200px">
+        <meta name="viewport" content="width=850px">
         <meta http-equiv="content-type" content="text/html; charset=utf-8mb4" />
         <title>Mitglieder</title>
         <?php require '../includes/admin.php' ?>
@@ -26,14 +26,14 @@
     <body>
         <div id="wrap">
             <?php include 'navbar.php' ?>
-            <?php if(isset($_POST['ratten'])){create_edit_table($_POST['ratten']);}
+            <?php if(isset($_GET['ratten'])){create_edit_table($_GET['ratten']);}
 elseif (isset($_POST['namesearch'])){search_name($_POST['namesearch']);}
 else {create_edit_table(3);}
 if    (isset($_POST['new'])) {
     check_for_row($_POST['id']);
     if  ($exist == true)    {   echo "<div class=message>Nummer existiert schon!</div>";   }
     elseif ($exist == false)    {
-        add_to_db($_POST['id'],$_POST['name'],$_POST['ratten']);
+        add_to_db($_POST['id'],$_POST['name'],$_GET['ratten']);
         echo "<div class=message>Mitglied hinzugefügt!</div>";
     }
 } ?>

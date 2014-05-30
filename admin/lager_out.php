@@ -2,16 +2,16 @@
 <html>
     <head>
         <meta charset="utf-8mb4">
-        <meta name="viewport" content="width=1200px">
+        <meta name="viewport" content="width=850px">
         <title>Lager Ausgabe</title>
         <?php require '../includes/admin.php' ?>
 
         <link rel="stylesheet" type="text/css" href="/media/css/admin.css">
     </head>
     <body>
-        <?php include 'navbar.php' ?>
-        <div id="wrap">
 
+        <div id="wrap">
+            <?php include 'navbar.php' ?>
             <div class="typ">
                 Bestand
             </div>

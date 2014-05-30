@@ -115,6 +115,8 @@ function create_edit_table ($input) {
         echo    "<div class=email><input name=\"email\" value=\"" . $row['email'] . "\" type=text></div>";
         echo    "<div class=telefon><input name=\"telefon\" value=\"" . $row['telefon'] . "\" type=text></div>";
         echo    "<div class=boxes>";
+        echo    "<a href=#box".$data.">Check</a>";
+        echo    "<article id=box".$data."><figure>";
         echo    "<input type=hidden name=electro value=0>";
         echo    "<div class=checkbox><input name=\"electro\" value=1 type=\"checkbox\""; if($row['electro']==1) {echo "checked";} echo "/>elektro</div>";
         echo    "<input type=hidden name=alternativ value=0>";
@@ -131,6 +133,8 @@ function create_edit_table ($input) {
         echo    "<div class=checkbox><input name=\"studenten\" value=1 type=\"checkbox\""; if($row['studenten']==1) {echo "checked";} echo ">studenten</div>";
         echo    "<input type=hidden name=kleinkunst value=0>";
         echo    "<div class=checkbox><input name=\"kleinkunst\" value=1 type=\"checkbox\""; if($row['kleinkunst']==1) {echo "checked";} echo ">kleinkunst</div>";
+        echo    "<div class=save><input name=save value=save type=image form=".$data." src=\"/media/images/save.png\"></div>";
+        echo    "</figure></article>";
         echo    "</div>";
         echo    "<div class=save><input name=save value=save type=image form=".$data." src=\"/media/images/save.png\"></div>";
         echo    "<div class=lastvisit>". date('d/m', strtotime($row['lastvisit'])) . "</div>";
@@ -139,7 +143,7 @@ function create_edit_table ($input) {
         //        echo    "<br>";
     }
     echo    "<form method=post class=table_row action=\"".htmlspecialchars($_SERVER["PHP_SELF"])."\" id=new>";
-    echo    "<input type=hidden name=ratten value=".$_POST['ratten'].">";
+    echo    "<input type=hidden name=ratten value=".$_GET['ratten'].">";
     echo    "<div class=nummer><input name=\"id\" type=text></div>";
     echo    "<div class=name><input name=\"name\" type=text></div>";
     echo    "<div class=email></div>";
