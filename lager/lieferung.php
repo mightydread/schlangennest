@@ -2,9 +2,12 @@
 <!DOCTYPE html>
 <html lang="de">
     <head>
-        <meta name="viewport" content="width=1200px">
         <title>Lager Lieferung</title>
-
+        <?php if (isset($_POST['datum'])) { ?>
+        <meta name="viewport" content="width=1200px">
+        <?php } else { ?>
+        <meta name="viewport" content="width=200px">
+        <?php } ?>
         <link rel="stylesheet" type="text/css" href="/media/css/lager.css">
         <?php require $_SERVER["DOCUMENT_ROOT"].'/includes/lager.php' ?>
     </head>

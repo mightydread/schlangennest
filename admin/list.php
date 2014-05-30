@@ -24,8 +24,8 @@
         <link rel="stylesheet" type="text/css" href="/media/css/admin.css">
     </head>
     <body>
-        <?php include 'navbar.php' ?>
         <div id="wrap">
+            <?php include 'navbar.php' ?>
             <?php if(isset($_POST['ratten'])){create_edit_table($_POST['ratten']);}
 elseif (isset($_POST['namesearch'])){search_name($_POST['namesearch']);}
 else {create_edit_table(3);}

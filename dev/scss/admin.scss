@@ -1,61 +1,32 @@
 @import "global";
 #nav {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: $gruen;
-    height: 52px;
+    width: 800px;
+    height: 54px;
     padding: 2px;
+    list-style: none;
+    li {
+        float: left;
+        margin: auto;
+        width: auto;
+        height: 50px;
+        a {
+            width: 50px;
+            min-height: 50px;
+        }
+    }
+    #rat_select {
+        margin: auto;
+        height: 50px;
+    }
+    #search {
+        margin: auto;
+        height: 50px;
+    }
 }
-.nav_button {
-    margin: auto;
-    height: 50px;
-    width: 50px;
-}
-#ratten {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin: auto;
-    height: 50px;
-    width: 100px;
-}
-#search {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -webkit-justify-content: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin: auto;
-    height: 50px;
-}
+
 /* Member list */
 
 #legend {
