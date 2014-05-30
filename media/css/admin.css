@@ -38,7 +38,7 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #1c9169;
-  width: 800px;
+  width: 850px;
   height: 50px;
   padding: 5px;
 }
@@ -67,27 +67,29 @@ body {
 }
 /* line 27, ../../dev/scss/admin.scss */
 #navbar #ratte1 {
+  margin-top: 20px;
   height: 20px;
   background: url(../images/list_small.png) 0 0;
 }
-/* line 31, ../../dev/scss/admin.scss */
+/* line 32, ../../dev/scss/admin.scss */
 #navbar #ratte2 {
+  margin-top: 10px;
   height: 30px;
   background: url(/media/images/list_small.png) 0 0;
 }
-/* line 35, ../../dev/scss/admin.scss */
+/* line 37, ../../dev/scss/admin.scss */
 #navbar #ratte3 {
   height: 50px;
   background: url(/media/images/list_small.png) 0 0;
 }
-/* line 39, ../../dev/scss/admin.scss */
+/* line 41, ../../dev/scss/admin.scss */
 #navbar li {
   float: left;
-  margin: 0px 21.4px;
+  margin: 0px 25px;
   width: 50px;
   height: 50px;
 }
-/* line 45, ../../dev/scss/admin.scss */
+/* line 47, ../../dev/scss/admin.scss */
 #navbar a {
   display: block;
   width: 50px;
@@ -95,7 +97,7 @@ body {
 }
 
 /* Member list */
-/* line 56, ../../dev/scss/admin.scss */
+/* line 58, ../../dev/scss/admin.scss */
 #legend {
   height: 50px;
   display: -webkit-box;
@@ -114,7 +116,7 @@ body {
   margin-bottom: 5px;
 }
 
-/* line 73, ../../dev/scss/admin.scss */
+/* line 75, ../../dev/scss/admin.scss */
 .table_row {
   height: 27px;
   display: -webkit-box;
@@ -132,7 +134,7 @@ body {
   margin-top: 5px;
   margin-bottom: 5px;
 }
-/* line 89, ../../dev/scss/admin.scss */
+/* line 91, ../../dev/scss/admin.scss */
 .table_row article {
   width: 0;
   height: 0;
@@ -141,7 +143,7 @@ body {
   top: 0;
   left: 0;
 }
-/* line 97, ../../dev/scss/admin.scss */
+/* line 99, ../../dev/scss/admin.scss */
 .table_row article:target {
   width: 100%;
   height: 100%;
@@ -154,14 +156,14 @@ body {
   background: rgba(0, 0, 0, 0.8);
   z-index: 1;
 }
-/* line 109, ../../dev/scss/admin.scss */
+/* line 111, ../../dev/scss/admin.scss */
 .table_row figure {
   background: #e73c1e;
   width: 600px;
   margin: auto;
 }
 
-/* line 115, ../../dev/scss/admin.scss */
+/* line 117, ../../dev/scss/admin.scss */
 .nummer {
   display: -webkit-box;
   display: -webkit-flex;
@@ -180,7 +182,7 @@ body {
   font-weight: bold;
 }
 
-/* line 132, ../../dev/scss/admin.scss */
+/* line 134, ../../dev/scss/admin.scss */
 .name {
   display: -webkit-box;
   display: -webkit-flex;
@@ -198,7 +200,7 @@ body {
   margin: auto;
 }
 
-/* line 148, ../../dev/scss/admin.scss */
+/* line 150, ../../dev/scss/admin.scss */
 .email {
   display: -webkit-box;
   display: -webkit-flex;
@@ -216,7 +218,7 @@ body {
   margin: auto;
 }
 
-/* line 164, ../../dev/scss/admin.scss */
+/* line 166, ../../dev/scss/admin.scss */
 .telefon {
   display: -webkit-box;
   display: -webkit-flex;
@@ -234,13 +236,13 @@ body {
   margin: auto;
 }
 
-/* line 180, ../../dev/scss/admin.scss */
+/* line 182, ../../dev/scss/admin.scss */
 .boxes {
   width: 50px;
   height: 27px;
 }
 
-/* line 185, ../../dev/scss/admin.scss */
+/* line 187, ../../dev/scss/admin.scss */
 .checkbox {
   display: -webkit-box;
   display: -webkit-flex;
@@ -259,7 +261,7 @@ body {
   font-weight: bold;
 }
 
-/* line 202, ../../dev/scss/admin.scss */
+/* line 204, ../../dev/scss/admin.scss */
 .save {
   display: -webkit-box;
   display: -webkit-flex;
@@ -277,7 +279,7 @@ body {
   margin: auto;
 }
 
-/* line 218, ../../dev/scss/admin.scss */
+/* line 220, ../../dev/scss/admin.scss */
 .lastvisit {
   display: -webkit-box;
   display: -webkit-flex;
@@ -296,7 +298,7 @@ body {
   font-weight: bold;
 }
 
-/* line 235, ../../dev/scss/admin.scss */
+/* line 237, ../../dev/scss/admin.scss */
 .visit_count {
   display: -webkit-box;
   display: -webkit-flex;
@@ -315,7 +317,7 @@ body {
   font-weight: bold;
 }
 
-/* line 252, ../../dev/scss/admin.scss */
+/* line 254, ../../dev/scss/admin.scss */
 .message {
   height: 50px;
   color: #fff;
@@ -323,7 +325,7 @@ body {
   text-align: center;
 }
 
-/* line 258, ../../dev/scss/admin.scss */
+/* line 260, ../../dev/scss/admin.scss */
 input[name=id] {
   width: 40px;
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
@@ -335,7 +337,7 @@ input[name=id] {
   background-color: #252120;
 }
 
-/* line 268, ../../dev/scss/admin.scss */
+/* line 270, ../../dev/scss/admin.scss */
 input[name=name] {
   width: 180px;
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
@@ -347,7 +349,7 @@ input[name=name] {
   background-color: #252120;
 }
 
-/* line 278, ../../dev/scss/admin.scss */
+/* line 280, ../../dev/scss/admin.scss */
 input[name=email] {
   width: 200px;
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
@@ -359,7 +361,7 @@ input[name=email] {
   background-color: #252120;
 }
 
-/* line 288, ../../dev/scss/admin.scss */
+/* line 290, ../../dev/scss/admin.scss */
 input[name=telefon] {
   padding: 0px;
   width: 100px;
@@ -373,7 +375,7 @@ input[name=telefon] {
 }
 
 /* Email Area*/
-/* line 301, ../../dev/scss/admin.scss */
+/* line 303, ../../dev/scss/admin.scss */
 #content_email {
   display: -webkit-box;
   display: -webkit-flex;
@@ -390,13 +392,13 @@ input[name=telefon] {
   padding: 5px 10px 10px 10px;
 }
 
-/* line 316, ../../dev/scss/admin.scss */
+/* line 318, ../../dev/scss/admin.scss */
 #email_select {
   margin: auto;
   margin-bottom: 10px;
 }
 
-/* line 320, ../../dev/scss/admin.scss */
+/* line 322, ../../dev/scss/admin.scss */
 #email_result {
   width: 600px;
   margin: auto;
@@ -404,7 +406,7 @@ input[name=telefon] {
   font-weight: bold;
 }
 
-/* line 326, ../../dev/scss/admin.scss */
+/* line 328, ../../dev/scss/admin.scss */
 .email_checkbox {
   display: -webkit-box;
   display: -webkit-flex;
@@ -424,7 +426,7 @@ input[name=telefon] {
 }
 
 /* Lager */
-/* line 345, ../../dev/scss/admin.scss */
+/* line 347, ../../dev/scss/admin.scss */
 #bestand {
   padding: 2px;
   width: 850px;
@@ -436,7 +438,7 @@ input[name=telefon] {
   flex-flow: column wrap;
 }
 
-/* line 355, ../../dev/scss/admin.scss */
+/* line 357, ../../dev/scss/admin.scss */
 .bestand {
   font-weight: bold;
   width: 120px;
@@ -446,7 +448,7 @@ input[name=telefon] {
   background-color: #252120;
 }
 
-/* line 363, ../../dev/scss/admin.scss */
+/* line 365, ../../dev/scss/admin.scss */
 .typ {
   width: 850px;
   background-color: #1c9169;
@@ -456,7 +458,7 @@ input[name=telefon] {
   margin-bottom: 5px;
 }
 
-/* line 371, ../../dev/scss/admin.scss */
+/* line 373, ../../dev/scss/admin.scss */
 .tabelle {
   width: 750px;
   font-size: 16px;
@@ -464,7 +466,7 @@ input[name=telefon] {
   margin: auto;
 }
 
-/* line 377, ../../dev/scss/admin.scss */
+/* line 379, ../../dev/scss/admin.scss */
 .tabelle_row {
   height: 20px;
   display: -webkit-box;
@@ -484,7 +486,7 @@ input[name=telefon] {
   padding: 5px 5px 5px 5px;
 }
 
-/* line 395, ../../dev/scss/admin.scss */
+/* line 397, ../../dev/scss/admin.scss */
 .tabcell_head {
   display: -webkit-box;
   display: -webkit-flex;
@@ -504,7 +506,7 @@ input[name=telefon] {
   color: #fff;
 }
 
-/* line 413, ../../dev/scss/admin.scss */
+/* line 415, ../../dev/scss/admin.scss */
 .tabcell_big {
   min-width: 160px;
   background-color: #252120;
@@ -512,7 +514,7 @@ input[name=telefon] {
   text-align: center;
 }
 
-/* line 419, ../../dev/scss/admin.scss */
+/* line 421, ../../dev/scss/admin.scss */
 .tabcell_number {
   width: 80px;
   background-color: #252120;
