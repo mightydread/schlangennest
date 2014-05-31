@@ -5,14 +5,12 @@ body {
   padding: 0;
   text-align: center;
   color: #fff;
-  font-family: sans-serif;
-}
+  font-family: sans-serif; }
 
 /* line 14, ../../dev/scss/global.scss */
 .select_button {
   margin: 20px 20px 0px 20px;
-  height: 400px;
-}
+  height: 400px; }
 
 /* line 18, ../../dev/scss/global.scss */
 #wrap {
@@ -30,302 +28,166 @@ body {
   overflow: visible;
   margin: auto;
   text-align: center;
-  padding: 5px 10px 10px 10px;
-}
+  padding: 5px 10px 10px 10px; }
 
 /* line 2, ../../dev/scss/admin.scss */
 #navbar {
   margin-top: 10px;
   margin-bottom: 10px;
   background-color: #1c9169;
-  width: 850px;
+  width: 800px;
   height: 50px;
-  padding: 5px;
-}
-/* line 9, ../../dev/scss/admin.scss */
-#navbar ul {
-  margin: 0px;
-  padding: 0px;
-  list-style: none;
-}
-/* line 14, ../../dev/scss/admin.scss */
-#navbar #home {
-  background: url(/media/images/home.png);
-}
-/* line 17, ../../dev/scss/admin.scss */
-#navbar #email {
-  background: url(/media/images/email_small.png);
-}
-/* line 20, ../../dev/scss/admin.scss */
-#navbar #lager {
-  background: url(/media/images/lager_small.png);
-}
-/* line 23, ../../dev/scss/admin.scss */
-#navbar #search {
-  margin-top: 12px;
-  width: 200px;
-}
-/* line 27, ../../dev/scss/admin.scss */
-#navbar #ratte1 {
-  margin-top: 20px;
-  height: 20px;
-  background: url(../images/list_small.png) 0 0;
-}
-/* line 32, ../../dev/scss/admin.scss */
-#navbar #ratte2 {
-  margin-top: 10px;
-  height: 30px;
-  background: url(/media/images/list_small.png) 0 0;
-}
-/* line 37, ../../dev/scss/admin.scss */
-#navbar #ratte3 {
-  height: 50px;
-  background: url(/media/images/list_small.png) 0 0;
-}
-/* line 41, ../../dev/scss/admin.scss */
-#navbar li {
-  float: left;
-  margin: 0px 25px;
-  width: 50px;
-  height: 50px;
-}
-/* line 47, ../../dev/scss/admin.scss */
-#navbar a {
-  display: block;
-  width: 50px;
-  height: 50px;
-}
+  padding: 5px; }
+  /* line 9, ../../dev/scss/admin.scss */
+  #navbar ul {
+    margin: 0px;
+    padding: 0px;
+    list-style: none; }
+  /* line 14, ../../dev/scss/admin.scss */
+  #navbar #home {
+    background: url(/media/images/home.png); }
+  /* line 17, ../../dev/scss/admin.scss */
+  #navbar #email {
+    background: url(/media/images/email_small.png); }
+  /* line 20, ../../dev/scss/admin.scss */
+  #navbar #lager {
+    background: url(/media/images/lager_small.png); }
+  /* line 23, ../../dev/scss/admin.scss */
+  #navbar #search {
+    margin-top: 12px;
+    width: 200px; }
+  /* line 27, ../../dev/scss/admin.scss */
+  #navbar #ratte1 {
+    margin-top: 20px;
+    height: 20px;
+    background: url(/media/images/list_small.png) 0 0; }
+  /* line 32, ../../dev/scss/admin.scss */
+  #navbar #ratte2 {
+    margin-top: 10px;
+    height: 30px;
+    background: url(/media/images/list_small.png) 0 0; }
+  /* line 37, ../../dev/scss/admin.scss */
+  #navbar #ratte3 {
+    height: 50px;
+    background: url(/media/images/list_small.png) 0 0; }
+  /* line 41, ../../dev/scss/admin.scss */
+  #navbar li {
+    float: left;
+    margin: 0px 21.42px;
+    width: 50px;
+    height: 50px; }
+  /* line 47, ../../dev/scss/admin.scss */
+  #navbar a {
+    display: block;
+    width: 50px;
+    height: 50px; }
 
 /* Member list */
 /* line 58, ../../dev/scss/admin.scss */
 #legend {
+  width: 800px;
+  float: left;
   height: 50px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
   margin-top: 5px;
-  margin-bottom: 5px;
-}
+  margin-bottom: 5px; }
+  /* line 64, ../../dev/scss/admin.scss */
+  #legend .nummer, #legend .name, #legend .email, #legend .telefon, #legend .boxes, #legend .save, #legend .lastvisit, #legend .visit_count, #legend .message {
+    display: block;
+    height: 50px;
+    float: left;
+    text-align: center;
+    margin: 0px 6px; }
 
 /* line 75, ../../dev/scss/admin.scss */
 .table_row {
   height: 27px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
-}
-/* line 91, ../../dev/scss/admin.scss */
-.table_row article {
-  width: 0;
-  height: 0;
-  overflow: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-/* line 99, ../../dev/scss/admin.scss */
-.table_row article:target {
-  width: 100%;
-  height: 100%;
-  padding: 100px 0;
-  margin: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  text-align: center;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 1;
-}
-/* line 111, ../../dev/scss/admin.scss */
-.table_row figure {
-  background: #e73c1e;
-  width: 600px;
-  margin: auto;
-}
+  width: 800px;
+  float: left;
+  margin: 5px 0px; }
+  /* line 80, ../../dev/scss/admin.scss */
+  .table_row .nummer, .table_row .name, .table_row .email, .table_row .telefon, .table_row .boxes, .table_row .save, .table_row .lastvisit, .table_row .visit_count, .table_row .message {
+    display: block;
+    height: 27px;
+    font-weight: bold;
+    float: left;
+    margin: 0px 6px;
+    text-align: center; }
 
-/* line 117, ../../dev/scss/admin.scss */
+/* line 89, ../../dev/scss/admin.scss */
 .nummer {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  width: 50px;
-  height: 27px;
-  margin: auto;
-  font-weight: bold;
-}
+  width: 44px; }
 
-/* line 134, ../../dev/scss/admin.scss */
+/* line 92, ../../dev/scss/admin.scss */
 .name {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  width: 200px;
-  height: 27px;
-  margin: auto;
-}
+  width: 184px; }
 
-/* line 150, ../../dev/scss/admin.scss */
+/* line 95, ../../dev/scss/admin.scss */
 .email {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  width: 230px;
-  height: 27px;
-  margin: auto;
-}
+  width: 204px; }
 
-/* line 166, ../../dev/scss/admin.scss */
+/* line 98, ../../dev/scss/admin.scss */
 .telefon {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  width: 120px;
-  height: 27px;
-  margin: auto;
-}
+  width: 104px; }
 
-/* line 182, ../../dev/scss/admin.scss */
-.boxes {
-  width: 50px;
-  height: 27px;
-}
-
-/* line 187, ../../dev/scss/admin.scss */
-.checkbox {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  height: 27px;
-  margin: auto;
-  font-size: 9px;
-  font-weight: bold;
-}
-
-/* line 204, ../../dev/scss/admin.scss */
+/* line 101, ../../dev/scss/admin.scss */
 .save {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  width: 50px;
-  height: 27px;
-  margin: auto;
-}
+  width: 27px; }
 
-/* line 220, ../../dev/scss/admin.scss */
+/* line 104, ../../dev/scss/admin.scss */
 .lastvisit {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  width: 80px;
-  height: 27px;
-  margin: auto;
-  font-weight: bold;
-}
+  width: 50px; }
 
-/* line 237, ../../dev/scss/admin.scss */
+/* line 107, ../../dev/scss/admin.scss */
 .visit_count {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-justify-content: space-around;
-  -ms-flex-pack: distribute;
-  justify-content: space-around;
-  width: 50px;
+  width: 40px; }
+
+/* line 110, ../../dev/scss/admin.scss */
+.message {
+  color: #fff;
+  text-align: center; }
+
+/* line 114, ../../dev/scss/admin.scss */
+.boxes {
+  width: 27px; }
+  /* line 116, ../../dev/scss/admin.scss */
+  .boxes a {
+    display: block;
+    width: 27px;
+    height: 27px;
+    background: url(/media/images/checkbox.png); }
+  /* line 122, ../../dev/scss/admin.scss */
+  .boxes article {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0; }
+  /* line 130, ../../dev/scss/admin.scss */
+  .boxes article:target {
+    width: 100%;
+    height: 100%;
+    padding: 100px 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1; }
+  /* line 142, ../../dev/scss/admin.scss */
+  .boxes figure {
+    background: #e73c1e;
+    width: 600px;
+    margin: auto; }
+
+/* line 148, ../../dev/scss/admin.scss */
+.checkbox {
   height: 27px;
   margin: auto;
-  font-weight: bold;
-}
+  font-size: 9px; }
 
-/* line 254, ../../dev/scss/admin.scss */
-.message {
-  height: 50px;
-  color: #fff;
-  font-weight: bold;
-  text-align: center;
-}
-
-/* line 260, ../../dev/scss/admin.scss */
+/* line 154, ../../dev/scss/admin.scss */
 input[name=id] {
   width: 40px;
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
@@ -334,10 +196,9 @@ input[name=id] {
   text-align: center;
   color: #fff;
   font-weight: bold;
-  background-color: #252120;
-}
+  background-color: #252120; }
 
-/* line 270, ../../dev/scss/admin.scss */
+/* line 164, ../../dev/scss/admin.scss */
 input[name=name] {
   width: 180px;
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
@@ -346,10 +207,9 @@ input[name=name] {
   text-align: center;
   color: #fff;
   font-weight: bold;
-  background-color: #252120;
-}
+  background-color: #252120; }
 
-/* line 280, ../../dev/scss/admin.scss */
+/* line 174, ../../dev/scss/admin.scss */
 input[name=email] {
   width: 200px;
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
@@ -358,10 +218,9 @@ input[name=email] {
   text-align: center;
   color: #fff;
   font-weight: bold;
-  background-color: #252120;
-}
+  background-color: #252120; }
 
-/* line 290, ../../dev/scss/admin.scss */
+/* line 184, ../../dev/scss/admin.scss */
 input[name=telefon] {
   padding: 0px;
   width: 100px;
@@ -371,11 +230,10 @@ input[name=telefon] {
   text-align: center;
   color: #fff;
   font-weight: bold;
-  background-color: #252120;
-}
+  background-color: #252120; }
 
 /* Email Area*/
-/* line 303, ../../dev/scss/admin.scss */
+/* line 197, ../../dev/scss/admin.scss */
 #content_email {
   display: -webkit-box;
   display: -webkit-flex;
@@ -389,24 +247,21 @@ input[name=telefon] {
   overflow: visible;
   margin: auto;
   background-color: #e73c1e;
-  padding: 5px 10px 10px 10px;
-}
+  padding: 5px 10px 10px 10px; }
 
-/* line 318, ../../dev/scss/admin.scss */
+/* line 212, ../../dev/scss/admin.scss */
 #email_select {
   margin: auto;
-  margin-bottom: 10px;
-}
+  margin-bottom: 10px; }
 
-/* line 322, ../../dev/scss/admin.scss */
+/* line 216, ../../dev/scss/admin.scss */
 #email_result {
   width: 600px;
   margin: auto;
   margin-top: 10px;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
-/* line 328, ../../dev/scss/admin.scss */
+/* line 222, ../../dev/scss/admin.scss */
 .email_checkbox {
   display: -webkit-box;
   display: -webkit-flex;
@@ -422,11 +277,10 @@ input[name=telefon] {
   height: 27px;
   margin: auto;
   font-size: 12px;
-  font-weight: bold;
-}
+  font-weight: bold; }
 
 /* Lager */
-/* line 347, ../../dev/scss/admin.scss */
+/* line 241, ../../dev/scss/admin.scss */
 #bestand {
   padding: 2px;
   width: 850px;
@@ -435,38 +289,34 @@ input[name=telefon] {
   height: 450px;
   margin-bottom: 5px;
   justify-content: space-around;
-  flex-flow: column wrap;
-}
+  flex-flow: column wrap; }
 
-/* line 357, ../../dev/scss/admin.scss */
+/* line 251, ../../dev/scss/admin.scss */
 .bestand {
   font-weight: bold;
   width: 120px;
   height: 60px;
   margin: auto;
   color: #fff;
-  background-color: #252120;
-}
+  background-color: #252120; }
 
-/* line 365, ../../dev/scss/admin.scss */
+/* line 259, ../../dev/scss/admin.scss */
 .typ {
   width: 850px;
   background-color: #1c9169;
   font-weight: bold;
   font-size: 30px;
   text-align: left;
-  margin-bottom: 5px;
-}
+  margin-bottom: 5px; }
 
-/* line 373, ../../dev/scss/admin.scss */
+/* line 267, ../../dev/scss/admin.scss */
 .tabelle {
   width: 750px;
   font-size: 16px;
   text-align: center;
-  margin: auto;
-}
+  margin: auto; }
 
-/* line 379, ../../dev/scss/admin.scss */
+/* line 273, ../../dev/scss/admin.scss */
 .tabelle_row {
   height: 20px;
   display: -webkit-box;
@@ -483,10 +333,9 @@ input[name=telefon] {
   align-items: center;
   margin-top: 2px;
   margin-bottom: 2px;
-  padding: 5px 5px 5px 5px;
-}
+  padding: 5px 5px 5px 5px; }
 
-/* line 397, ../../dev/scss/admin.scss */
+/* line 291, ../../dev/scss/admin.scss */
 .tabcell_head {
   display: -webkit-box;
   display: -webkit-flex;
@@ -503,21 +352,18 @@ input[name=telefon] {
   flex-wrap: wrap;
   width: 160px;
   background-color: #252120;
-  color: #fff;
-}
+  color: #fff; }
 
-/* line 415, ../../dev/scss/admin.scss */
+/* line 309, ../../dev/scss/admin.scss */
 .tabcell_big {
   min-width: 160px;
   background-color: #252120;
   color: #fff;
-  text-align: center;
-}
+  text-align: center; }
 
-/* line 421, ../../dev/scss/admin.scss */
+/* line 315, ../../dev/scss/admin.scss */
 .tabcell_number {
   width: 80px;
   background-color: #252120;
   color: #fff;
-  text-align: center;
-}
+  text-align: center; }

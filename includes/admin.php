@@ -38,16 +38,7 @@ function search_name ($search) {
     echo    "<div class=name><img alt=NAME src=\"/media/images/name.png\"></div>";
     echo    "<div class=email><img alt=EMAIL src=\"/media/images/email_transp.png\"></div>";
     echo    "<div class=telefon><img alt=TELEFON src=\"/media/images/tel.png\"></div>";
-    echo    "<div class=boxes>";
-    echo    "<div class=checkbox></div>";
-    echo    "<div class=checkbox></div>";
-    echo    "<div class=checkbox></div>";
-    echo    "<div class=checkbox></div>";
-    echo    "<div class=checkbox></div>";
-    echo    "<div class=checkbox></div>";
-    echo    "<div class=checkbox></div>";
-    echo    "<div class=checkbox></div>";
-    echo    "</div>";
+    echo    "<div class=boxes></div>";
     echo    "<div class=save></div>";
     echo    "<div class=lastvisit><img alt=DATUM src=\"/media/images/clock.png\"></div>";
     echo    "<div class=visit_count><img alt=BESUCHE src=\"/media/times.png\"></div>";
@@ -61,6 +52,8 @@ function search_name ($search) {
         echo    "<div class=email><input name=\"email\" value=\"" . $row['email'] . "\" type=text></div>";
         echo    "<div class=telefon><input name=\"telefon\" value=\"" . $row['telefon'] . "\" type=text></div>";
         echo    "<div class=boxes>";
+        echo    "<a href=#box".$row['id']."></a>";
+        echo    "<article id=box".$row['id']."><figure>";
         echo    "<input type=hidden name=electro value=0>";
         echo    "<div class=checkbox><input name=\"electro\" value=1 type=\"checkbox\""; if($row['electro']==1) {echo "checked";} echo "/>elektro</div>";
         echo    "<input type=hidden name=alternativ value=0>";
@@ -77,12 +70,13 @@ function search_name ($search) {
         echo    "<div class=checkbox><input name=\"studenten\" value=1 type=\"checkbox\""; if($row['studenten']==1) {echo "checked";} echo ">studenten</div>";
         echo    "<input type=hidden name=kleinkunst value=0>";
         echo    "<div class=checkbox><input name=\"kleinkunst\" value=1 type=\"checkbox\""; if($row['kleinkunst']==1) {echo "checked";} echo ">kleinkunst</div>";
+        echo    "<div class=save><input name=save value=save type=image form=".$row['id']." src=\"/media/images/save.png\"></div>";
+        echo    "</figure></article>";
         echo    "</div>";
         echo    "<div class=save><input name=save value=save type=image form=".$row['id']." src=\"/media/images/save.png\"></div>";
         echo    "<div class=lastvisit>". date('d/m', strtotime($row['lastvisit'])) . "</div>";
         echo    "<div class=visit_count>" . $row['visit_count'] . "</div>";
         echo    "</form>";
-        //        echo    "<br>";
     }
 }
 function create_edit_table ($input) {
@@ -91,16 +85,7 @@ function create_edit_table ($input) {
     echo    "<div class=name><img alt=NAME src=\"/media/images/name.png\"></div>";
     echo    "<div class=email><img alt=EMAIL src=\"/media/images/email_transp.png\"></div>";
     echo    "<div class=telefon><img alt=TELEFON src=\"/media/images/tel.png\"></div>";
-    echo    "<div class=boxes>";
-    echo    "<div class=checkbox></div>";
-    echo    "<div class=checkbox></div>";
-    echo    "<div class=checkbox></div>";
-    echo    "<div class=checkbox></div>";
-    echo    "<div class=checkbox></div>";
-    echo    "<div class=checkbox></div>";
-    echo    "<div class=checkbox></div>";
-    echo    "<div class=checkbox></div>";
-    echo    "</div>";
+    echo    "<div class=boxes></div>";
     echo    "<div class=save></div>";
     echo    "<div class=lastvisit><img alt=DATUM src=\"/media/images/clock.png\"></div>";
     echo    "<div class=visit_count><img alt=BESUCHE src=\"/media/images/times.png\"></div>";
@@ -115,7 +100,7 @@ function create_edit_table ($input) {
         echo    "<div class=email><input name=\"email\" value=\"" . $row['email'] . "\" type=text></div>";
         echo    "<div class=telefon><input name=\"telefon\" value=\"" . $row['telefon'] . "\" type=text></div>";
         echo    "<div class=boxes>";
-        echo    "<a href=#box".$data.">Check</a>";
+        echo    "<a href=#box".$data."></a>";
         echo    "<article id=box".$data."><figure>";
         echo    "<input type=hidden name=electro value=0>";
         echo    "<div class=checkbox><input name=\"electro\" value=1 type=\"checkbox\""; if($row['electro']==1) {echo "checked";} echo "/>elektro</div>";
