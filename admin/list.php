@@ -8,17 +8,16 @@
     <link rel="stylesheet" type="text/css" href="/media/css/admin.css">
     <?php
     if    (isset($_POST['save'])) {
-        if  (isset($_POST['name'])) {update_db($_POST['id'],$_POST['name'],name);}
-        if  (isset($_POST['email'])) {update_db($_POST['id'],$_POST['email'],email);}
-        if  (isset($_POST['telefon'])) {update_db($_POST['id'],$_POST['telefon'],telefon);}
-        if  (isset($_POST['electro'])) {update_db($_POST['id'],$_POST['electro'],electro);}
-        if  (isset($_POST['alternativ'])) {update_db($_POST['id'],$_POST['alternativ'],alternativ);}
-        if  (isset($_POST['hiphop'])) {update_db($_POST['id'],$_POST['hiphop'],hiphop);}
-        if  (isset($_POST['live'])) {update_db($_POST['id'],$_POST['live'],live);}
-        if  (isset($_POST['good_taste'])) {update_db($_POST['id'],$_POST['good_taste'],good_taste);}
-        if  (isset($_POST['quiz'])) {update_db($_POST['id'],$_POST['quiz'],quiz);}
-        if  (isset($_POST['studenten'])) {update_db($_POST['id'],$_POST['studenten'],studenten);}
-        if  (isset($_POST['kleinkunst'])) {update_db($_POST['id'],$_POST['kleinkunst'],kleinkunst);}
+        $checkboxes = array("electro", "alternativ", "hiphop", "live", "good_taste", "quiz", "studenten", "kleinkunst");
+        foreach($checkboxes as $checkbox){
+            if(!isset($_POST[$checkbox])){$checked=0;} else {$checked=1;}
+            $_POST[$checkbox]=$checked;
+        }
+        unset($_POST['save']);unset($_POST['save_x']);unset($_POST['save_y']);
+        foreach ($_POST as $key => $value) {
+            if ($key == "id" or $key == "ratten" or $key == "namesearch") {}
+            else { update_db($_POST['id'],$_POST[$key],$key);}
+        }
     }
     ?>
 </head>
@@ -55,15 +54,15 @@
                     <article id="box<?php echo $key;?>" >
                         <figure>
                             <ul>
-                                <li><input type=hidden name=electro value=0><input class=checkbox name=electro value=1 type=checkbox <?php if($row['electro']==1) {echo "checked";}?> ><div class=label >Elektro</div></li>
-                                <li><input type=hidden name=alternativ value=0><input class=checkbox name=alternativ value=1 type=checkbox <?php if($row['alternativ']==1) {echo "checked";}?> ><div class=label >Alternativ</div></li>
-                                <li><input type=hidden name=hiphop value=0><input class=checkbox name=hiphop value=1 type=checkbox <?php if($row['hiphop']==1) {echo "checked";}?> ><div class=label >Hip Hop</div></li>
-                                <li><input type=hidden name=live value=0><input class=checkbox name=live value=1 type=checkbox <?php if($row['live']==1) {echo "checked";}?> ><div class=label >Live</div></li>
-                                <li><input type=hidden name=good_taste value=0><input class=checkbox name=good_taste value=1 type=checkbox <?php if($row['good_taste']==1) {echo "checked";}?> ><div class=label >Good taste</div></li>
-                                <li><input type=hidden name=quiz value=0><input class=checkbox name=quiz value=1 type=checkbox <?php if($row['quiz']==1) {echo "checked";}?> ><div class=label >Quiz</div></li>
-                                <li><input type=hidden name=studenten value=0><input class=checkbox name=studenten value=1 type=checkbox <?php if($row['studenten']==1) {echo "checked";}?> ><div class=label >Studenten</div></li>
-                                <li><input type=hidden name=kleinkunst value=0><input class=checkbox name=kleinkunst value=1 type=checkbox <?php if($row['kleinkunst']==1) {echo "checked";}?> ><div class=label >Kleinkunst</div></li>
-                                <li><input class=save name=save value=save type=image form="<?php echo $key;?>" src="/media/images/save.png"><div class=label >Speichern</div></li>
+                                <li><input class=checkbox id="electro" name=electro value=1 type=checkbox <?php if($row['electro']==1) {echo "checked";}?> ><div class=label ><label for="electro" >Elektro</label></div></li>
+                                <li><input class=checkbox id="alternativ" name=alternativ value=1 type=checkbox <?php if($row['alternativ']==1) {echo "checked";}?> ><div class=label ><label for="alternativ" >Alternativ</label></div></li>
+                                <li><input class=checkbox id="hiphop" name=hiphop value=1 type=checkbox <?php if($row['hiphop']==1) {echo "checked";}?> ><div class=label ><label for="hiphop" >Hip Hop</label></div></li>
+                                <li><input class=checkbox id="live" name=live value=1 type=checkbox <?php if($row['live']==1) {echo "checked";}?> ><div class=label ><label for="live" >Live</label></div></li>
+                                <li><input class=checkbox id="good_taste" name=good_taste value=1 type=checkbox <?php if($row['good_taste']==1) {echo "checked";}?> ><div class=label ><label for="good_taste" >Good taste</label></div></li>
+                                <li><input class=checkbox id="quiz" name=quiz value=1 type=checkbox <?php if($row['quiz']==1) {echo "checked";}?> ><div class=label ><label for="quiz" >Quiz</label></div></li>
+                                <li><input class=checkbox id="studenten" name=studenten value=1 type=checkbox <?php if($row['studenten']==1) {echo "checked";}?> ><div class=label ><label for="studenten" >Studenten</label></div></li>
+                                <li><input class=checkbox id="kleinkunst" name=kleinkunst value=1 type=checkbox <?php if($row['kleinkunst']==1) {echo "checked";}?> ><div class=label ><label for="kleinkunst" >Kleinkunst</label></div></li>
+                                <li><input class=save id="save" name=save value=save type=image form="<?php echo $key;?>" src="/media/images/save.png"><div class=label ><label for="save" >Speichern</label></div></li>
                             </figure>
                         </article>
                     </div>
@@ -84,15 +83,15 @@
                     if (check_for_row($_POST['id'])) { ?>
                     <input class="error" value="Nummer existiert schon!" disabled>
                     <?php 
-                    }
-                    elseif (!check_for_row($_POST['id']))   {
+                }
+                elseif (!check_for_row($_POST['id']))   {
                     add_to_db($_POST['id'],$_POST['name'],$_GET['ratten']); ?>
                     <input class="message" value="Mitglied hinzugefügt!" disabled>
                     <?php 
-                    } 
-                }
+                } 
             }
-        }?>
-    </div>
+        }
+    }?>
+</div>
 </body>
 </html>

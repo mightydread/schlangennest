@@ -48,7 +48,7 @@ ul {
     list-style: none;
     padding: 0px;
 }
-
+input[type="search"] {-webkit-appearance: none; border-radius: 0; -webkit-border-radius: 0;}
 
 /* Member list */
 input {
@@ -60,6 +60,14 @@ input {
     font-weight: bold;
     background: $schwarz;
     box-sizing: border-box;
+    &:focus {
+        outline-color: invert;
+        color: #000;
+        background: $weiss;
+        -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    border: 2px solid $schwarz;
+    }
 }
 .message {
     background: $gruen;
@@ -232,9 +240,6 @@ input {
         color: $gruen;
     }
 }
-nobr {
-    display: none;
-}
 .email_panel{
     width: 700px;
     margin:auto;
@@ -247,6 +252,9 @@ nobr {
         overflow:hidden;
         opacity: 0;
         transition: all 0.2s ease-in-out 0.1s;
+        nobr {
+    display: none;
+}
     }
     input[type="checkbox"] {  
     display: none;      
@@ -267,24 +275,27 @@ nobr {
 }
 
 /* Lager */
-
-#bestand {
-    padding: 2px;
-    width: 850px;
-    background-color: $gruen;
-    display: flex;
-    height: 450px;
-    margin-bottom: 5px;
-    justify-content: space-around;
-    flex-flow: column wrap;
-}
 .bestand {
     //font-weight: bold;
-    width: 120px;
-    height: 60px;
-    margin: auto;
-    color: #fff;
+    width: 800px;
+    height: 780px;
+    margin: 5px auto;
     background-color: $schwarz;
+    a {
+        height: 50px;
+        width: 170px;
+        margin: 7.5px 15px;
+        float: left;
+        color: $weiss;
+        background-color: $grau;
+        text-decoration: none;
+        box-sizing: border-box;
+        border: 2px solid $grau;
+        padding-top: 5px;
+        &:hover {
+            background-color: $schwarz;
+        }
+    }
 }
 .typ {
     width: 850px;

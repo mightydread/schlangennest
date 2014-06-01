@@ -15,17 +15,17 @@
         <div class=boxes>
             <form method=post action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="email">
                 <ul>
-                    <li><input class=checkbox name=all value=1 type=checkbox><div class=label >Alle</div></li>
-                    <li><input class=checkbox name=electro value=1 type=checkbox><div class=label >Elektro</div></li>
-                    <li><input class=checkbox name=alternativ value=1 type=checkbox><div class=label >Alternativ</div></li>
-                    <li><input class=checkbox name=hiphop value=1 type=checkbox><div class=label >Hip Hop</div></li>
-                    <li><input class=checkbox name=live value=1 type=checkbox><div class=label >Live</div></li>
-                    <li><input class=checkbox name=good_taste value=1 type=checkbox><div class=label >Good Taste</div></li>
-                    <li><input class=checkbox name=quiz value=1 type=checkbox><div class=label >Quiz</div></li>
-                    <li><input class=checkbox name=studenten value=1 type=checkbox><div class=label >Studenten</div></li>
-                    <li><input class=checkbox name=kleinkunst value=1 type=checkbox><div class=label >Kleinkunst</div></li>
-                    <li><input class=checkbox name=telefon value=1 type=checkbox disabled><div class=label >SMS</div></li>
-                    <li><input class=save name=save value=save type=image src="/media/images/save.png"><div class=label >OK</div></li>
+                    <li><input class=checkbox id="all" name=all value=1 type=checkbox><div class=label ><label for="all">Alle</label></div></li>
+                    <li><input class=checkbox id="electro" name=electro value=1 type=checkbox><div class=label ><label for="electro" >Elektro</label></div></li>
+                    <li><input class=checkbox id="alternativ" name=alternativ value=1 type=checkbox><div class=label ><label for="alternativ" >Alternativ</label></div></li>
+                    <li><input class=checkbox id="hiphop" name=hiphop value=1 type=checkbox><div class=label ><label for="hiphop" >Hip Hop</label></div></li>
+                    <li><input class=checkbox id="live" name=live value=1 type=checkbox><div class=label ><label for="live" >Live</label></div></li>
+                    <li><input class=checkbox id="good_taste" name=good_taste value=1 type=checkbox><div class=label ><label for="good_taste" >Good taste</label></div></li>
+                    <li><input class=checkbox id="quiz" name=quiz value=1 type=checkbox><div class=label ><label for="quiz" >Quiz</label></div></li>
+                    <li><input class=checkbox id="studenten" name=studenten value=1 type=checkbox><div class=label ><label for="studenten" >Studenten</label></div></li>
+                    <li><input class=checkbox id="kleinkunst" name=kleinkunst value=1 type=checkbox><div class=label ><label for="kleinkunst" >Kleinkunst</label></div></li>
+                    <li><input class=checkbox id="telefon" name=telefon value=1 type=checkbox disabled><div class=label ><label for="telefon">SMS</label></div></li>
+                    <li><input class=save id="save" name=save value=save type=image src="/media/images/save.png"><div class=label ><label for="save" >OK</label></div></li>
                 </ul>
             </form>
         </div>

@@ -11,16 +11,14 @@
     </head>
     <body>
         Sucess!!!<br>
-        <?php
-        if (!check_for_row(0)){echo "false";}
-    print_r(check_for_row(0));
-    check_for_row(1);
-    echo $exist;
+        
+        <div class="bestand">
+            <?php foreach (waren(kasten) as $typ) { ?>
+                <a href="#<?php echo $typ; ?>" ><?php bestand($typ);?></a>
+            <?php } foreach (waren(flasche) as $typ) { ?>
+                <a href="#<?php echo $typ; ?>" ><?php bestand($typ);?></a>
+            <?php } ?>
+        </div>
     
-    
-    
-    
-    
-    ?>
     </body>
 </html>
