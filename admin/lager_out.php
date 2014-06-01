@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8mb4">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=850px">
         <title>Lager Ausgabe</title>
         <?php require '../includes/admin.php' ?>

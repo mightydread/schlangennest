@@ -10,9 +10,12 @@
         <link rel="stylesheet" type="text/css" href="../media/css/admin.css">
     </head>
     <body>
-        Sucess!!!
+        Sucess!!!<br>
         <?php
-    verbrauch(premium_bier,get_date());
+        if (!check_for_row(0)){echo "false";}
+    print_r(check_for_row(0));
+    check_for_row(1);
+    echo $exist;
     
     
     

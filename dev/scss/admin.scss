@@ -1,16 +1,10 @@
 @import "global";
 #navbar {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin: 10px auto;
     background-color: $gruen;
     width: 800px;
     height: 50px;
     padding: 5px;
-    ul {
-        margin: 0px;
-        padding: 0px;
-        list-style: none;
-    }
     #home {
         background: url(/media/images/home.png);
     }
@@ -50,73 +44,109 @@
         height: 50px;
     }
 }
-
+ul {
+    list-style: none;
+    padding: 0px;
+}
 
 
 /* Member list */
-
-#legend {
-    width: 800px;
-    float: left;
-    height: 50px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    .nummer, .name, .email, .telefon, .boxes, .save, .lastvisit, .visit_count, .message {
-        display: block;
-        height: 50px;
-        float: left;
-        text-align: center;
-        margin: 0px 6px;
-    }
-}
-%cell {
-
-}
-.table_row {
-    height: 27px;
-    width: 800px;
-    float: left;
-    margin: 5px 0px;
-    .nummer, .name, .email, .telefon, .boxes, .save, .lastvisit, .visit_count, .message {
-        display: block;
-        height: 27px;
-        font-weight: bold;
-        float: left;
-        margin: 0px 6px;
-        text-align: center;
-    }
-}
-.nummer {
-    width: 44px;
-}
-.name {
-    width: 184px;
-}
-.email {
-    width: 204px;
-}
-.telefon {
-    width: 104px;
-}
-.save {
-    width: 27px;
-}
-.lastvisit {
-    width: 50px;
-}
-.visit_count {
-    width: 40px;
+input {
+    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    border: 2px solid $schwarz;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    background: $schwarz;
+    box-sizing: border-box;
 }
 .message {
-    color: #fff;
-    text-align: center;
+    background: $gruen;
 }
+.error {
+        background: $rot;
+     }
+
+%cell {
+    float: left;
+    margin: 0px 6.87px;
+    display: block;
+}
+%column_widths {
+    .nummer {
+        width: 45px;
+    }
+    .name {
+        width: 185px;
+    }
+    .email {
+        width: 205px;
+    }
+    .telefon {
+        width: 105px;
+    }
+    .boxes {
+        width: 30px;
+    }
+    .save {
+        width: 30px;
+    }
+    .lastvisit {
+        width: 50px;
+    }
+    .visit_count {
+        width: 40px;
+    }
+    .message, .error {
+        width: 280px;
+    }
+}
+#legend {
+    margin: 5px auto;
+    width: 800px;
+    height: 50px;
+    padding: 0px;
+    list-style: none;
+    li {
+        @extend %cell;
+        height: 50px;
+    }
+    @extend %column_widths;
+}
+.table_row {
+    margin: 10px auto;
+    width: 800px;
+    height: 30px;
+    // padding: 5px;
+    
+    .nummer, .name, .email, .telefon, .boxes, .save, .lastvisit, .visit_count, .message, .error {
+        @extend %cell;
+        height: 30px;
+        //font-weight: bold;
+    }
+    @extend %column_widths;
+    .save {
+        border: 0px;
+    }
+    .boxes {
+        border: 0px;
+        -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+}
+
 .boxes {
-    width: 27px;
+    // width: 30px;
+    form {
+        width: 700px;
+        margin: auto;
+    }
     a {
         display: block;
-        width: 27px;
-        height: 27px;
+        width: 30px;
+        height: 30px;
         background: url(/media/images/checkbox.png);
     }
     article {
@@ -140,102 +170,102 @@
         z-index: 1;
     }
     figure {
-        background: $rot;
-        width: 600px;
+        background: $grau;
+        width: 700px;
         margin: auto;
+        padding: 5px;
+    }
+    ul {
+        margin: auto;
+        height: 165px;
+        padding: 0px;
+    }
+    li {
+        float: left;
+        width: 150px;
+        text-align: left;
+        height: 30px;
+        margin: 12.5px;
+        box-sizing: border-box;
+        background: $schwarz;
+        -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+
+    }
+    input {
+        -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+    .checkbox {
+        float: left;
+        width: 30px;
+        height: 30px;
+        margin: 0;
+    }
+    .label {
+        float: left;
+        margin: 5px;
+        width: 100px;
+        height: 20px;
+        display: block;
+        text-align: center;
+    }
+    .save {
+        float: left;
+        width: 30px;
+        height: 30px;
+        border: 0px;
+        margin: 0px;
     }
 }
-.checkbox {
-    height: 27px;
-    margin: auto;
-    font-size: 9px;
-}
 
-input[name=id] {
-    width: 40px;
-    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid $schwarz;
-    text-align: center;
-    color: #fff;
-    font-weight: bold;
-    background-color: $schwarz;
-}
-input[name=name] {
-    width: 180px;
-    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid $schwarz;
-    text-align: center;
-    color: #fff;
-    font-weight: bold;
-    background-color: $schwarz;
-}
-input[name=email] {
-    width: 200px;
-    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid $schwarz;
-    text-align: center;
-    color: #fff;
-    font-weight: bold;
-    background-color: $schwarz;
-}
-input[name=telefon] {
-    padding: 0px;
-    width: 100px;
-    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid $schwarz;
-    text-align: center;
-    color: #fff;
-    font-weight: bold;
-    background-color: $schwarz;
-}
 /* Email Area*/
+.email_link {
+    //font-weight: bold;
+    font-size: 40px;
+    margin: auto;
+    height: 50px;
+    width: 700px;
+    background: $schwarz;
+    border:5px solid $schwarz;
+    a {
+        color: $gruen;
+    }
+}
+nobr {
+    display: none;
+}
+.email_panel{
+    width: 700px;
+    margin:auto;
+    background: $schwarz;
+    border:5px solid $schwarz;
+    #email_result {
+        height:10px;
+        padding:5px;
+        box-sizing:border-box;
+        overflow:hidden;
+        opacity: 0;
+        transition: all 0.2s ease-in-out 0.1s;
+    }
+    input[type="checkbox"] {  
+    display: none;      
+        width: 30px;
+        height: 30px;
+        margin: auto;
+        z-index: 10;
+        &:checked ~ #email_result {
+            height: auto;
+            margin-top: 10px;
+            opacity: 1;
+            overflow: auto;
+            nobr {
+                display: initial;
+            }
+        }
+    }
+}
 
-#content_email {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-flex-flow: column nowrap;
-    -ms-flex-flow: column nowrap;
-    flex-flow: column nowrap;
-    width: 800px;
-    height: auto;
-    overflow: visible;
-    margin: auto;
-    background-color: $rot;
-    padding: 5px 10px 10px 10px;
-}
-#email_select {
-    margin: auto;
-    margin-bottom: 10px;
-}
-#email_result {
-    width: 600px;
-    margin: auto;
-    margin-top: 10px;
-    font-weight: bold;
-}
-.email_checkbox {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    -webkit-justify-content: space-around;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
-    height: 27px;
-    margin: auto;
-    font-size: 12px;
-    font-weight: bold;
-}
 /* Lager */
 
 #bestand {
@@ -249,7 +279,7 @@ input[name=telefon] {
     flex-flow: column wrap;
 }
 .bestand {
-    font-weight: bold;
+    //font-weight: bold;
     width: 120px;
     height: 60px;
     margin: auto;
@@ -259,7 +289,7 @@ input[name=telefon] {
 .typ {
     width: 850px;
     background-color: $gruen;
-    font-weight: bold;
+    //font-weight: bold;
     font-size: 30px;
     text-align: left;
     margin-bottom: 5px;

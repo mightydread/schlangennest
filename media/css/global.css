@@ -1,34 +1,21 @@
-/* line 6, ../../dev/scss/global.scss */
+/* line 8, ../../dev/scss/global.scss */
 body {
   background-color: #252120;
   margin: 0;
   padding: 0;
   text-align: center;
   color: #fff;
-  font-family: sans-serif;
-}
+  font-weight: bold;
+  font-family: sans-serif; }
 
-/* line 14, ../../dev/scss/global.scss */
+/* line 17, ../../dev/scss/global.scss */
 .select_button {
   margin: 20px 20px 0px 20px;
-  height: 400px;
-}
+  height: 400px; }
 
-/* line 18, ../../dev/scss/global.scss */
+/* line 21, ../../dev/scss/global.scss */
 #wrap {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: column nowrap;
-  -ms-flex-flow: column nowrap;
-  flex-flow: column nowrap;
-  align-items: center;
-  background-color: #e73c1e;
-  width: 850px;
-  height: auto;
-  overflow: visible;
+  background-color: #403938;
+  width: 830px;
   margin: auto;
-  text-align: center;
-  padding: 5px 10px 10px 10px;
-}
+  padding: 5px 10px 10px 10px; }
