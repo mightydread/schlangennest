@@ -20,6 +20,11 @@ body {
   margin: auto;
   padding: 5px 10px 10px 10px; }
 
+/* line 29, ../../dev/scss/global.scss */
+ul {
+  list-style: none;
+  padding: 0px; }
+
 /* line 2, ../../dev/scss/check.scss */
 input[type=number] {
   margin: 0 auto;

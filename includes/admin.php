@@ -1,6 +1,6 @@
 <?php
-$con_lager = mysqli_connect(localhost,user,scandale,Lager);
-$con_members = mysqli_connect(localhost,user,scandale,members);
+$con_lager = mysqli_connect(localhost,user,scandale,Lager_test);
+$con_members = mysqli_connect(localhost,user,scandale,members_test);
 mysqli_set_charset($con_lager, 'utf8');
 mysqli_set_charset($con_members, 'utf8');
 // define vars
@@ -68,165 +68,24 @@ function full_name ($typ) {
     $array = mysqli_fetch_array(mysqli_query($con_lager,$sql));
     return $array['full_name'];
 }
-function waren ($art) {
+function waren ($art = "all") {
     global $con_lager;
-    $sql = "SELECT db_name FROM namen WHERE art = '".$art."'";
+    if ($art == "all") {$sql = "SELECT db_name FROM namen";}
+    else { $sql = "SELECT db_name FROM namen WHERE art = '".$art."'";}
     $result = mysqli_query($con_lager,$sql);
     $array = array();
     while  ($row = mysqli_fetch_array($result,MYSQLI_NUM)) { $array[] = $row['0']; }
     return $array;
 }
-function tabelle_kasten ($typ) {
+function tabelle ($typ) {
     global $con_lager;
     $sql = "SELECT * FROM ".$typ."";
     $result = mysqli_query($con_lager,$sql);
-    echo "<div class=tabelle_row>";
-    echo "<div class=tabcell_number>";
-    echo "Datum";
-    echo "</div>";
-    echo "<div class=tabcell_head>";
-    echo "<div class=tabcell_big>";
-    echo "Anfang";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Kasten";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Flaschen";
-    echo "</div>";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Zugang";
-    echo "</div>";
-    echo "<div class=tabcell_head>";
-    echo "<div class=tabcell_big>";
-    echo "Ende";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Kasten";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Flaschen";
-    echo "</div>";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Abgang";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Verbrauch";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Umsatz";
-    echo "</div>";
-    echo "</div>";
-    echo "<br>";
-    while ($row = mysqli_fetch_array($result)) {
-        echo "<div class=tabelle_row>";
-        echo "<div class=tabcell_number>";
-        echo date('d/m', strtotime($row['datum']));
-        echo "</div>";
-        echo "<div class=tabcell_number>";
-        echo $row['anfang_kasten'];
-        echo "</div>";
-        echo "<div class=tabcell_number>";
-        echo $row['anfang_flaschen'];
-        echo "</div>";
-        echo "<div class=tabcell_number>";
-        echo $row['zugang'];
-        echo "</div>";
-        echo "<div class=tabcell_number>";
-        echo $row['ende_kasten'];
-        echo "</div>";
-        echo "<div class=tabcell_number>";
-        echo $row['ende_flaschen'];
-        echo "</div>";;
-        echo "<div class=tabcell_number>";
-        echo $row['abgang'];
-        echo "</div>";
-        echo "<div class=tabcell_number>";
-        echo $row['verbrauch'];
-        echo "</div>";
-        echo "<div class=tabcell_number>";
-        echo $row['umsatz']." &euro;";
-        echo "</div>";
-        echo "</div>";
+    $temp=array();
+    while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+        $temp[]=$row;
     }
-}
-function tabelle_flasche ($typ) {
-    global $con_lager;
-    $sql = "SELECT * FROM ".$typ."";
-    $result = mysqli_query($con_lager,$sql);
-    echo "<div class=tabelle_row>";
-    echo "<div class=tabcell_number>";
-    echo "Datum";
-    echo "</div>";
-    echo "<div class=tabcell_head>";
-    echo "<div class=tabcell_big>";
-    echo "Anfang";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Flasche";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Anbruch";
-    echo "</div>";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Zugang";
-    echo "</div>";
-    echo "<div class=tabcell_head>";
-    echo "<div class=tabcell_big>";
-    echo "Ende";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Flasche";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Anbruch";
-    echo "</div>";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Abgang";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Verbrauch";
-    echo "</div>";
-    echo "<div class=tabcell_number>";
-    echo "Umsatz";
-    echo "</div>";
-    echo "</div>";
-    echo "<br>";
-    while ($row = mysqli_fetch_array($result)) {
-        echo "<div class=tabelle_row>";
-        echo "<div class=tabcell_number>";
-        echo date('d/m', strtotime($row['datum']));
-        echo "</div>";
-        echo "<div class=tabcell_number>";
-        echo $row['anfang_kasten'];
-        echo "</div>";
-        echo "<div class=tabcell_number>";
-        echo $row['anfang_flaschen'];
-        echo "</div>";
-        echo "<div class=tabcell_number>";
-        echo $row['zugang'];
-        echo "</div>";
-        echo "<div class=tabcell_number>";
-        echo $row['ende_kasten'];
-        echo "</div>";
-        echo "<div class=tabcell_number>";
-        echo $row['ende_flaschen'];
-        echo "</div>";;
-        echo "<div class=tabcell_number>";
-        echo $row['abgang'];
-        echo "</div>";
-        echo "<div class=tabcell_number>";
-        echo $row['verbrauch'];
-        echo "</div>";
-        echo "<div class=tabcell_number>";
-        echo $row['umsatz']." &euro;";
-        echo "</div>";
-        echo "</div>";
-    }
+    return $temp;
 }
 function bestand ($typ) {
     global $con_lager;

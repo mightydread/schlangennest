@@ -1,6 +1,6 @@
 
     <ul id=navbar>
-        <li id=home><a href="index.html"></a></li>
+        <li id=home><a href="/"></a></li>
         <li id=email><a href="email.php"><img alt=email src="/media/images/email_small.png"></a></li>
         <li id=lager><a href="lager_out.php"><img alt=lager src="/media/images/lager_small.png"></a></li>
         <li id=search><form method=post action=list.php><input type="search" name="namesearch" placeholder=Name></form></li>

@@ -1,13 +1,12 @@
 <?php
-$con_lager = mysqli_connect(localhost,user,scandale,Lager);
+$con_lager = mysqli_connect(localhost,user,scandale,Lager_test);
+mysqli_set_charset($con_lager, 'utf8');
 function get_date () {
     if (isset($_POST['datum'])) {
         return $_POST['datum'];
     }
     else {
-        $time  = time() - (12 * 60 * 60);
-        $datum  = date("Y-m-d", $time);
-        return date("Y-m-d", strtotime($datum));
+        return date("Y-m-d");
     }
 }
 if (!function_exists('full_name')) {

@@ -44,9 +44,18 @@
         height: 50px;
     }
 }
-ul {
-    list-style: none;
-    padding: 0px;
+.ratte_svg {
+    margin-top: 20px;
+    width: 800px;
+    height: 318px;
+    path {
+        fill: $schwarz;
+        fill-rule:evenodd;
+        clip-rule:evenodd;
+        &:hover {
+            fill: darken($schwarz, 10%);
+        }
+    }
 }
 input[type="search"] {-webkit-appearance: none; border-radius: 0; -webkit-border-radius: 0;}
 
@@ -65,16 +74,16 @@ input {
         color: #000;
         background: $weiss;
         -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid $schwarz;
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+        border: 2px solid $schwarz;
     }
 }
 .message {
     background: $gruen;
 }
 .error {
-        background: $rot;
-     }
+    background: $rot;
+}
 
 %cell {
     float: left;
@@ -243,26 +252,26 @@ input {
 .email_panel{
     width: 700px;
     margin:auto;
-    background: $schwarz;
-    border:5px solid $schwarz;
     #email_result {
-        height:10px;
-        padding:5px;
-        box-sizing:border-box;
+        height:0px;
+        background: $schwarz;
+        border:5px solid $schwarz;
         overflow:hidden;
         opacity: 0;
         transition: all 0.2s ease-in-out 0.1s;
         nobr {
-    display: none;
-}
+            display: none;
+        }
     }
     input[type="checkbox"] {  
-    display: none;      
+        display: none;      
         width: 30px;
         height: 30px;
         margin: auto;
         z-index: 10;
         &:checked ~ #email_result {
+            padding:5px;
+            box-sizing:border-box;
             height: auto;
             margin-top: 10px;
             opacity: 1;
@@ -297,65 +306,39 @@ input {
         }
     }
 }
-.typ {
-    width: 850px;
-    background-color: $gruen;
-    //font-weight: bold;
-    font-size: 30px;
-    text-align: left;
-    margin-bottom: 5px;
-}
-.tabelle {
-    width: 750px;
-    font-size: 16px;
-    text-align: center;
-    margin: auto;
-}
-.tabelle_row {
-    height: 20px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-top: 2px;
-    margin-bottom: 2px;
-    padding: 5px 5px 5px 5px;
-}
-.tabcell_head {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    flex-wrap: wrap;
-    width: 160px;
+.lager_panel {
+    width: 800px;
+    height: 0;
+    overflow: hidden;
     background-color: $schwarz;
-    color: #fff;
-}
-.tabcell_big {
-    min-width: 160px;
-    background-color: $schwarz;
-    color: #fff;
-    text-align: center;
-}
-.tabcell_number {
-    width: 80px;
-    background-color: $schwarz;
-    color: #fff;
-    text-align: center;
+    &:target {
+        margin: auto;
+        margin-top: 5px;
+        height:auto;
+        overflow:initial;
+    }
+    &:after {
+        content: ".";
+        display:block;
+        height:0;
+        clear:both;
+        visibility:hidden;
+    }
+    h1 {
+        margin:auto;
+        padding: 5px 0px;
+
+    }
+    ul {
+        float:left;
+        width: 750px;
+        height: 30px;
+        margin: 0px 25px;
+    }
+    li {
+        margin: 1.67px;
+        float: left;
+        width: 80px;
+        background-color: $grau;
+    }
 }

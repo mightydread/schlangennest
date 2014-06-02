@@ -20,7 +20,80 @@ body {
   margin: auto;
   padding: 5px 10px 10px 10px; }
 
+/* line 29, ../../dev/scss/global.scss */
+ul {
+  list-style: none;
+  padding: 0px; }
+
 /* line 2, ../../dev/scss/lager.scss */
+#inventur_wrap {
+  width: 800px;
+  margin: auto; }
+  /* line 5, ../../dev/scss/lager.scss */
+  #inventur_wrap:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+
+/* line 13, ../../dev/scss/lager.scss */
+.row .name, .row_disabled .name, .row .anzahl, .row_disabled .anzahl, .row .save, .row_disabled .save, .row .save_correct, .row_disabled .save_correct {
+  height: 50px;
+  float: left;
+  display: block;
+  margin: 0px 20px; }
+
+/* line 19, ../../dev/scss/lager.scss */
+.row, .row_disabled {
+  width: 800px;
+  background-color: #252120;
+  float: left;
+  margin: 5px auto;
+  height: 50px;
+  border: 2px solid #252120; }
+  /* line 30, ../../dev/scss/lager.scss */
+  .row .name, .row_disabled .name {
+    width: 400px;
+    font-size: 40px;
+    font-weight: bolder;
+    padding-top: 2px;
+    box-sizing: border-box; }
+  /* line 38, ../../dev/scss/lager.scss */
+  .row .anzahl, .row_disabled .anzahl, .row .save, .row_disabled .save, .row .save_correct, .row_disabled .save_correct {
+    width: 50px; }
+  /* line 41, ../../dev/scss/lager.scss */
+  .row .save_correct, .row_disabled .save_correct {
+    display: none; }
+  /* line 44, ../../dev/scss/lager.scss */
+  .row input[type=number], .row_disabled input[type=number] {
+    padding: 0px;
+    box-sizing: border-box;
+    width: 50px;
+    border: 2px solid #1c9169;
+    text-align: center;
+    color: #000;
+    font-size: xx-large;
+    font-weight: bold;
+    background-color: #1c9169; }
+
+/* line 59, ../../dev/scss/lager.scss */
+.row_disabled {
+  background-color: #1c9169;
+  border: 2px solid #1c9169; }
+  /* line 63, ../../dev/scss/lager.scss */
+  .row_disabled .save {
+    display: none; }
+  /* line 66, ../../dev/scss/lager.scss */
+  .row_disabled .save_correct {
+    display: initial; }
+  /* line 69, ../../dev/scss/lager.scss */
+  .row_disabled input[type=number] {
+    color: #1c9169;
+    border: 2px solid #252120;
+    background-color: #252120; }
+
+/* line 75, ../../dev/scss/lager.scss */
 #legend {
   height: 50px;
   display: -webkit-box;
@@ -38,7 +111,7 @@ body {
   margin-top: 5px;
   margin-bottom: 5px; }
 
-/* line 19, ../../dev/scss/lager.scss */
+/* line 92, ../../dev/scss/lager.scss */
 .lager_ok {
   background-color: #1c9169;
   font-size: 40px;
@@ -46,7 +119,7 @@ body {
   margin-top: 5px;
   margin-bottom: 5px; }
 
-/* line 26, ../../dev/scss/lager.scss */
+/* line 99, ../../dev/scss/lager.scss */
 .legend_row {
   background-color: #252120;
   height: 50px;
@@ -60,7 +133,7 @@ body {
   margin-top: 5px;
   margin-bottom: 5px; }
 
-/* line 39, ../../dev/scss/lager.scss */
+/* line 112, ../../dev/scss/lager.scss */
 .lager_row {
   background-color: #e73c1e;
   height: 50px;
@@ -74,36 +147,6 @@ body {
   margin-top: 5px;
   margin-bottom: 5px; }
 
-/* line 52, ../../dev/scss/lager.scss */
-input[type=number] {
-  margin: auto;
-  width: 50px;
-  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-  border: 2px solid #1c9169;
-  text-align: center;
-  color: #fff;
-  font-size: 30px;
-  font-weight: bold;
-  background-color: #1c9169; }
-
-/* line 64, ../../dev/scss/lager.scss */
+/* line 125, ../../dev/scss/lager.scss */
 input[type=submit] {
   background-color: #1c9169; }
-
-/* line 68, ../../dev/scss/lager.scss */
-.anzahl {
-  margin: auto;
-  width: 50px; }
-
-/* line 72, ../../dev/scss/lager.scss */
-.name {
-  width: 400px;
-  margin: auto;
-  font-size: 40px;
-  font-weight: bolder; }
-
-/* line 78, ../../dev/scss/lager.scss */
-.save {
-  margin: auto;
-  width: 50px; }

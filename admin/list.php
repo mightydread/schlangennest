@@ -1,10 +1,10 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+    <meta charset="utf-8">
     <meta name="viewport" content="width=850px">
-    <meta http-equiv="content-type" content="text/html; charset=UTF8" />
     <title>Mitglieder</title>
-    <?php require '../includes/admin.php' ?>
+    <?php require $_SERVER["DOCUMENT_ROOT"].'/includes/admin.php' ?>
     <link rel="stylesheet" type="text/css" href="/media/css/admin.css">
     <?php
     if    (isset($_POST['save'])) {
@@ -16,7 +16,7 @@
         unset($_POST['save']);unset($_POST['save_x']);unset($_POST['save_y']);
         foreach ($_POST as $key => $value) {
             if ($key == "id" or $key == "ratten" or $key == "namesearch") {}
-            else { update_db($_POST['id'],$_POST[$key],$key);}
+                else { update_db($_POST['id'],$_POST[$key],$key);}
         }
     }
     ?>

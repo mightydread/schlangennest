@@ -1,5 +1,5 @@
 <?php
-$con_members = mysqli_connect(localhost,user,scandale,members);
+$con_members = mysqli_connect(localhost,user,scandale,members_test);
 // functions
 function test_input ($data) {
     $data  = trim($data);
