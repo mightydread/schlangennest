@@ -1,5 +1,5 @@
 <?php
-$con_members = mysqli_connect(localhost,user,scandale,members_test);
+$con = mysqli_connect(localhost,user,scandale,scandale);
 // functions
 function test_input ($data) {
     $data  = trim($data);
@@ -8,11 +8,11 @@ function test_input ($data) {
     return $data;
 }
 function door_check ($data) {
-    global $con_members,$exist;
+    global $con,$exist;
     $sql   = "SELECT * FROM members WHERE id=".$data."";
-    $result = mysqli_query($con_members,$sql);
+    $result = mysqli_query($con,$sql);
     if (mysqli_fetch_row($result)) {
-        $array = mysqli_fetch_array(mysqli_query($con_members,$sql));
+        $array = mysqli_fetch_array(mysqli_query($con,$sql));
         echo $array['name'];
         echo "<br>";
         for ($x=1; $x<=$array['ratten']; $x++)    {
@@ -26,21 +26,21 @@ function door_check ($data) {
 
 }
 function add_lastvisit ($data) {
-    global $con_members;
+    global $con;
     $time  = time() - (12 * 60 * 60);
     $datum  = date("Y-m-d", $time);
     $sql   = "UPDATE members SET lastvisit='".$datum."' WHERE id=".$data."";
-    mysqli_query($con_members,$sql);
+    mysqli_query($con,$sql);
 }
 function visit_counter ($data) {
-    global $con_members;
+    global $con;
     $sql   = "SELECT * FROM members WHERE id=".$data."";
-    $result = mysqli_query($con_members,$sql);
+    $result = mysqli_query($con,$sql);
     while ($row =mysqli_fetch_array($result)) {
         $count = $row['visit_count'];
         $count = $count+1;
         $sql2 = "UPDATE members SET visit_count=".$count." WHERE id=".$data."";
-        mysqli_query($con_members,$sql2);
+        mysqli_query($con,$sql2);
     }
 }
 ?>

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -11,15 +12,16 @@
 </head>
 <body>
     Sucess!!!<br>
-    <?php
-$test=array("test1"=>1,"test2"=>2);
-print_r($test);
-echo "<br><br>";
 
-$test_1[]=$test;
-$test_1[]=$test;
-print_r($test_1);
-echo $test_1[0][test1];
+<?php
+$con_lager = mysqli_connect(localhost,root,pcfreak,Lager_test);
+foreach (waren(kasten) as $typ) {
+    $sql = "ALTER TABLE $typ CHANGE verbrauch verbrauch SMALLINT(4) UNSIGNED NOT NULL;";
+    if (!mysqli_query($con_lager,$sql)) { die('Error: ' . mysqli_error($con_lager)); }
+}
+    print_r($_SESSION);
+     // session_destroy();
+
 ?>
 
     </body>

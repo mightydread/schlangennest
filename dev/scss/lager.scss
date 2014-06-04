@@ -14,7 +14,7 @@
         height: 50px;
         float: left;
         display:block;
-        margin: 0px 20px;
+        margin: 0px 25px;
     }
 .row {
     width: 800px;
@@ -24,7 +24,7 @@
     height: 50px;
     border: 2px solid $schwarz;
     // box-sizing: border-box;
-    .name, .anzahl, .save, .save_correct {
+    .name, .anzahl, .save, .save_correct, .info {
         @extend %cell
     }
     .name {
@@ -35,11 +35,22 @@
         padding-top: 2px;
 box-sizing: border-box;
     }
-    .anzahl, .save, .save_correct {
+    .anzahl, .save, .save_correct, .info {
         width: 50px;
+    }
+    .anzahl {
+        margin-left: 0px;
     }
     .save_correct {
         display: none;
+    }
+    .info {
+        box-sizing: border-box;
+        padding-top: 20px;
+        margin: 0px;
+        font-size: x-small;
+        -webkit-transform: rotate(-90deg); 
+-moz-transform: rotate(-90deg); 
     }
     input[type=number] {
         // margin: 4px 0px;

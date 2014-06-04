@@ -21,26 +21,22 @@
             <h1><?php echo full_name($typ);?></h1>
             <ul class="lager_row">
                 <li>Datum</li>
-                <li>Kasten</li>
-                <li>Flaschen</li>
                 <li>Zugang</li>
+                <li>Abgang</li>
                 <li>Kasten</li>
                 <li>Flaschen</li>
-                <li>Abgang</li>
                 <li>Verbrauch</li>
                 <li>Umsatz</li>
             </ul>
             <?php foreach (tabelle($typ) as $row) { ?>
             <ul class="lager_row">
                 <li><?php echo date('d/m', strtotime($row['datum']));?></li>
-                <li><?php echo $row['anfang_kasten'];?></li>
-                <li><?php echo $row['anfang_flaschen'];?></li>
                 <li><?php echo $row['zugang'];?></li>
-                <li><?php echo $row['ende_kasten'];?></li>
-                <li><?php echo $row['ende_flaschen'];?></li>
                 <li><?php echo $row['abgang'];?></li>
+                <li><?php echo $row['i_g'];?></li>
+                <li><?php echo $row['i_k'];?></li>
                 <li><?php echo $row['verbrauch'];?></li>
-                <li><?php echo $row['umsatz'];?> €</li>
+                <li><?php echo round($row['umsatz'],2);?> €</li>
             </ul>
             <?php } ?>
         </div>

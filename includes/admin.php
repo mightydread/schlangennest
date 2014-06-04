@@ -1,32 +1,30 @@
 <?php
-$con_lager = mysqli_connect(localhost,user,scandale,Lager_test);
-$con_members = mysqli_connect(localhost,user,scandale,members_test);
-mysqli_set_charset($con_lager, 'utf8');
-mysqli_set_charset($con_members, 'utf8');
+$con = mysqli_connect(localhost,user,scandale,scandale);
+mysqli_set_charset($con, 'utf8');
 // define vars
 $email_array=array();
 //
 // Member List Functions
 //
 function select_row ($data) {
-    global $con_members;
+    global $con;
     $sql   = "SELECT * FROM members WHERE id=".$data."";
-    $result = mysqli_query($con_members,$sql);
+    $result = mysqli_query($con,$sql);
     return mysqli_fetch_array($result,MYSQLI_ASSOC);
 }
 function check_for_row ($data) {
-    global $con_members,$exist;
+    global $con,$exist;
     $sql   = "SELECT * FROM members WHERE id=".$data." LIMIT 1";
-    $result = mysqli_query($con_members,$sql);
+    $result = mysqli_query($con,$sql);
     if (mysqli_fetch_row($result)) { $exist=true; }
     else { $exist=false; }
     return $exist;
 }
 function create_id_array($data,$column) {
-    global $con_members;
+    global $con;
     $search_term_esc = AddSlashes($data);
     $sql="SELECT id FROM members WHERE $column LIKE '%$search_term_esc%' ORDER BY id";
-    $result = mysqli_query($con_members,$sql);
+    $result = mysqli_query($con,$sql);
     $all_id = array();
     while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
         $all_id=array_merge_recursive($all_id,$row);
@@ -35,23 +33,23 @@ function create_id_array($data,$column) {
     return $all_id;
 }
 function update_db ($data1,$data2,$data3) {
-    global $con_members;
+    global $con;
     $sql   ="UPDATE members SET ".$data3."='".$data2."' WHERE id =".$data1."";
-    mysqli_query($con_members,$sql);
+    mysqli_query($con,$sql);
 }
 function add_to_db ($nummer,$name,$ratten)  {
-    global $con_members;
+    global $con;
     $sql   ="INSERT INTO members (id,name,ratten) VALUES (".$nummer.",'".$name."',".$ratten.")";
-    mysqli_query($con_members,$sql);
+    mysqli_query($con,$sql);
 }
 //
 // Email functions
 //
 function email_array ($cond) {
-    global $con_members;
+    global $con;
     if ($cond == all) {$sql="SELECT email FROM members ORDER BY id";}
     else   {$sql= "SELECT email FROM members WHERE ".$cond."=1 ORDER BY id";}
-    $result = mysqli_query($con_members,$sql);
+    $result = mysqli_query($con,$sql);
     $email_temp = array();
     while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
         $email_temp=array_merge_recursive($email_temp,$row);
@@ -63,24 +61,24 @@ function email_array ($cond) {
 // Lager Functions
 //
 function full_name ($typ) {
-    global $con_lager;
+    global $con;
     $sql= "SELECT full_name FROM namen WHERE db_name = '".$typ."'";
-    $array = mysqli_fetch_array(mysqli_query($con_lager,$sql));
+    $array = mysqli_fetch_array(mysqli_query($con,$sql));
     return $array['full_name'];
 }
 function waren ($art = "all") {
-    global $con_lager;
+    global $con;
     if ($art == "all") {$sql = "SELECT db_name FROM namen";}
     else { $sql = "SELECT db_name FROM namen WHERE art = '".$art."'";}
-    $result = mysqli_query($con_lager,$sql);
+    $result = mysqli_query($con,$sql);
     $array = array();
     while  ($row = mysqli_fetch_array($result,MYSQLI_NUM)) { $array[] = $row['0']; }
     return $array;
 }
 function tabelle ($typ) {
-    global $con_lager;
+    global $con;
     $sql = "SELECT * FROM ".$typ."";
-    $result = mysqli_query($con_lager,$sql);
+    $result = mysqli_query($con,$sql);
     $temp=array();
     while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
         $temp[]=$row;
@@ -88,12 +86,35 @@ function tabelle ($typ) {
     return $temp;
 }
 function bestand ($typ) {
-    global $con_lager;
+    global $con;
     $sql = "SELECT * FROM ".$typ." ORDER BY datum DESC LIMIT 1";
-    $result = mysqli_query($con_lager,$sql);
+    $result = mysqli_query($con,$sql);
     $row = mysqli_fetch_array($result);
     //    print_r($row);
-    if ($row['ende_kasten'] == 0 and $row['ende_flaschen'] == 0) { echo "<nobr>".full_name($typ).":</nobr><br>".$row['anfang_kasten']."/".$row['anfang_flaschen']." "; }
-    else { echo "<nobr>".full_name($typ).":</nobr></br>".$row['ende_kasten']."/".$row['ende_flaschen']." ";}
+    echo "<nobr>".full_name($typ).":</nobr></br>".$row['i_g']."/".$row['i_k']." ";
+}
+// 
+// Abrechnung
+// 
+function umsatz ($foo="bar") {
+    global $con;
+    $sql="SELECT * FROM abrechnung";
+    $result = mysqli_query($con,$sql);
+    $temp=array();
+    while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+        $temp[]=$row;
+    }
+    return $temp;
+}
+function umsatz_berechnen ($datum)  {
+    global $con;
+    $u_br="0";
+    foreach (waren() as $typ) {
+        $sql = "SELECT umsatz FROM $typ WHERE datum = '".$datum."'";
+        $result = mysqli_query($con,$sql);
+    $row = mysqli_fetch_array($result);
+        $u_br = $u_br+$row['umsatz'];
+    }
+    return $u_br;
 }
 ?>
