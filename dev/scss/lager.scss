@@ -30,7 +30,7 @@
     .name {
 
         width: 400px;
-        font-size: 40px;
+        font-size: 39px;
         font-weight: bolder;
         padding-top: 2px;
 box-sizing: border-box;
@@ -83,58 +83,3 @@ box-sizing: border-box;
         background-color: $schwarz;
     }
 }
-#legend {
-    height: 50px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-    -webkit-justify-content: space-between;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-.lager_ok {
-    background-color: $gruen;
-    font-size: 40px;
-    font-weight: bolder;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-.legend_row {
-    background-color: $schwarz;
-    height: 50px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-justify-content: space-around;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-.lager_row {
-    background-color: $rot;
-    height: 50px;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-justify-content: space-around;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
-    margin-top: 5px;
-    margin-bottom: 5px;
-}
-input[type=submit] {
-
-    background-color: $gruen;
-}
-

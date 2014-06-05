@@ -60,8 +60,8 @@ function verbrauch ($typ,$st,$art,$datum) {
     $result = mysqli_query($con,$sql);
     $inv[2] = mysqli_fetch_array($result,MYSQLI_ASSOC);
     $verbrauch = (($inv[1]['i_g']*$st)+$inv[1]['i_k'])-(($inv[2]['i_g']*$st)+$inv[2]['i_k']-($inv[2]['zugang']*$st)+$inv[2]['abgang']);
-    if ($art == flasche) {$umsatz = ($verbrauch*($inv[1]['preis'] / $st));}
-    elseif ($art == kasten) {$umsatz = $verbrauch*$inv[1]['preis'];}
+    if ($art == "flasche") {$umsatz = ($verbrauch*($inv[1]['preis'] / $st));}
+    elseif ($art == "kasten") {$umsatz = $verbrauch*round($inv[1]['preis']);}
     $sql = "UPDATE ".$typ." SET verbrauch=".$verbrauch.", umsatz=".round($umsatz,2)." WHERE datum='".$inv[1]['datum']."'";
     if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
 }

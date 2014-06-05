@@ -5,8 +5,8 @@ body {
   padding: 0;
   text-align: center;
   color: #fff;
-  font-weight: bold;
-  font-family: sans-serif; }
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300; }
 
 /* line 17, ../../dev/scss/global.scss */
 .select_button {
@@ -25,6 +25,12 @@ ul {
   list-style: none;
   padding: 0px; }
 
+/* line 33, ../../dev/scss/global.scss */
+input {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  padding: 0; }
+
 /* line 2, ../../dev/scss/admin.scss */
 #navbar {
   margin: 10px auto;
@@ -42,156 +48,162 @@ ul {
   #navbar #lager {
     background: url(/media/images/lager_small.png); }
   /* line 17, ../../dev/scss/admin.scss */
+  #navbar #abrechnung {
+    color: #000; }
+  /* line 20, ../../dev/scss/admin.scss */
   #navbar #search {
-    margin-top: 12px;
+    box-sizing: border-box;
+    padding-top: 12px;
     width: 200px; }
-  /* line 21, ../../dev/scss/admin.scss */
+  /* line 25, ../../dev/scss/admin.scss */
   #navbar #ratte1 {
     margin-top: 20px;
     height: 20px;
     background: url(/media/images/list_small.png) 0 0; }
-  /* line 26, ../../dev/scss/admin.scss */
+  /* line 30, ../../dev/scss/admin.scss */
   #navbar #ratte2 {
     margin-top: 10px;
     height: 30px;
     background: url(/media/images/list_small.png) 0 0; }
-  /* line 31, ../../dev/scss/admin.scss */
+  /* line 35, ../../dev/scss/admin.scss */
   #navbar #ratte3 {
     height: 50px;
     background: url(/media/images/list_small.png) 0 0; }
-  /* line 35, ../../dev/scss/admin.scss */
+  /* line 39, ../../dev/scss/admin.scss */
   #navbar li {
     float: left;
-    margin: 0px 21.42px;
+    margin: 0px 15.42px;
     width: 50px;
     height: 50px; }
-  /* line 41, ../../dev/scss/admin.scss */
+  /* line 45, ../../dev/scss/admin.scss */
   #navbar a {
     display: block;
     width: 50px;
     height: 50px; }
 
-/* line 47, ../../dev/scss/admin.scss */
+/* line 51, ../../dev/scss/admin.scss */
 .ratte_svg {
   margin-top: 20px;
   width: 800px;
   height: 318px; }
-  /* line 51, ../../dev/scss/admin.scss */
+  /* line 55, ../../dev/scss/admin.scss */
   .ratte_svg path {
     fill: #252120;
     fill-rule: evenodd;
     clip-rule: evenodd; }
-    /* line 55, ../../dev/scss/admin.scss */
+    /* line 59, ../../dev/scss/admin.scss */
     .ratte_svg path:hover {
       fill: #0a0908; }
 
-/* line 60, ../../dev/scss/admin.scss */
+/* line 64, ../../dev/scss/admin.scss */
 input[type="search"] {
   -webkit-appearance: none;
   border-radius: 0;
   -webkit-border-radius: 0; }
 
 /* Member list */
-/* line 63, ../../dev/scss/admin.scss */
+/* line 67, ../../dev/scss/admin.scss */
 input {
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
   border: 2px solid #252120;
   text-align: center;
   color: #fff;
-  font-weight: bold;
+  font-size: 13px;
   background: #252120;
   box-sizing: border-box; }
-  /* line 72, ../../dev/scss/admin.scss */
+  /* line 77, ../../dev/scss/admin.scss */
   input:focus {
-    outline-color: invert;
+    outline: none;
     color: #000;
-    background: white;
-    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    border: 2px solid #252120; }
+    background: #c0b9b7;
+    border: 2px solid #c0b9b7; }
 
-/* line 81, ../../dev/scss/admin.scss */
+/* line 87, ../../dev/scss/admin.scss */
+input[type=date]:focus {
+  outline: initial; }
+
+/* line 91, ../../dev/scss/admin.scss */
 .message {
   background: #1c9169; }
 
-/* line 84, ../../dev/scss/admin.scss */
+/* line 94, ../../dev/scss/admin.scss */
 .error {
   background: #e73c1e; }
 
-/* line 88, ../../dev/scss/admin.scss */
+/* line 98, ../../dev/scss/admin.scss */
 #legend li, .table_row .nummer, .table_row .name, .table_row .email, .table_row .telefon, .table_row .boxes, .table_row .save, .table_row .lastvisit, .table_row .visit_count, .table_row .message, .table_row .error {
   float: left;
   margin: 0px 6.87px;
   display: block; }
 
-/* line 94, ../../dev/scss/admin.scss */
+/* line 104, ../../dev/scss/admin.scss */
 #legend .nummer, .table_row .nummer {
   width: 45px; }
-/* line 97, ../../dev/scss/admin.scss */
+/* line 107, ../../dev/scss/admin.scss */
 #legend .name, .table_row .name {
   width: 185px; }
-/* line 100, ../../dev/scss/admin.scss */
+/* line 110, ../../dev/scss/admin.scss */
 #legend .email, .table_row .email {
   width: 205px; }
-/* line 103, ../../dev/scss/admin.scss */
+/* line 113, ../../dev/scss/admin.scss */
 #legend .telefon, .table_row .telefon {
   width: 105px; }
-/* line 106, ../../dev/scss/admin.scss */
+/* line 116, ../../dev/scss/admin.scss */
 #legend .boxes, .table_row .boxes {
   width: 30px; }
-/* line 109, ../../dev/scss/admin.scss */
+/* line 119, ../../dev/scss/admin.scss */
 #legend .save, .table_row .save {
   width: 30px; }
-/* line 112, ../../dev/scss/admin.scss */
+/* line 122, ../../dev/scss/admin.scss */
 #legend .lastvisit, .table_row .lastvisit {
   width: 50px; }
-/* line 115, ../../dev/scss/admin.scss */
+/* line 125, ../../dev/scss/admin.scss */
 #legend .visit_count, .table_row .visit_count {
   width: 40px; }
-/* line 118, ../../dev/scss/admin.scss */
+/* line 128, ../../dev/scss/admin.scss */
 #legend .message, .table_row .message, #legend .error, .table_row .error {
   width: 280px; }
 
-/* line 122, ../../dev/scss/admin.scss */
+/* line 132, ../../dev/scss/admin.scss */
 #legend {
   margin: 5px auto;
   width: 800px;
   height: 50px;
   padding: 0px;
   list-style: none; }
-  /* line 128, ../../dev/scss/admin.scss */
+  /* line 138, ../../dev/scss/admin.scss */
   #legend li {
     height: 50px; }
 
-/* line 134, ../../dev/scss/admin.scss */
+/* line 144, ../../dev/scss/admin.scss */
 .table_row {
   margin: 10px auto;
   width: 800px;
   height: 30px; }
-  /* line 140, ../../dev/scss/admin.scss */
+  /* line 150, ../../dev/scss/admin.scss */
   .table_row .nummer, .table_row .name, .table_row .email, .table_row .telefon, .table_row .boxes, .table_row .save, .table_row .lastvisit, .table_row .visit_count, .table_row .message, .table_row .error {
     height: 30px; }
-  /* line 146, ../../dev/scss/admin.scss */
+  /* line 156, ../../dev/scss/admin.scss */
   .table_row .save {
     border: 0px; }
-  /* line 149, ../../dev/scss/admin.scss */
+  /* line 159, ../../dev/scss/admin.scss */
   .table_row .boxes {
     border: 0px;
     -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
     box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3); }
 
-/* line 159, ../../dev/scss/admin.scss */
+/* line 169, ../../dev/scss/admin.scss */
 .boxes form {
   width: 700px;
   margin: auto; }
-/* line 163, ../../dev/scss/admin.scss */
+/* line 173, ../../dev/scss/admin.scss */
 .boxes a {
   display: block;
   width: 30px;
   height: 30px;
   background: url(/media/images/checkbox.png); }
-/* line 169, ../../dev/scss/admin.scss */
+/* line 179, ../../dev/scss/admin.scss */
 .boxes article {
   width: 0;
   height: 0;
@@ -199,7 +211,7 @@ input {
   position: absolute;
   top: 0;
   left: 0; }
-/* line 177, ../../dev/scss/admin.scss */
+/* line 187, ../../dev/scss/admin.scss */
 .boxes article:target {
   width: 100%;
   height: 100%;
@@ -211,18 +223,18 @@ input {
   text-align: center;
   background: rgba(0, 0, 0, 0.8);
   z-index: 1; }
-/* line 189, ../../dev/scss/admin.scss */
+/* line 199, ../../dev/scss/admin.scss */
 .boxes figure {
   background: #403938;
   width: 700px;
   margin: auto;
   padding: 5px; }
-/* line 195, ../../dev/scss/admin.scss */
+/* line 205, ../../dev/scss/admin.scss */
 .boxes ul {
   margin: auto;
   height: 165px;
   padding: 0px; }
-/* line 200, ../../dev/scss/admin.scss */
+/* line 210, ../../dev/scss/admin.scss */
 .boxes li {
   float: left;
   width: 150px;
@@ -233,17 +245,17 @@ input {
   background: #252120;
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3); }
-/* line 212, ../../dev/scss/admin.scss */
+/* line 222, ../../dev/scss/admin.scss */
 .boxes input {
   -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0); }
-/* line 216, ../../dev/scss/admin.scss */
+/* line 226, ../../dev/scss/admin.scss */
 .boxes .checkbox {
   float: left;
   width: 30px;
   height: 30px;
   margin: 0; }
-/* line 222, ../../dev/scss/admin.scss */
+/* line 232, ../../dev/scss/admin.scss */
 .boxes .label {
   float: left;
   margin: 5px;
@@ -251,7 +263,7 @@ input {
   height: 20px;
   display: block;
   text-align: center; }
-/* line 230, ../../dev/scss/admin.scss */
+/* line 240, ../../dev/scss/admin.scss */
 .boxes .save {
   float: left;
   width: 30px;
@@ -260,7 +272,7 @@ input {
   margin: 0px; }
 
 /* Email Area*/
-/* line 240, ../../dev/scss/admin.scss */
+/* line 250, ../../dev/scss/admin.scss */
 .email_link {
   font-size: 40px;
   margin: auto;
@@ -268,15 +280,15 @@ input {
   width: 700px;
   background: #252120;
   border: 5px solid #252120; }
-  /* line 248, ../../dev/scss/admin.scss */
+  /* line 258, ../../dev/scss/admin.scss */
   .email_link a {
     color: #1c9169; }
 
-/* line 252, ../../dev/scss/admin.scss */
+/* line 262, ../../dev/scss/admin.scss */
 .email_panel {
   width: 700px;
   margin: auto; }
-  /* line 255, ../../dev/scss/admin.scss */
+  /* line 265, ../../dev/scss/admin.scss */
   .email_panel #email_result {
     height: 0px;
     background: #252120;
@@ -284,17 +296,17 @@ input {
     overflow: hidden;
     opacity: 0;
     transition: all 0.2s ease-in-out 0.1s; }
-    /* line 262, ../../dev/scss/admin.scss */
+    /* line 272, ../../dev/scss/admin.scss */
     .email_panel #email_result nobr {
       display: none; }
-  /* line 266, ../../dev/scss/admin.scss */
+  /* line 276, ../../dev/scss/admin.scss */
   .email_panel input[type="checkbox"] {
     display: none;
     width: 30px;
     height: 30px;
     margin: auto;
     z-index: 10; }
-    /* line 272, ../../dev/scss/admin.scss */
+    /* line 282, ../../dev/scss/admin.scss */
     .email_panel input[type="checkbox"]:checked ~ #email_result {
       padding: 5px;
       box-sizing: border-box;
@@ -302,65 +314,94 @@ input {
       margin-top: 10px;
       opacity: 1;
       overflow: auto; }
-      /* line 279, ../../dev/scss/admin.scss */
+      /* line 289, ../../dev/scss/admin.scss */
       .email_panel input[type="checkbox"]:checked ~ #email_result nobr {
         display: initial; }
 
 /* Lager */
-/* line 287, ../../dev/scss/admin.scss */
+/* line 297, ../../dev/scss/admin.scss */
 .bestand {
   width: 800px;
   height: 780px;
   margin: 5px auto;
   background-color: #252120; }
-  /* line 293, ../../dev/scss/admin.scss */
+  /* line 303, ../../dev/scss/admin.scss */
   .bestand a {
     height: 50px;
     width: 170px;
     margin: 7.5px 15px;
     float: left;
-    color: white;
+    color: #fff;
     background-color: #403938;
     text-decoration: none;
     box-sizing: border-box;
     border: 2px solid #403938;
     padding-top: 5px; }
-    /* line 304, ../../dev/scss/admin.scss */
+    /* line 314, ../../dev/scss/admin.scss */
     .bestand a:hover {
       background-color: #252120; }
 
-/* line 309, ../../dev/scss/admin.scss */
+/* line 319, ../../dev/scss/admin.scss */
 .lager_panel {
   width: 800px;
   height: 0;
   overflow: hidden;
   background-color: #252120; }
-  /* line 314, ../../dev/scss/admin.scss */
+  /* line 324, ../../dev/scss/admin.scss */
   .lager_panel:target {
     margin: auto;
     margin-top: 5px;
     height: auto;
     overflow: initial; }
-  /* line 320, ../../dev/scss/admin.scss */
+  /* line 330, ../../dev/scss/admin.scss */
   .lager_panel:after {
     content: ".";
     display: block;
     height: 0;
     clear: both;
     visibility: hidden; }
-  /* line 327, ../../dev/scss/admin.scss */
+  /* line 337, ../../dev/scss/admin.scss */
   .lager_panel h1 {
     margin: auto;
     padding: 5px 0px; }
-  /* line 332, ../../dev/scss/admin.scss */
+  /* line 342, ../../dev/scss/admin.scss */
   .lager_panel ul {
     float: left;
     width: 658px;
     height: 30px;
     margin: 0px 71px; }
-  /* line 338, ../../dev/scss/admin.scss */
+  /* line 348, ../../dev/scss/admin.scss */
   .lager_panel li {
     margin: 2px;
     float: left;
     width: 90px;
     background-color: #403938; }
+
+/* line 355, ../../dev/scss/admin.scss */
+#umsatz_panel {
+  width: 800px;
+  margin: auto; }
+  /* line 358, ../../dev/scss/admin.scss */
+  #umsatz_panel:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+
+/* line 366, ../../dev/scss/admin.scss */
+.umsatz_row {
+  float: left;
+  width: 658px;
+  height: 40px;
+  margin: 0px 71px; }
+  /* line 371, ../../dev/scss/admin.scss */
+  .umsatz_row input {
+    width: 90px; }
+  /* line 374, ../../dev/scss/admin.scss */
+  .umsatz_row li {
+    height: 40px;
+    margin: 2px;
+    width: 90px;
+    float: left;
+    background-color: #252120; }

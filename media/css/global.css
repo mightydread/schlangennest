@@ -5,22 +5,33 @@ body {
   padding: 0;
   text-align: center;
   color: #fff;
-  font-weight: bold;
-  font-family: sans-serif; }
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+}
 
 /* line 17, ../../dev/scss/global.scss */
 .select_button {
   margin: 20px 20px 0px 20px;
-  height: 400px; }
+  height: 400px;
+}
 
 /* line 21, ../../dev/scss/global.scss */
 #wrap {
   background-color: #403938;
   width: 830px;
   margin: auto;
-  padding: 5px 10px 10px 10px; }
+  padding: 5px 10px 10px 10px;
+}
 
 /* line 29, ../../dev/scss/global.scss */
 ul {
   list-style: none;
-  padding: 0px; }
+  padding: 0px;
+}
+
+/* line 33, ../../dev/scss/global.scss */
+input {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-weight: 300;
+  padding: 0;
+}

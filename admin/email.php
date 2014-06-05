@@ -28,7 +28,7 @@
             </form>
         </div>
         <?php if (isset($_POST['save'])) { ?>
-        <?php unset($_POST['save']);unset($_POST['save_x']);unset($_POST['save_y']);foreach($_POST as $key => $value) {$temp=email_array($key);$temp = array_diff($temp,$email_array);$email_array = array_merge_recursive($email_array,$temp);}?>
+        <?php unset($_POST['save']);unset($_POST['save_x']);unset($_POST['save_y']);$email_array=array();foreach($_POST as $key => $value) {$temp=email_array($key);$temp = array_diff($temp,$email_array);$email_array = array_merge_recursive($email_array,$temp);}?>
         <div class="email_link">
             <a href="mailto:<?php foreach ($email_array as $data) {if (!($data)) {} else {echo "$data".", ";}} ?>" >Email Verschicken</a>
         </div>

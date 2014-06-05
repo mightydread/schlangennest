@@ -10,7 +10,7 @@ TODO
 - Styling inventur
 - Styling lieferung
 - Cancel checkbox overlay
-- Abrechnung tab
+- Abrechnung tab (in progress)
 - Sorting memberlist
 - Slice email results
 - Major code optimization

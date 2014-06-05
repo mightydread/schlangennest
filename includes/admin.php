@@ -1,9 +1,7 @@
 <?php
 $con = mysqli_connect(localhost,user,scandale,scandale);
 mysqli_set_charset($con, 'utf8');
-// define vars
-$email_array=array();
-//
+ //
 // Member List Functions
 //
 function select_row ($data) {
@@ -13,7 +11,7 @@ function select_row ($data) {
     return mysqli_fetch_array($result,MYSQLI_ASSOC);
 }
 function check_for_row ($data) {
-    global $con,$exist;
+    global $con;
     $sql   = "SELECT * FROM members WHERE id=".$data." LIMIT 1";
     $result = mysqli_query($con,$sql);
     if (mysqli_fetch_row($result)) { $exist=true; }
@@ -106,6 +104,24 @@ function umsatz ($foo="bar") {
     }
     return $temp;
 }
+function add_row_umsatz ($datum) {
+    global $con;
+    $sql = "SELECT 1 FROM abrechnung WHERE datum ='".$datum."' LIMIT 1";
+    $result = mysqli_query($con,$sql);
+    if (mysqli_fetch_row($result)) { 
+    }
+    else {
+        $sql = "INSERT INTO abrechnung (datum) VALUES ('".$datum."')";
+        if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
+    }
+}
+function umsatz_speichern ($datum,$umsatz_br,$frei,$rabatt,$sonst,$umsatz_gz) {
+global $con;
+$tg = ($umsatz_gz+$sonst+$rabatt+$frei)-$umsatz_br;
+$sql = "UPDATE abrechnung SET umsatz_br='".$umsatz_br."', frei='".$frei."',rabatt='".$rabatt."',sonst='".$sonst."',umsatz_gz='".$umsatz_gz."',trinkgeld='".$tg."' WHERE datum = '".$datum."' ";
+mysqli_query($con,$sql);
+}
+
 function umsatz_berechnen ($datum)  {
     global $con;
     $u_br="0";

@@ -1,7 +1,7 @@
 // Colors
 $schwarz: #252120;
 $grau: lighten($schwarz, 10%);
-$weiss: #fff;
+$weiss: lighten($schwarz, 60%);
 $rot: #e73c1e;
 $gruen: #1c9169;
 
@@ -11,8 +11,8 @@ body {
     padding: 0;
     text-align: center;
     color: #fff;
-    font-weight: bold;
-    font-family: sans-serif;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
 }
 .select_button {
     margin: 20px 20px 0px 20px;
@@ -29,4 +29,10 @@ body {
 ul {
     list-style: none;
     padding: 0px;
+}
+input {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+   padding:0;
+   
 }
