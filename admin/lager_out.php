@@ -1,54 +1,46 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8mb4">
-        <meta name="viewport" content="width=1200px">
-        <title>Lager Ausgabe</title>
-        <?php require '../includes/admin.php' ?>
-        <link rel="stylesheet" type="text/css" href="../media/global.css">
-        <link rel="stylesheet" type="text/css" href="../media/admin.css">
-    </head>
-    <body>
-        <?php include 'navbar.php' ?>
-        <div id="wrap">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=850px">
+    <title>Lager Ausgabe</title>
+    <?php require $_SERVER["DOCUMENT_ROOT"].'/includes/admin.php' ?>
+    <link rel="stylesheet" type="text/css" href="/media/css/admin.css">
+</head>
+<body>
 
-            <div class="typ">
-                Bestand
-            </div>
-            <div id="bestand">
-                <?php
-    foreach (waren(kasten) as $typ) {
-    echo "<div class=bestand>";
-    bestand($typ);
-    echo "</div>";
-}
-foreach (waren(flasche) as $typ) {
-    echo "<div class=bestand>";
-    bestand($typ);
-    echo "</div>";
-}
-                ?>
-            </div>
-            <?php
-foreach (waren(kasten) as $typ) {
-    echo "<div class=typ>";
-    echo full_name($typ);
-    echo "<br>";
-    echo "<div class=tabelle>";
-    tabelle_kasten($typ);
-    echo "</div>";
-    echo "</div>";
-}
-foreach (waren(flasche) as $typ) {
-    echo "<div class=typ>";
-    echo full_name($typ);
-    echo "<br>";
-    echo "<div class=tabelle>";
-    tabelle_flasche($typ);
-    echo "</div>";
-    echo "</div>";
-}
-            ?>
+    <div id="wrap">
+        <?php include 'navbar.php' ?>
+        <div class="bestand">
+            <?php foreach (waren() as $typ) { ?>
+            <a href="#<?php echo $typ;?>" ><?php bestand($typ);?></a>
+            <?php } ?>
         </div>
-    </body>
+        <?php foreach (waren() as $typ) { ?>
+        <div class="lager_panel" id="<?php echo $typ;?>">
+            <h1><?php echo full_name($typ);?></h1>
+            <ul class="lager_row">
+                <li>Datum</li>
+                <li>Zugang</li>
+                <li>Abgang</li>
+                <li>Kasten</li>
+                <li>Flaschen</li>
+                <li>Verbrauch</li>
+                <li>Umsatz</li>
+            </ul>
+            <?php foreach (tabelle($typ) as $row) { ?>
+            <ul class="lager_row">
+                <li><?php echo date('d/m', strtotime($row['datum']));?></li>
+                <li><?php echo $row['zugang'];?></li>
+                <li><?php echo $row['abgang'];?></li>
+                <li><?php echo $row['i_g'];?></li>
+                <li><?php echo $row['i_k'];?></li>
+                <li><?php echo $row['verbrauch'];?></li>
+                <li><?php echo round($row['umsatz'],2);?> €</li>
+            </ul>
+            <?php } ?>
+        </div>
+        <?php } ?>
+    </div>
+</body>
 </html>

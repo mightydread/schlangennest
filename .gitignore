@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 /media/icons.psd
 .sass-cache
+=======
+/.sass-cache/
+schlange.sublime-project
+schlange.sublime-workspace
+>>>>>>> scss_tryout

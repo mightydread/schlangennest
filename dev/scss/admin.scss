@@ -1,0 +1,382 @@
+@import "global";
+#navbar {
+    margin: 10px auto;
+    background-color: $gruen;
+    width: 800px;
+    height: 50px;
+    padding: 5px;
+    #home {
+        background: url(/media/images/home.png);
+    }
+    #email {
+        background: url(/media/images/email_small.png);
+    }
+    #lager {
+        background: url(/media/images/lager_small.png);
+    }
+    #abrechnung {
+        color: #000;
+        display: none;
+    }
+    #search {
+        box-sizing: border-box;
+        padding-top: 12px;
+        width: 200px;
+    }
+    #ratte1 {
+        margin-top: 20px;
+        height: 20px;
+        background: url(/media/images/list_small.png) 0 0;
+    }
+    #ratte2{
+        margin-top: 10px;
+        height: 30px;
+        background: url(/media/images/list_small.png) 0 0;
+    }
+    #ratte3{
+        height: 50px;
+        background: url(/media/images/list_small.png) 0 0;
+    }
+    li {
+        float: left;
+        margin: 0px 15.42px;
+        width: 50px;
+        height: 50px;
+    }
+    a {
+        display: block;
+        width: 50px;
+        height: 50px;
+    }
+}
+.ratte_svg {
+    margin-top: 20px;
+    width: 800px;
+    height: 318px;
+    path {
+        fill: $schwarz;
+        fill-rule:evenodd;
+        clip-rule:evenodd;
+        &:hover {
+            fill: darken($schwarz, 10%);
+        }
+    }
+}
+input[type="search"] {-webkit-appearance: none; border-radius: 0; -webkit-border-radius: 0;}
+
+/* Member list */
+input {
+    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    border: 2px solid $schwarz;
+    text-align: center;
+    color: #fff;
+    font-size: 13px;
+    // font-weight: bold;
+    background: $schwarz;
+    box-sizing: border-box;
+    &:focus {
+        outline: none;
+        color: #000;
+        background: $weiss;
+        // -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+        // box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+        border: 2px solid $weiss;
+    }
+}
+input[type=date] {
+    &:focus {
+        outline: initial;
+    }
+}
+.message {
+    background: $gruen;
+}
+.error {
+    background: $rot;
+}
+
+%cell {
+    float: left;
+    margin: 0px 6.87px;
+    display: block;
+}
+%column_widths {
+    .nummer {
+        width: 45px;
+    }
+    .name {
+        width: 185px;
+    }
+    .email {
+        width: 205px;
+    }
+    .telefon {
+        width: 105px;
+    }
+    .boxes {
+        width: 30px;
+    }
+    .save {
+        width: 30px;
+    }
+    .lastvisit {
+        width: 50px;
+    }
+    .visit_count {
+        width: 40px;
+    }
+    .message, .error {
+        width: 280px;
+    }
+}
+#legend {
+    margin: 5px auto;
+    width: 800px;
+    height: 50px;
+    padding: 0px;
+    list-style: none;
+    li {
+        @extend %cell;
+        height: 50px;
+    }
+    @extend %column_widths;
+}
+.table_row {
+    margin: 10px auto;
+    width: 800px;
+    height: 30px;
+    // padding: 5px;
+    
+    .nummer, .name, .email, .telefon, .boxes, .save, .lastvisit, .visit_count, .message, .error {
+        @extend %cell;
+        height: 30px;
+        //font-weight: bold;
+    }
+    @extend %column_widths;
+    .save {
+        border: 0px;
+    }
+    .boxes {
+        border: 0px;
+        -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+}
+
+.boxes {
+    // width: 30px;
+    form {
+        width: 700px;
+        margin: auto;
+    }
+    a {
+        display: block;
+        width: 30px;
+        height: 30px;
+        background: url(/media/images/checkbox.png);
+    }
+    article {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    article:target {
+        width: 100%;
+        height: 100%;
+        padding: 100px 0;
+        margin: 0;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: center;
+        background: rgba(0, 0, 0, .8);
+        z-index: 1;
+    }
+    figure {
+        background: $grau;
+        width: 700px;
+        margin: auto;
+        padding: 5px;
+    }
+    ul {
+        margin: auto;
+        height: 165px;
+        padding: 0px;
+    }
+    li {
+        float: left;
+        width: 150px;
+        text-align: left;
+        height: 30px;
+        margin: 12.5px;
+        box-sizing: border-box;
+        background: $schwarz;
+        -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+
+    }
+    input {
+        -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+    }
+    .checkbox {
+        float: left;
+        width: 30px;
+        height: 30px;
+        margin: 0;
+    }
+    .label {
+        float: left;
+        margin: 5px;
+        width: 100px;
+        height: 20px;
+        display: block;
+        text-align: center;
+    }
+    .save {
+        float: left;
+        width: 30px;
+        height: 30px;
+        border: 0px;
+        margin: 0px;
+    }
+}
+
+/* Email Area*/
+.email_link {
+    //font-weight: bold;
+    font-size: 40px;
+    margin: auto;
+    height: 50px;
+    width: 700px;
+    background: $schwarz;
+    border:5px solid $schwarz;
+    a {
+        color: $gruen;
+    }
+}
+.email_panel{
+    width: 700px;
+    margin:auto;
+    #email_result {
+        height:0px;
+        background: $schwarz;
+        border:5px solid $schwarz;
+        overflow:hidden;
+        opacity: 0;
+        transition: all 0.2s ease-in-out 0.1s;
+        nobr {
+            display: none;
+        }
+    }
+    input[type="checkbox"] {  
+        display: none;      
+        width: 30px;
+        height: 30px;
+        margin: auto;
+        z-index: 10;
+        &:checked ~ #email_result {
+            padding:5px;
+            box-sizing:border-box;
+            height: auto;
+            margin-top: 10px;
+            opacity: 1;
+            overflow: auto;
+            nobr {
+                display: initial;
+            }
+        }
+    }
+}
+
+/* Lager */
+.bestand {
+    //font-weight: bold;
+    width: 800px;
+    height: 780px;
+    margin: 5px auto;
+    background-color: $schwarz;
+    a {
+        height: 50px;
+        width: 170px;
+        margin: 7.5px 15px;
+        float: left;
+        color: #fff;
+        background-color: $grau;
+        text-decoration: none;
+        box-sizing: border-box;
+        border: 2px solid $grau;
+        padding-top: 5px;
+        &:hover {
+            background-color: $schwarz;
+        }
+    }
+}
+.lager_panel {
+    width: 800px;
+    height: 0;
+    overflow: hidden;
+    background-color: $schwarz;
+    &:target {
+        margin: auto;
+        margin-top: 5px;
+        height:auto;
+        overflow:initial;
+    }
+    &:after {
+        content: ".";
+        display:block;
+        height:0;
+        clear:both;
+        visibility:hidden;
+    }
+    h1 {
+        margin:auto;
+        padding: 5px 0px;
+
+    }
+    ul {
+        float:left;
+        width: 658px;
+        height: 30px;
+        margin: 0px 71px;
+    }
+    li {
+        margin: 2px;
+        float: left;
+        width: 90px;
+        background-color: $grau;
+    }
+}
+#umsatz_panel {
+    width: 800px;
+    margin:auto;
+    &:after {
+        content: ".";
+        display:block;
+        height:0;
+        clear:both;
+        visibility:hidden;
+    }
+}
+.umsatz_row {
+        float:left;
+        width: 658px;
+        height: 40px;
+        margin: 0px 71px;
+      input {
+        width: 90px;
+      }   
+    li {
+        height: 40px;
+        margin: 2px;
+        width: 90px;
+        float:left;
+        background-color: $schwarz;
+    }
+}

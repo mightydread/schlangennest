@@ -1,20 +1,11 @@
-<div id=nav>
-    <div class="nav_button"><a href="index.html"><img alt=home src="/media/home.png" ></a></div>
-    <div class="nav_button"><a href="email.php"><img alt=email src="/media/email_small.png"></a></div>
-    <div class="nav_button"><a href="lager_out.php"><img alt=lager src="/media/lager_small.png"></a></div>
-    <div id=search>
-        <form id=search method=post action=list.php>
-            Suche: <input type="search" name="namesearch" value=Name>
-        </form>
-    </div>
-    <div id=ratten>
-        <input type=image form=rat_select src="/media/list_small.png">
-        <form id=rat_select method=post action=list.php>
-            <select form=rat_select name=ratten>
-                <option value=3>3 Ratten</option>
-                <option value=2>2 Ratten</option>
-                <option value=1>1 Ratte</option>
-            </select>
-        </form>
-    </div>
-</div>
+
+    <ul id=navbar>
+        <li id=home><a href="/"></a></li>
+        <li id=email><a href="email.php"><img alt=email src="/media/images/email_small.png"></a></li>
+        <li id=lager><a href="lager_out.php"><img alt=lager src="/media/images/lager_small.png"></a></li>
+        <li id=abrechnung><a href="abrechnung.php">$</a></li>
+        <li id=search><form method=post action=list.php><input type="search" name="namesearch" placeholder=Name></form></li>
+        <li id=ratte1><a href="list.php?ratten=1" ></a></li>
+        <li id=ratte2><a href="list.php?ratten=2" ></a></li>
+        <li id=ratte3><a href="list.php?ratten=3" ></a></li>
+    </ul>

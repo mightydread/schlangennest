@@ -1,15 +1,4 @@
-/*colors
- * 
- * schwarz #252120
- * rot #e73c1e
- * 
- * 
- * 
- * 
- * 
- * */
-
-
+@import "global";
 input[type=number] {
     margin: 0 auto;
     width: 400px;
@@ -30,7 +19,7 @@ input[type=image] {
 .error {
     margin: auto;
     font-size: 90px;
-    color: #e73c1e;
+    color: $rot;
     font-family: sans-serif;
 }
 .ratte {
