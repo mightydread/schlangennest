@@ -14,9 +14,23 @@ body {
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
    font-weight: 300;
 }
+.select_button_img {
+    // float: left;
+    margin: 25px;
+    width: 300px;
+    background-color: $gruen;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 300px;
+    
+        text-decoration: none;
+        color: #000;
+        font-size: 45px;
+    
+}
 .select_button {
-    margin: 20px 20px 0px 20px;
-    height: 400px;
+    @extend .select_button_img;
+padding:125px 0px;
 }
 #wrap {
     background-color: $grau;

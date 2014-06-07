@@ -10,12 +10,24 @@ body {
 }
 
 /* line 17, ../../dev/scss/global.scss */
-.select_button {
-  margin: 20px 20px 0px 20px;
-  height: 400px;
+.select_button_img, .select_button {
+  margin: 25px;
+  width: 300px;
+  background-color: #1c9169;
+  display: inline-block;
+  box-sizing: border-box;
+  height: 300px;
+  text-decoration: none;
+  color: #000;
+  font-size: 45px;
 }
 
-/* line 21, ../../dev/scss/global.scss */
+/* line 31, ../../dev/scss/global.scss */
+.select_button {
+  padding: 125px 0px;
+}
+
+/* line 35, ../../dev/scss/global.scss */
 #wrap {
   background-color: #403938;
   width: 830px;
@@ -23,13 +35,13 @@ body {
   padding: 5px 10px 10px 10px;
 }
 
-/* line 29, ../../dev/scss/global.scss */
+/* line 43, ../../dev/scss/global.scss */
 ul {
   list-style: none;
   padding: 0px;
 }
 
-/* line 33, ../../dev/scss/global.scss */
+/* line 47, ../../dev/scss/global.scss */
 input {
   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
   font-weight: 300;
