@@ -16,7 +16,7 @@
     }
     #abrechnung {
         color: #000;
-        display: none;
+        // display: none;
     }
     #search {
         box-sizing: border-box;
@@ -44,9 +44,12 @@
         height: 50px;
     }
     a {
+        text-decoration: none;
         display: block;
         width: 50px;
         height: 50px;
+        color: #000;
+        font-size: 40px;
     }
 }
 .ratte_svg {
@@ -369,11 +372,12 @@ input[type=date] {
         width: 658px;
         height: 40px;
         margin: 0px 71px;
+        margin-bottom: 5px;
       input {
         width: 90px;
       }   
     li {
-        height: 40px;
+        // height: 40px;
         margin: 2px;
         width: 90px;
         float:left;

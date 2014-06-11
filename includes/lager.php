@@ -1,5 +1,7 @@
 <?php
-$con = mysqli_connect(localhost,user,scandale,scandale);
+// $con = mysqli_connect(localhost,user,scandale,scandale);
+$con = mysqli_connect(localhost,root,root,scandale);
+
 mysqli_set_charset($con, 'utf8');
 function get_date () {
     if (isset($_POST['datum'])) {

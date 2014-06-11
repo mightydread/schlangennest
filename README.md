@@ -5,7 +5,7 @@ TODO
 ============
 
 
-- Last visited check so that people cannot check in twice
+- (DONE) Last visited check so that people cannot check in twice
 - Better icons
 - Styling inventur
 - Styling lieferung

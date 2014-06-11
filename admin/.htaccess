@@ -1,4 +1,4 @@
-AuthUserFile .htpasswd
+AuthUserFile /Users/mighty/Sites/schlangennest/admin/.htpasswd
 AuthType Basic
 AuthName "Scandale Administration"
 Require valid-user

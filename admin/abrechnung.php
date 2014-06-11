@@ -11,7 +11,6 @@
 <body>
     <div id="wrap">
         <?php include 'navbar.php' ?>
-        <?php print_r($_POST);?>
         <form class="umsatz_row" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
             <input type="date" name=datum value="D.M.YYYY">
             <input type=submit name="save_datum">
