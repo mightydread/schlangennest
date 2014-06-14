@@ -19,10 +19,11 @@ function check_for_row ($data) {
     else { $exist=false; }
     return $exist;
 }
-function create_id_array($data,$column) {
+function create_id_array($data,$column,$sort) {
     global $con;
     $search_term_esc = AddSlashes($data);
-    $sql="SELECT id FROM members WHERE $column LIKE '%$search_term_esc%' ORDER BY id";
+    $sql="SELECT id FROM members WHERE $column LIKE '%$search_term_esc%' ORDER BY IF(ISNULL($sort),1,0),$sort";
+    echo $sql;
     $result = mysqli_query($con,$sql);
     $all_id = array();
     while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) {

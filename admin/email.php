@@ -28,17 +28,21 @@
             </form>
         </div>
         <?php if (isset($_POST['save'])) { ?>
-        <?php unset($_POST['save']);unset($_POST['save_x']);unset($_POST['save_y']);$email_array=array();foreach($_POST as $key => $value) {$temp=email_array($key);$temp = array_diff($temp,$email_array);$email_array = array_merge_recursive($email_array,$temp);}?>
+        <?php unset($_POST['save']);unset($_POST['save_x']);unset($_POST['save_y']);$email_array=array();foreach($_POST as $key => $value) {$temp=email_array($key);$temp = array_diff($temp,$email_array);$email_array = array_values(array_filter(array_merge_recursive($email_array,$temp)));}?>
+            <?php $x=0;do { ?>
         <div class="email_link">
-            <a href="mailto:<?php foreach ($email_array as $data) {if (!($data)) {} else {echo "$data".", ";}} ?>" >Email Verschicken</a>
+                
+            
+            <a href="mailto:<?php foreach (array_slice($email_array,$x,30) as $data) {if (!($data)) {} else {echo "$data".", ";}} ?>" >Email Verschicken <?php echo "$x bis ";$x=$x+30;echo $x;?></a>
         </div>
+        <?php } while ( $x <= count($email_array)); ?>
         <div class="email_link">
             <label for="paneltoggle">Emails Anzeigen<label>
         </div>
         <div class="email_panel">
         <input type="checkbox" id="paneltoggle" />
         <div id="email_result">
-            <?php foreach ($email_array as $data) {if (!($data)) {} else {echo "<nobr class=nobr>$data".",</nobr> ";}} ?>
+            <?php foreach ($email_array as $data) {echo " <nobr class=nobr>$data".",</nobr>";} ?>
         </div>
     </div> <?php }?>
     </div>

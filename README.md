@@ -9,10 +9,10 @@ TODO
 - Better icons
 - Styling inventur
 - Styling lieferung
-- Cancel checkbox overlay
+- (DONE) Cancel checkbox overlay
 - Abrechnung tab (in progress)
 - Sorting memberlist
-- Slice email results
+- (DONE) Slice email results
 - Major code optimization
 
 Upcoming features

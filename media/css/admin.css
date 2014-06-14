@@ -308,19 +308,28 @@ input[type=date]:focus {
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
 }
-/* line 226, ../../dev/scss/admin.scss */
+/* line 224, ../../dev/scss/admin.scss */
+.boxes li a {
+  height: 30px;
+  width: 150px;
+  text-decoration: none;
+  text-align: center;
+  color: #e73c1e;
+  background: rgba(0, 0, 0, 0);
+}
+/* line 235, ../../dev/scss/admin.scss */
 .boxes input {
   -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 }
-/* line 230, ../../dev/scss/admin.scss */
+/* line 239, ../../dev/scss/admin.scss */
 .boxes .checkbox {
   float: left;
   width: 30px;
   height: 30px;
   margin: 0;
 }
-/* line 236, ../../dev/scss/admin.scss */
+/* line 245, ../../dev/scss/admin.scss */
 .boxes .label {
   float: left;
   margin: 5px;
@@ -329,7 +338,7 @@ input[type=date]:focus {
   display: block;
   text-align: center;
 }
-/* line 244, ../../dev/scss/admin.scss */
+/* line 253, ../../dev/scss/admin.scss */
 .boxes .save {
   float: left;
   width: 30px;
@@ -339,7 +348,7 @@ input[type=date]:focus {
 }
 
 /* Email Area*/
-/* line 254, ../../dev/scss/admin.scss */
+/* line 263, ../../dev/scss/admin.scss */
 .email_link {
   font-size: 40px;
   margin: auto;
@@ -348,17 +357,17 @@ input[type=date]:focus {
   background: #252120;
   border: 5px solid #252120;
 }
-/* line 262, ../../dev/scss/admin.scss */
+/* line 271, ../../dev/scss/admin.scss */
 .email_link a {
   color: #1c9169;
 }
 
-/* line 266, ../../dev/scss/admin.scss */
+/* line 275, ../../dev/scss/admin.scss */
 .email_panel {
   width: 700px;
   margin: auto;
 }
-/* line 269, ../../dev/scss/admin.scss */
+/* line 278, ../../dev/scss/admin.scss */
 .email_panel #email_result {
   height: 0px;
   background: #252120;
@@ -367,11 +376,11 @@ input[type=date]:focus {
   opacity: 0;
   transition: all 0.2s ease-in-out 0.1s;
 }
-/* line 276, ../../dev/scss/admin.scss */
+/* line 285, ../../dev/scss/admin.scss */
 .email_panel #email_result nobr {
   display: none;
 }
-/* line 280, ../../dev/scss/admin.scss */
+/* line 289, ../../dev/scss/admin.scss */
 .email_panel input[type="checkbox"] {
   display: none;
   width: 30px;
@@ -379,7 +388,7 @@ input[type=date]:focus {
   margin: auto;
   z-index: 10;
 }
-/* line 286, ../../dev/scss/admin.scss */
+/* line 295, ../../dev/scss/admin.scss */
 .email_panel input[type="checkbox"]:checked ~ #email_result {
   padding: 5px;
   box-sizing: border-box;
@@ -388,20 +397,20 @@ input[type=date]:focus {
   opacity: 1;
   overflow: auto;
 }
-/* line 293, ../../dev/scss/admin.scss */
+/* line 302, ../../dev/scss/admin.scss */
 .email_panel input[type="checkbox"]:checked ~ #email_result nobr {
   display: initial;
 }
 
 /* Lager */
-/* line 301, ../../dev/scss/admin.scss */
+/* line 310, ../../dev/scss/admin.scss */
 .bestand {
   width: 800px;
   height: 780px;
   margin: 5px auto;
   background-color: #252120;
 }
-/* line 307, ../../dev/scss/admin.scss */
+/* line 316, ../../dev/scss/admin.scss */
 .bestand a {
   height: 50px;
   width: 170px;
@@ -414,26 +423,26 @@ input[type=date]:focus {
   border: 2px solid #403938;
   padding-top: 5px;
 }
-/* line 318, ../../dev/scss/admin.scss */
+/* line 327, ../../dev/scss/admin.scss */
 .bestand a:hover {
   background-color: #252120;
 }
 
-/* line 323, ../../dev/scss/admin.scss */
+/* line 332, ../../dev/scss/admin.scss */
 .lager_panel {
   width: 800px;
   height: 0;
   overflow: hidden;
   background-color: #252120;
 }
-/* line 328, ../../dev/scss/admin.scss */
+/* line 337, ../../dev/scss/admin.scss */
 .lager_panel:target {
   margin: auto;
   margin-top: 5px;
   height: auto;
   overflow: initial;
 }
-/* line 334, ../../dev/scss/admin.scss */
+/* line 343, ../../dev/scss/admin.scss */
 .lager_panel:after {
   content: ".";
   display: block;
@@ -441,19 +450,19 @@ input[type=date]:focus {
   clear: both;
   visibility: hidden;
 }
-/* line 341, ../../dev/scss/admin.scss */
+/* line 350, ../../dev/scss/admin.scss */
 .lager_panel h1 {
   margin: auto;
   padding: 5px 0px;
 }
-/* line 346, ../../dev/scss/admin.scss */
+/* line 355, ../../dev/scss/admin.scss */
 .lager_panel ul {
   float: left;
   width: 658px;
   height: 30px;
   margin: 0px 71px;
 }
-/* line 352, ../../dev/scss/admin.scss */
+/* line 361, ../../dev/scss/admin.scss */
 .lager_panel li {
   margin: 2px;
   float: left;
@@ -461,12 +470,12 @@ input[type=date]:focus {
   background-color: #403938;
 }
 
-/* line 359, ../../dev/scss/admin.scss */
+/* line 368, ../../dev/scss/admin.scss */
 #umsatz_panel {
   width: 800px;
   margin: auto;
 }
-/* line 362, ../../dev/scss/admin.scss */
+/* line 371, ../../dev/scss/admin.scss */
 #umsatz_panel:after {
   content: ".";
   display: block;
@@ -475,7 +484,7 @@ input[type=date]:focus {
   visibility: hidden;
 }
 
-/* line 370, ../../dev/scss/admin.scss */
+/* line 379, ../../dev/scss/admin.scss */
 .umsatz_row {
   float: left;
   width: 658px;
@@ -483,11 +492,11 @@ input[type=date]:focus {
   margin: 0px 71px;
   margin-bottom: 5px;
 }
-/* line 376, ../../dev/scss/admin.scss */
+/* line 385, ../../dev/scss/admin.scss */
 .umsatz_row input {
   width: 90px;
 }
-/* line 379, ../../dev/scss/admin.scss */
+/* line 388, ../../dev/scss/admin.scss */
 .umsatz_row li {
   margin: 2px;
   width: 90px;
