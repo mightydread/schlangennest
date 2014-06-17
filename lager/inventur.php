@@ -15,16 +15,16 @@
             <?php 
             foreach (waren() as $typ) {
                 if (!isset($_SESSION[$typ])) {$_SESSION[$typ]=array("i_g"=>"0","i_k"=>"0","st"=>info($typ)['st'],"art"=>info($typ)['art']);}
-                $$typ=$typ._ok;
+                
                 if (isset($_POST[$typ])) {
                     $_SESSION[$typ]['i_g']=$_POST[$typ._g];
                     $_SESSION[$typ]['i_k']=$_POST[$typ._k];
                     add_row($typ,get_date());
                     inventur($typ,$_SESSION[$typ]['i_g'],$_SESSION[$typ]['i_k'],get_date());
                     verbrauch($typ,$_SESSION[$typ]['st'],$_SESSION[$typ]['art'],get_date());
-                    $_SESSION[$typ]['done'] = "ok";
+                    $_SESSION[$typ]['done_inv'] = "ok";
                 }
-                if (isset($_SESSION[$typ]['done'])) { ?>
+                if (isset($_SESSION[$typ]['done_inv'])) { ?>
                 <form class="row_disabled" id="<?php echo $typ;?>_correct" method="post" onsubmit="return confirm('Do you really want to submit the form?');" action="<?php echo $_SERVER['PHP_SELF'];?>#<?php echo $typ;?>_correct" >
                     <?php } else { ?>
                     <form class="row" id="<?php echo $typ;?>" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>#<?php echo $typ;?>_correct" >
