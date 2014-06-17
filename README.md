@@ -7,11 +7,10 @@ TODO
 
 - (DONE) Last visited check so that people cannot check in twice
 - Better icons
-- Styling inventur
-- Styling lieferung
+- Styling
 - (DONE) Cancel checkbox overlay
 - Abrechnung tab (in progress)
-- Sorting memberlist
+- (DONE) Sorting memberlist
 - (DONE) Slice email results
 - Major code optimization
 

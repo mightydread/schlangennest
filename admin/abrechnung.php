@@ -11,12 +11,12 @@
 <body>
     <div id="wrap">
         <?php include 'navbar.php' ?>
-        <form class="umsatz_row" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
+        <div id="umsatz_panel">
+        <form id="set_date" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
             <input type="date" name=datum value="D.M.YYYY">
             <input type=submit name="save_datum">
         </form>
-        <div id="umsatz_panel">
-            <ul class="umsatz_row">
+            <ul class="umsatz_row" id="legende">
                 <li>Datum</li>
                 <li>Umsatz<br>berechnet</li>
                 <li>Frei Getränke</li>

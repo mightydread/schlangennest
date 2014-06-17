@@ -22,8 +22,13 @@ function check_for_row ($data) {
 function create_id_array($data,$column,$sort) {
     global $con;
     $search_term_esc = AddSlashes($data);
-    $sql="SELECT id FROM members WHERE $column LIKE '%$search_term_esc%' ORDER BY IF(ISNULL($sort),1,0),$sort";
-    echo $sql;
+    if ($sort == "lastvisit" or $sort == "visit_count") {
+        $sql="SELECT id FROM members WHERE $column LIKE '%$search_term_esc%' ORDER BY ! ASCII($sort),$sort DESC";
+    }
+    else {
+    $sql="SELECT id FROM members WHERE $column LIKE '%$search_term_esc%' ORDER BY ! ASCII($sort),$sort";
+}
+    // echo $sql;
     $result = mysqli_query($con,$sql);
     $all_id = array();
     while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) {

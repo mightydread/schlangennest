@@ -34,7 +34,7 @@ function info ($typ) {
     global $con;
     $sql = "SELECT * FROM namen WHERE db_name = '".$typ."'";
     $result = mysqli_query($con,$sql);
-    while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {$a['st']=$row['einheit'];$a['art']=$row['art'];}
+    while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {$a['st']=$row['einheit'];$a['art']=$row['art'];$a['preis']=$row['preis'];}
     return $a;
 }
 function add_row ($typ,$datum) {
@@ -55,15 +55,20 @@ function letzte_inv ($typ,$datum) {
     $row[] = mysqli_fetch_array($result,MYSQLI_ASSOC);
     return $row[0];
 }
-function verbrauch ($typ,$st,$art,$datum) {
+function verbrauch ($typ,$st,$art,$preis,$datum) {
     global $con;
     $inv[1] = letzte_inv($typ,$datum);
     $sql = "SELECT * FROM ".$typ." WHERE datum='".$datum."'";
     $result = mysqli_query($con,$sql);
     $inv[2] = mysqli_fetch_array($result,MYSQLI_ASSOC);
-    $verbrauch = (($inv[1]['i_g']*$st)+$inv[1]['i_k'])-(($inv[2]['i_g']*$st)+$inv[2]['i_k']-($inv[2]['zugang']*$st)+$inv[2]['abgang']);
-    if ($art == "flasche") {$umsatz = ($verbrauch*($inv[1]['preis'] / $st));}
-    elseif ($art == "kasten") {$umsatz = $verbrauch*round($inv[1]['preis']);}
+    $invent = ($inv[1]['i_g']*$st)+$inv[1]['i_k'];
+    
+    $invent2 = ($inv[2]['i_g']*$st)+$inv[2]['i_k']-($inv[2]['zugang']*$st)+$inv[2]['abgang'];
+ 
+    $verbrauch = $invent - $invent2;
+
+    if ($art == "flasche") {$umsatz = ($verbrauch*($preis / $st));}
+    elseif ($art == "kasten") {$umsatz = $verbrauch*$preis);}
     $sql = "UPDATE ".$typ." SET verbrauch=".$verbrauch.", umsatz=".round($umsatz,2)." WHERE datum='".$inv[1]['datum']."'";
     if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
 }

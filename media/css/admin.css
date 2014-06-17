@@ -488,7 +488,7 @@ input[type=date]:focus {
 .umsatz_row {
   float: left;
   width: 658px;
-  height: 40px;
+  height: 20px;
   margin: 0px 71px;
   margin-bottom: 5px;
 }
@@ -498,8 +498,29 @@ input[type=date]:focus {
 }
 /* line 388, ../../dev/scss/admin.scss */
 .umsatz_row li {
+  font-size: 13px;
   margin: 2px;
   width: 90px;
   float: left;
+  box-sizing: border-box;
+  border: 2px solid #252120;
   background-color: #252120;
+}
+
+/* line 399, ../../dev/scss/admin.scss */
+#set_date {
+  float: left;
+  width: 658px;
+  height: 20px;
+  margin: 0px 71px;
+  margin-bottom: 10px;
+}
+/* line 405, ../../dev/scss/admin.scss */
+#set_date input {
+  width: 90px;
+}
+
+/* line 409, ../../dev/scss/admin.scss */
+#legende {
+  height: 40px;
 }
