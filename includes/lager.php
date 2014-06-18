@@ -68,7 +68,7 @@ function verbrauch ($typ,$st,$art,$preis,$datum) {
     $verbrauch = $invent - $invent2;
 
     if ($art == "flasche") {$umsatz = ($verbrauch*($preis / $st));}
-    elseif ($art == "kasten") {$umsatz = $verbrauch*$preis);}
+    elseif ($art == "kasten") {$umsatz = ($verbrauch*$preis);}
     $sql = "UPDATE ".$typ." SET verbrauch=".$verbrauch.", umsatz=".round($umsatz,2)." WHERE datum='".$inv[1]['datum']."'";
     if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
 }
