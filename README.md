@@ -5,14 +5,13 @@ TODO
 ============
 
 
-- Last visited check so that people cannot check in twice
+- (DONE) Last visited check so that people cannot check in twice
 - Better icons
-- Styling inventur
-- Styling lieferung
-- Cancel checkbox overlay
+- Styling
+- (DONE) Cancel checkbox overlay
 - Abrechnung tab (in progress)
-- Sorting memberlist
-- Slice email results
+- (DONE) Sorting memberlist
+- (DONE) Slice email results
 - Major code optimization
 
 Upcoming features

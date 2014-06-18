@@ -1,5 +1,6 @@
 <?php
 $con = mysqli_connect(localhost,user,scandale,scandale);
+// $con = mysqli_connect(localhost,root,root,scandale);
 // functions
 function test_input ($data) {
     $data  = trim($data);
@@ -13,6 +14,12 @@ function door_check ($data) {
     $result = mysqli_query($con,$sql);
     if (mysqli_fetch_row($result)) {
         $array = mysqli_fetch_array(mysqli_query($con,$sql));
+        $time  = time() - (12 * 60 * 60);
+    $datum  = date("Y-m-d", $time);
+    if ($array['lastvisit'] == $datum) {
+        echo "<span class=error >Karte heute schon registriert!</span>";
+    }
+    else {
         echo $array['name'];
         echo "<br>";
         for ($x=1; $x<=$array['ratten']; $x++)    {
@@ -20,8 +27,9 @@ function door_check ($data) {
         }
         $exist = true;
     }
+    }
     else   {
-        echo "<img src=\"../media/images/error.png\" >";
+        echo "<span class=error >Karte ist nicht registriert!</span>";
     }
 
 }

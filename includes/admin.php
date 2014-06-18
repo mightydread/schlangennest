@@ -1,5 +1,6 @@
 <?php
 $con = mysqli_connect(localhost,user,scandale,scandale);
+// $con = mysqli_connect(localhost,root,root,scandale);
 mysqli_set_charset($con, 'utf8');
  //
 // Member List Functions
@@ -18,10 +19,16 @@ function check_for_row ($data) {
     else { $exist=false; }
     return $exist;
 }
-function create_id_array($data,$column) {
+function create_id_array($data,$column,$sort) {
     global $con;
     $search_term_esc = AddSlashes($data);
-    $sql="SELECT id FROM members WHERE $column LIKE '%$search_term_esc%' ORDER BY id";
+    if ($sort == "lastvisit" or $sort == "visit_count") {
+        $sql="SELECT id FROM members WHERE $column LIKE '%$search_term_esc%' ORDER BY ! ASCII($sort),$sort DESC";
+    }
+    else {
+    $sql="SELECT id FROM members WHERE $column LIKE '%$search_term_esc%' ORDER BY ! ASCII($sort),$sort";
+}
+    // echo $sql;
     $result = mysqli_query($con,$sql);
     $all_id = array();
     while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) {

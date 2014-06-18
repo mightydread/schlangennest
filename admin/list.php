@@ -24,26 +24,26 @@
 <body>
     <div id="wrap">
         <?php include 'navbar.php' ?>
-        <?php 
+        <?php if (isset($_GET['ratten'])) {$id_array = create_id_array($_GET['ratten'],ratten,$_GET['sort']);}
+        elseif (isset($_POST['ratten'])) {$_GET['ratten'] = $_POST['ratten']; $id_array = create_id_array($_POST['ratten'],ratten,$_GET['sort']);}
+        elseif (isset($_POST['namesearch'])) {$id_array = create_id_array($_POST['namesearch'],name,$_GET['sort']);}
+        else {$id_array = array();}
+
         if (isset($_GET['ratten']) or isset($_POST['namesearch']) or isset($_POST['ratten'])){ ?>
         <ul id=legend>
-            <li class=nummer><img alt=ID src="/media/images/id.png"></li>
-            <li class=name><img alt=NAME src="/media/images/name.png"></li>
-            <li class=email><img alt=EMAIL src="/media/images/email_transp.png"></li>
-            <li class=telefon><img alt=TELEFON src="/media/images/tel.png"></li>
+            <li class=nummer><a href="?sort=id&ratten=<?php echo $_GET['ratten'];?>"> <img alt=ID src="/media/images/id.png"></a></li>
+            <li class=name><a href="?sort=name&ratten=<?php echo $_GET['ratten'];?>"><img alt=NAME src="/media/images/name.png"></a></li>
+            <li class=email><a href="?sort=email&ratten=<?php echo $_GET['ratten'];?>"><img alt=EMAIL src="/media/images/email_transp.png"></a></li>
+            <li class=telefon><a href="?sort=telefon&ratten=<?php echo $_GET['ratten'];?>"><img alt=TELEFON src="/media/images/tel.png"></a></li>
             <li class=boxes></li>
-            <li class=lastvisit><img alt=DATUM src="/media/images/clock.png"></li>
-            <li class=visit_count><img alt=BESUCHE width=40 src="/media/images/times.png"></li>
+            <li class=lastvisit><a href="?sort=lastvisit&ratten=<?php echo $_GET['ratten'];?>"><img alt=DATUM src="/media/images/clock.png"></a></li>
+            <li class=visit_count><a href="?sort=visit_count&ratten=<?php echo $_GET['ratten'];?>"><img alt=BESUCHE width=40 src="/media/images/times.png"></a></li>
             <li class=save></li>
         </ul>
         <?php 
-        if (isset($_GET['ratten'])) {$id_array = create_id_array($_GET['ratten'],ratten);}
-        elseif (isset($_POST['ratten'])) {$_GET['ratten'] = $_POST['ratten']; $id_array = create_id_array($_POST['ratten'],ratten);}
-        elseif (isset($_POST['namesearch'])) {$id_array = create_id_array($_POST['namesearch'],name);}
-        else {$id_array = array();}
-        foreach ($id_array as $key) {
+                foreach ($id_array as $key) {
             $row = select_row($key); ?>
-            <form method=post class=table_row action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]).'#'.$key;?>" id="<?php echo $key;?>" >
+            <form method=post class=table_row action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]).'#'.$key;?>?sort=<?php echo $_GET['sort'];?>&ratten=<?php echo $_GET['ratten'];?>" id="<?php echo $key;?>" >
                 <input type=hidden name=ratten value="<?php echo $row['ratten'];?>" >
                 <input class=nummer name=id value="<?php echo $row['id'];?>" type=text readonly>
                 <input class=name name=name value="<?php echo $row['name'];?>" type=text>
@@ -63,35 +63,38 @@
                                 <li><input class=checkbox id="studenten" name=studenten value=1 type=checkbox <?php if($row['studenten']==1) {echo "checked";}?> ><div class=label ><label for="studenten" >Studenten</label></div></li>
                                 <li><input class=checkbox id="kleinkunst" name=kleinkunst value=1 type=checkbox <?php if($row['kleinkunst']==1) {echo "checked";}?> ><div class=label ><label for="kleinkunst" >Kleinkunst</label></div></li>
                                 <li><input class=save id="save" name=save value=save type=image form="<?php echo $key;?>" src="/media/images/save.png"><div class=label ><label for="save" >Speichern</label></div></li>
-                            </figure>
-                        </article>
-                    </div>
-                    <input class=lastvisit name=lastvisit value=<?php echo date('d/m', strtotime($row['lastvisit']));?> type=text disabled>
-                    <input class=visit_count name=visit_count value=<?php echo $row['visit_count'];?> type=text disabled>
-                    <input class=save name=save value=save type=image form="<?php echo $key;?>" src="/media/images/save.png">
-                </form>
-                <?php
-            }
-            if (isset($_GET['ratten']) or isset($_POST['ratten'])) { ?>
-            <form method=post class=table_row action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>#new" id=new >
-                <input type=hidden name=ratten value="<?php echo $_GET['ratten'];?>" >
-                <input class=nummer name=id type=number >
-                <input class=name name=name type=text >
-                <input class=save name=new value=NEU type=image form=new src="/media/images/new.png" >
-                <?php 
-                if (isset($_POST['new'])) {
-                    if (check_for_row($_POST['id'])) { ?>
-                    <input class="error" value="Nummer existiert schon!" disabled>
-                    <?php 
-                }
-                elseif (!check_for_row($_POST['id']))   {
-                    add_to_db($_POST['id'],$_POST['name'],$_GET['ratten']); ?>
-                    <input class="message" value="Mitglied hinzugefügt!" disabled>
-                    <?php 
-                } 
-            }
+                                <li><a href="#close" >Schliessen</a></li>
+                            </ul>
+                        </figure>
+                    </article>
+                </div>
+                <input class=lastvisit name=lastvisit value=<?php echo date('d/m', strtotime($row['lastvisit']));?> type=text disabled>
+                <input class=visit_count name=visit_count value=<?php echo $row['visit_count'];?> type=text disabled>
+                <input class=save name=save value=save type=image form="<?php echo $key;?>" src="/media/images/save.png">
+            </form>
+            <?php
         }
-    }?>
+        if (isset($_GET['ratten']) or isset($_POST['ratten'])) { ?>
+        <form method=post class=table_row action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>#new" id=new >
+            <input type=hidden name=ratten value="<?php echo $_GET['ratten'];?>" >
+            <input class=nummer name=id type=number >
+            <input class=name name=name type=text >
+            <input class=save name=new value=NEU type=image form=new src="/media/images/new.png" >
+            <?php 
+            if (isset($_POST['new'])) {
+                if (check_for_row($_POST['id'])) { ?>
+                <input class="error" value="Nummer existiert schon!" disabled>
+                <?php 
+            }
+            elseif (!check_for_row($_POST['id']))   {
+                add_to_db($_POST['id'],$_POST['name'],$_GET['ratten']); ?>
+                <input class="message" value="Mitglied hinzugefügt!" disabled>
+                <?php 
+            } 
+        }
+    }
+}?>
+        
 </div>
 </body>
 </html>

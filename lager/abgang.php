@@ -19,9 +19,9 @@
                     $_SESSION[$typ]['a']=$_POST[$typ._a];                    
                     add_row($typ,get_date());
                     abgang($typ,$_SESSION[$typ]['a'],get_date());
-                    $_SESSION[$typ]['done'] = "ok";
+                    $_SESSION[$typ]['done_ab'] = "ok";
                 }
-                if (isset($_SESSION[$typ]['done'])) { ?>
+                if (isset($_SESSION[$typ]['done_ab'])) { ?>
                 <form class="row_disabled" id="<?php echo $typ;?>_correct" method="post" onsubmit="return confirm('Do you really want to submit the form?');" action="<?php echo $_SERVER['PHP_SELF'];?>#<?php echo $typ;?>_correct" >
                     <?php } else { ?>
                     <form class="row" id="<?php echo $typ;?>" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>#<?php echo $typ;?>_correct" >

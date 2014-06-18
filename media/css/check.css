@@ -53,33 +53,28 @@ input[type=number] {
   margin: 0 auto;
   width: 400px;
   height: auto;
-  /*    padding: 4px;*/
+  padding: 0px;
   font-size: 140px;
+  text-align: center;
 }
 
-/* line 9, ../../dev/scss/check.scss */
+/* line 10, ../../dev/scss/check.scss */
 input[type=image] {
   margin: auto;
   width: 400px;
 }
 
-/* line 13, ../../dev/scss/check.scss */
-.result {
+/* line 14, ../../dev/scss/check.scss */
+#result {
   margin: auto;
   font-size: 90px;
-  color: #fff;
-  font-family: sans-serif;
 }
-
-/* line 19, ../../dev/scss/check.scss */
-.error {
-  margin: auto;
-  font-size: 90px;
+/* line 20, ../../dev/scss/check.scss */
+#result .error {
   color: #e73c1e;
-  font-family: sans-serif;
 }
 
-/* line 25, ../../dev/scss/check.scss */
+/* line 27, ../../dev/scss/check.scss */
 .ratte {
   width: 150px;
 }

@@ -1,40 +1,30 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8mb4" />
-        <meta name="viewport" content="width=600px">
+        <meta charset="utf-8">
+    <meta name="viewport" content="width=850px">
         <title>Tür Check</title>
         <?php require '../includes/door.php' ?>
-        <?php if ($_SERVER["REQUEST_METHOD"]=="POST" ) {
-    if (empty($_POST['id']) and empty($_POST['visit'])) {
-        $idErr="Nummer eingeben" ;
-    }
-    elseif  (empty($_POST['id']) and isset($_POST['visit']))    {
-
-    }
-    else {
-        $id=test_input($_POST['id']);
-    }
-} ?>
-
-        <link rel="stylesheet" type="text/css" href="/media/css/check.css">
+   <link rel="stylesheet" type="text/css" href="/media/css/check.css">
     </head>
     <body>
+        <div id="wrap" >
         <div class="id_form">
-            <form method="post" id="check_id" name="check_id" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+            <form method="post" id="check_id" name="check_id" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>#result">
                 <input type="number" name="id"><br>
                 <input form="check_id" alt="Check" name="check_button" type="image" src="/media/images/check_number.png">
             </form>
         </div>
+        <div id="result">
         <?php
-if ($idErr) {echo "<br><div class=\"error\">" .$idErr. "</div>";}
-if(isset($_POST['visit'])) {add_lastvisit($_POST['visit']);visit_counter($_POST['visit']);}
-elseif ($id){ ?>
-        <div class="result">
+if ($_SERVER["REQUEST_METHOD"]=="POST" and empty($_POST['id']) and empty($_POST['visit'])) {
+        echo "<span class=\"error\">Nummer eingeben</span>" ;
+    }
+elseif(isset($_POST['visit'])) {add_lastvisit($_POST['visit']);visit_counter($_POST['visit']);}
+elseif (isset($_POST['id'])) { ?>
             <br>
             <?php
-    door_check($id);
-    echo "</div>";
+    door_check(test_input($_POST['id']));
     if ($exist){ ?>
             <div>
                 <form method="post" id="check_in_form" name="check_in_form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -44,5 +34,6 @@ elseif ($id){ ?>
                 <?php } } ?>
             </div>
         </div>
+    </div>
     </body>
 </html>

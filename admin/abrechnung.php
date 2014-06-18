@@ -11,13 +11,12 @@
 <body>
     <div id="wrap">
         <?php include 'navbar.php' ?>
-        <?php print_r($_POST);?>
-        <form class="umsatz_row" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
+        <div id="umsatz_panel">
+        <form id="set_date" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
             <input type="date" name=datum value="D.M.YYYY">
             <input type=submit name="save_datum">
         </form>
-        <div id="umsatz_panel">
-            <ul class="umsatz_row">
+            <ul class="umsatz_row" id="legende">
                 <li>Datum</li>
                 <li>Umsatz<br>berechnet</li>
                 <li>Frei Getränke</li>
@@ -28,7 +27,7 @@
             </ul>
             <?php if (isset($_POST['save_datum'])){ ?>
             <form class="umsatz_row" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" id="umsatz">
-                <input type="date" name="u_datum" value="<?php echo date('d.m.Y', strtotime($_POST['datum']));?>" readonly >
+                <input type="text" name="datum" value="<?php echo date('d.m.Y', strtotime($_POST['datum']));?>" readonly >
                 <input type="number" name="u_br" value="<?php echo umsatz_berechnen(date('Y-m-d',strtotime($_POST['datum'])));?>" readonly>
                 <input type="number" step="any" name="u_fr" >
                 <input type="number" step="any" name="u_halb" >
@@ -38,8 +37,8 @@
             </form>
             <?php }?>
             <?php if(isset($_POST['save'])){
-                add_row_umsatz(date('Y-m-d',strtotime($_POST['u_datum'])));
-                umsatz_speichern(date('Y-m-d',strtotime($_POST['u_datum'])),$_POST['u_br'],$_POST['u_fr'],$_POST['u_halb'],$_POST['u_sonst'],$_POST['u_gz']);
+                add_row_umsatz(date('Y-m-d',strtotime($_POST['datum'])));
+                umsatz_speichern(date('Y-m-d',strtotime($_POST['datum'])),$_POST['u_br'],$_POST['u_fr'],$_POST['u_halb'],$_POST['u_sonst'],$_POST['u_gz']);
                 }?>
             <?php foreach (umsatz() as $row) { ?>
             <ul class="umsatz_row">

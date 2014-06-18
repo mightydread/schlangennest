@@ -16,7 +16,7 @@
     }
     #abrechnung {
         color: #000;
-        display: none;
+        // display: none;
     }
     #search {
         box-sizing: border-box;
@@ -44,9 +44,12 @@
         height: 50px;
     }
     a {
+        text-decoration: none;
         display: block;
         width: 50px;
         height: 50px;
+        color: #000;
+        font-size: 40px;
     }
 }
 .ratte_svg {
@@ -218,11 +221,20 @@ input[type=date] {
         background: $schwarz;
         -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
         box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+        a {
+            height: 30px;
+            width: 150px;
+            text-decoration: none;
+            text-align: center;
+            color: $rot;
+            background: rgba(0, 0, 0, 0.0);
+
+        }
 
     }
     input {
-        -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+        -webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.0);
+        box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.0);
     }
     .checkbox {
         float: left;
@@ -367,16 +379,33 @@ input[type=date] {
 .umsatz_row {
         float:left;
         width: 658px;
-        height: 40px;
+        height: 20px;
         margin: 0px 71px;
+        margin-bottom: 5px;
       input {
         width: 90px;
       }   
     li {
-        height: 40px;
+        // height: 40px;
+        font-size: 13px;
         margin: 2px;
         width: 90px;
         float:left;
+        box-sizing: border-box;
+        border: 2px solid $schwarz;
         background-color: $schwarz;
     }
+}
+#set_date {
+    float: left;
+    width: 658px;
+        height: 20px;
+        margin: 0px 71px;
+        margin-bottom: 10px;
+      input {
+        width: 90px;
+      }   
+}
+#legende {
+    height: 40px;
 }

@@ -3,24 +3,26 @@ input[type=number] {
     margin: 0 auto;
     width: 400px;
     height: auto;
-/*    padding: 4px;*/
+    padding: 0px;
     font-size: 140px;
+    text-align: center;
 }
 input[type=image] {
     margin: auto;
     width: 400px;
 }
-.result {
+#result {
     margin: auto;
     font-size: 90px;
-    color: #fff;
-    font-family: sans-serif;
-}
+    // color: #fff;
+    // font-family: sans-serif;
+
 .error {
-    margin: auto;
-    font-size: 90px;
+    // margin: auto;
+    // font-size: 90px;
     color: $rot;
-    font-family: sans-serif;
+}
+    // font-family: sans-serif;
 }
 .ratte {
     width: 150px;
