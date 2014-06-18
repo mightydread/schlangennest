@@ -22,7 +22,7 @@
                     $_SESSION[$typ]['i_k']=$_POST[$typ._k];
                     add_row($typ,get_date());
                     inventur($typ,$_SESSION[$typ]['i_g'],$_SESSION[$typ]['i_k'],get_date());
-                    verbrauch($typ,$_SESSION[$typ]['st'],$_SESSION[$typ]['art'],$_SESSION[$typ]['art'],get_date());
+                    verbrauch($typ,$_SESSION[$typ]['st'],$_SESSION[$typ]['art'],$_SESSION[$typ]['preis'],get_date());
                     $_SESSION[$typ]['done_inv'] = "ok";
                 }
                 if (isset($_SESSION[$typ]['done_inv'])) { ?>
