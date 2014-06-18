@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect(localhost,user,scandale,scandale_dev);
+$con = mysqli_connect(localhost,user,scandale,scandale);
 // $con = mysqli_connect(localhost,root,root,scandale);
 // functions
 function test_input ($data) {
