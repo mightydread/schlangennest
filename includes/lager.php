@@ -1,7 +1,5 @@
 <?php
-$con = mysqli_connect(localhost,user,scandale,scandale);
-// $con = mysqli_connect(localhost,root,root,scandale);
-
+require '../includes/db.php';
 mysqli_set_charset($con, 'utf8');
 function get_date () {
     if (isset($_POST['datum'])) {
@@ -14,6 +12,7 @@ function get_date () {
 if (!function_exists('full_name')) {
     function full_name ($typ) {
         global $con;
+        $array = array();
         $sql= "SELECT full_name FROM namen WHERE db_name = '".$typ."'";
         $array = mysqli_fetch_array(mysqli_query($con,$sql));
         return $array['full_name'];

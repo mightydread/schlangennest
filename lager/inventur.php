@@ -15,7 +15,7 @@
             <?php 
             foreach (waren() as $typ) {
                 if (!isset($_SESSION[$typ])) {$_SESSION[$typ]=array("i_g"=>"0","i_k"=>"0","st"=>info($typ)['st'],"art"=>info($typ)['art'],"preis"=>info($typ)['preis']);}
-                if (!isset($_SESSION[$typ][st]) or !isset($_SESSION[$typ][art]) or !isset($_SESSION[$typ][preis])) {$_SESSION[$typ]=array("st"=>info($typ)['st'],"art"=>info($typ)['art'],"preis"=>info($typ)['preis']);}
+                if (!isset($_SESSION[$typ]['st']) or !isset($_SESSION[$typ]['art']) or !isset($_SESSION[$typ]['preis'])) {$_SESSION[$typ]=array("st"=>info($typ)['st'],"art"=>info($typ)['art'],"preis"=>info($typ)['preis']);}
                
                 if (isset($_POST[$typ])) {
                     $_SESSION[$typ]['i_g']=$_POST[$typ._g];
@@ -31,8 +31,8 @@
                     <form class="row" id="<?php echo $typ;?>" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>#<?php echo $typ;?>_correct" >
                         <?php } ?>
                         <label for="<?php echo $typ;?>_g" class="name"><?php echo full_name($typ);?></label>
-                        <div class="info"><?php if ($_SESSION[$typ][art] == "kasten"){ echo "Kasten";} else { echo "Flaschen";}?></div><input id="<?php echo $typ;?>_g" class=anzahl type=number step=any value="<?php echo  $_SESSION[$typ][i_g];?>" min=0 name="<?php echo $typ;?>_g" >
-                        <div class="info"><?php if ($_SESSION[$typ][art] == "kasten"){ echo "Flaschen";} else { echo "Anbruch";}?></div><input class=anzahl type=number step=any value="<?php echo  $_SESSION[$typ][i_k];?>" min=0 name="<?php echo $typ;?>_k" >
+                        <div class="info"><?php if ($_SESSION[$typ]['art'] == "kasten"){ echo "Kasten";} else { echo "Flaschen";}?></div><input id="<?php echo $typ;?>_g" class=anzahl type=number step=any value="<?php echo  $_SESSION[$typ]['i_g'];?>" min=0 name="<?php echo $typ;?>_g" >
+                        <div class="info"><?php if ($_SESSION[$typ]['art'] == "kasten"){ echo "Flaschen";} else { echo "Anbruch";}?></div><input class=anzahl type=number step=any value="<?php echo  $_SESSION[$typ]['i_k'];?>" min=0 name="<?php echo $typ;?>_k" >
                         <input class=save type=submit form="<?php echo $typ;?>" name="<?php echo $typ;?>" src="/media/images/save.png">
                         <input class=save_correct type=submit form="<?php echo $typ;?>_correct" name="<?php echo $typ;?>" src="/media/images/save.png">
                     </form>
