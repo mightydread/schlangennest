@@ -64,7 +64,7 @@ function verbrauch ($typ,$st,$art,$preis,$datum) {
     $invent = ($inv[1]['i_g']*$st)+$inv[1]['i_k'];
     
     $invent2 = ($inv[2]['i_g']*$st)+$inv[2]['i_k']-($inv[2]['zugang']*$st)+$inv[2]['abgang'];
- 
+
     $verbrauch = $invent - $invent2;
 
     if ($art == "flasche") {$umsatz = ($verbrauch*($preis / $st));}
@@ -79,16 +79,39 @@ function inventur ($typ,$i_g,$i_k,$datum) {
 }
 function zugang ($typ,$anzahl,$datum) {
     global $con;
-    $inv[1]=letzte_inv($typ,$datum);
-    $i_g=$inv[1][i_g]+$anzahl;
-    $sql = "UPDATE ".$typ." SET i_g='".$i_g."', i_k='".$inv[1][i_k]."', zugang=".$anzahl." WHERE datum='".$datum."'";
-    if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
+    $sql = "SELECT * FROM ".$typ." WHERE datum ='".$datum."' ORDER BY datum DESC LIMIT 1";
+    $result = mysqli_query($con,$sql);
+    $array_temp=array();
+    $array_temp=mysqli_fetch_array($result,MYSQLI_ASSOC);
+    if ($array_temp['i_g'] == "0" and $array_temp['i_k'] == "0"){
+        $inv[1]=letzte_inv($typ,$datum);
+        $i_g=$inv[1]['i_g']+$anzahl;
+        $sql = "UPDATE ".$typ." SET i_g='".$i_g."', i_k='".$inv[1]['i_k']."', zugang=".$anzahl." WHERE datum='".$datum."'";
+        if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
+    }
+    else {
+        $i_g=$array_temp['i_g']+$anzahl;
+        $sql = "UPDATE ".$typ." SET i_g='".$i_g."', i_k='".$array_temp['i_k']."', zugang=".$anzahl." WHERE datum='".$datum."'";
+        if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
+    }
 }
 function abgang ($typ,$anzahl,$datum) {
     global $con;
-    $inv[1]=letzte_inv($typ,$datum);
-    $i_g=$inv[1][i_g]-$anzahl;
-    $verbrauch=$anzahl*info($typ)['st'];
-    $sql = "UPDATE ".$typ." SET i_g=".$i_g.", i_k='".$inv[1][i_k]."', verbrauch=".$verbrauch.", abgang=".$anzahl." WHERE datum='".$datum."'";
-    if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
+    $sql = "SELECT * FROM ".$typ." WHERE datum ='".$datum."' ORDER BY datum DESC LIMIT 1";
+    $result = mysqli_query($con,$sql);
+    $array_temp=array();
+    $array_temp=mysqli_fetch_array($result,MYSQLI_ASSOC);
+    if ($array_temp['i_g'] == "0" and $array_temp['i_k'] == "0"){
+        $inv[1]=letzte_inv($typ,$datum);
+        $i_g=$inv[1]['i_g']-$anzahl;
+        $verbrauch=$anzahl*info($typ)['st'];
+        $sql = "UPDATE ".$typ." SET i_g=".$i_g.", i_k='".$inv[1]['i_k']."', verbrauch=".$verbrauch.", abgang=".$anzahl." WHERE datum='".$datum."'";
+        if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
+    }
+    else {
+        $i_g=$array_temp['i_g']-$anzahl;
+        $verbrauch=$anzahl*info($typ)['st'];
+        $sql = "UPDATE ".$typ." SET i_g=".$i_g.", i_k='".$array_temp['i_k']."', verbrauch=".$verbrauch.", abgang=".$anzahl." WHERE datum='".$datum."'";
+        if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
+    }
 }
