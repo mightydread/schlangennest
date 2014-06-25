@@ -1,0 +1,46 @@
+/* line 1, ../../dev/scss/print.scss */
+body {
+  width: 800px; }
+
+/* line 4, ../../dev/scss/print.scss */
+#header {
+  font-weight: bold;
+  font-size: large;
+  text-align: right; }
+  /* line 8, ../../dev/scss/print.scss */
+  #header ul {
+    width: 800px; }
+  /* line 11, ../../dev/scss/print.scss */
+  #header li {
+    border: none;
+    width: 200px; }
+
+/* line 16, ../../dev/scss/print.scss */
+.table {
+  float: left; }
+
+/* line 20, ../../dev/scss/print.scss */
+.legend li {
+  text-align: center;
+  font-weight: bold; }
+
+/* line 25, ../../dev/scss/print.scss */
+ul {
+  list-style-type: none;
+  width: 270px;
+  height: 30px;
+  margin: 0 20px; }
+
+/* line 31, ../../dev/scss/print.scss */
+li {
+  width: 60px;
+  float: left;
+  padding: 4px;
+  border: 1px solid #000;
+  text-align: right;
+  box-sizing: border-box; }
+
+/* line 39, ../../dev/scss/print.scss */
+.name {
+  width: 150px;
+  text-align: left; }

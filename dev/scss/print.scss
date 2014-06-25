@@ -1,0 +1,42 @@
+body {
+	width:800px;
+}
+#header {
+	font-weight: bold;
+	font-size: large;
+	text-align:right;
+	ul{
+		width: 800px;
+	}
+	li {
+		border: none;
+		width: 200px;
+	}
+}
+.table {
+	float:left;
+}
+.legend {
+	li{
+		text-align: center;
+		font-weight: bold;
+	}
+}
+ul{
+	list-style-type: none;
+	width:270px;
+	height:30px;
+	margin: 0 20px;
+}
+li {
+	width:60px;
+	float:left;
+	padding: 4px;
+	border: 1px solid #000;
+	text-align: right;
+	box-sizing: border-box;
+}
+.name {
+	width: 150px;
+	text-align: left;
+}

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8"> 
     <meta name="viewport" content="width=850px">
     <title>Lager Ausgabe</title>
     <?php require $_SERVER["DOCUMENT_ROOT"].'/includes/admin.php' ?>
@@ -12,10 +12,10 @@
     <div id="wrap">
         <?php include 'navbar.php' ?>
         <div id="umsatz_panel">
-        <form id="set_date" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
-            <input type="date" name=datum value="D.M.YYYY">
-            <input type=submit name="save_datum">
-        </form>
+            <form id="set_date" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
+                <input type="date" name=datum value="D.M.YYYY">
+                <input type=submit name="save_datum">
+            </form>
             <ul class="umsatz_row" id="legende">
                 <li>Datum</li>
                 <li>Umsatz<br>berechnet</li>
@@ -33,13 +33,14 @@
                 <input type="number" step="any" name="u_halb" >
                 <input type="number" step="any" name="u_sonst" >
                 <input type="number" step="any" name="u_gz" >
+                <input type="number" step="any" name="trinkgeld" disabled >
                 <input type="submit" name="save">
             </form>
             <?php }?>
             <?php if(isset($_POST['save'])){
                 add_row_umsatz(date('Y-m-d',strtotime($_POST['datum'])));
                 umsatz_speichern(date('Y-m-d',strtotime($_POST['datum'])),$_POST['u_br'],$_POST['u_fr'],$_POST['u_halb'],$_POST['u_sonst'],$_POST['u_gz']);
-                }?>
+            }?>
             <?php foreach (umsatz() as $row) { ?>
             <ul class="umsatz_row">
                 <li><?php echo date('d.m', strtotime($row['datum']));?></li>
@@ -49,6 +50,13 @@
                 <li><?php echo $row['sonst'];?> €</li>
                 <li><?php echo $row['umsatz_gz'];?> €</li>
                 <li><?php echo $row['trinkgeld'] ;?> €</li>
+                <form method="post" target="_blank" action="abrechnungprint.php">
+                    <input type="hidden" name="datum" value="<?php echo $row['datum'];?>">
+                    
+
+                        <input type="submit" name="print" value="Print">
+                    
+                </form>
             </ul>
             <?php  } ?>
         </div>

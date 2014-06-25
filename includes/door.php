@@ -1,6 +1,5 @@
 <?php
-$con = mysqli_connect(localhost,user,scandale,scandale);
-// $con = mysqli_connect(localhost,root,root,scandale);
+require $_SERVER['DOCUMENT_ROOT'].'/includes/db.php';
 // functions
 function test_input ($data) {
     $data  = trim($data);
