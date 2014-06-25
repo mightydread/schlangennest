@@ -377,16 +377,23 @@ input[type=date] {
     }
 }
 .umsatz_row {
-        float:left;
-        width: 658px;
-        height: 20px;
-        margin: 0px 71px;
-        margin-bottom: 5px;
-      input {
-        width: 90px;
-      }   
+    float:left;
+    width: 752px;
+    height: 20px;
+    margin: 0px 24px;
+    margin-bottom: 5px;
+    // input[type="submit"] {
+    //     width: 86px;
+    //     height: 16px;
+    //     border: none;
+    //     -webkit-box-shadow: none;
+    //     -webkit-appearance: none;
+    // }
+input {
+    width: 90px;
+}
     li {
-        // height: 40px;
+        // height: 20px;
         font-size: 13px;
         margin: 2px;
         width: 90px;
@@ -399,12 +406,12 @@ input[type=date] {
 #set_date {
     float: left;
     width: 658px;
-        height: 20px;
-        margin: 0px 71px;
-        margin-bottom: 10px;
-      input {
+    height: 20px;
+    margin: 0px 71px;
+    margin-bottom: 10px;
+    input {
         width: 90px;
-      }   
+    }   
 }
 #legende {
     height: 40px;
