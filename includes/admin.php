@@ -132,6 +132,7 @@ function umsatz_berechnen ($datum)  {
     global $con;
     $u_br="0";
     foreach (waren() as $typ) {
+        if ($typ == "effect"){}
         $sql = "SELECT umsatz FROM $typ WHERE datum = '".$datum."'";
         $result = mysqli_query($con,$sql);
     $row = mysqli_fetch_array($result);

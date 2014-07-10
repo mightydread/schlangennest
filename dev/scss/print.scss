@@ -1,42 +1,80 @@
 body {
-	width:800px;
+	width: 700px;
 }
 #header {
+	position: relative;
+	width: 700px;
+	height: 70px;
 	font-weight: bold;
 	font-size: large;
-	text-align:right;
-	ul{
-		width: 800px;
+	// text-align: right;
+	#logo {
+		width: 230px;
+		height: 70px;
+		position: absolute;
+		top: 0;
+		left: 0;
 	}
-	li {
-		border: none;
-		width: 200px;
+	#datum {
+		position: absolute;
+		height: 30px;
+		top: 0;
+		right: 0;
+		width: 250px;
+	}
+	#comment {
+		position: absolute;
+		width: 250px;
+		height: 30px;
+		top: 30px;
+		right: 0px;
 	}
 }
 .table {
-	float:left;
-}
-.legend {
-	li{
-		text-align: center;
-		font-weight: bold;
+	margin-top: 10px;
+	position: relative;
+	width: 700px;
+	height: 650px;
+	table {
+		width: 325px;
 	}
-}
-ul{
-	list-style-type: none;
-	width:270px;
-	height:30px;
-	margin: 0 20px;
-}
-li {
-	width:60px;
-	float:left;
-	padding: 4px;
-	border: 1px solid #000;
-	text-align: right;
-	box-sizing: border-box;
-}
-.name {
-	width: 150px;
-	text-align: left;
+	td {
+		text-align: right;
+		border: 1px solid #000;
+	}
+	#umsatz{
+		position: absolute;
+		width: 250px;
+		height: 25px;
+		top: 0;
+		left: 0;
+		font-weight: bold;
+		font-size: large;
+	}
+	#detail {
+		position: absolute;
+		width: 250px;
+		height: 25px;
+		top: 25px;
+		left: 0;
+		font-weight: bold;
+		font-size: large;
+	}
+	#left {
+		position: absolute;
+		top: 50px;
+		left: 0;
+	}
+	#right {
+		position: absolute;
+		top: 50px;
+		right: 0;
+	}
+	.legend {
+		font-weight: bold;
+		text-align: center;
+	}
+	.name {
+		text-align: left;
+	}
 }
