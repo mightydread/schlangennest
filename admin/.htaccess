@@ -1,4 +1,0 @@
-AuthUserFile .htpasswd
-AuthType Basic
-AuthName "Scandale Administration"
-Require valid-user
