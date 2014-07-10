@@ -102,13 +102,10 @@ input {
 /* line 47, ../../dev/scss/lager.scss */
 .row .info, .row_disabled .info {
   box-sizing: border-box;
-  padding-top: 20px;
+  padding-top: 17px;
   margin: 0px;
-  font-size: x-small;
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
 }
-/* line 55, ../../dev/scss/lager.scss */
+/* line 53, ../../dev/scss/lager.scss */
 .row input[type=number], .row_disabled input[type=number] {
   padding: 0px;
   box-sizing: border-box;
@@ -121,20 +118,20 @@ input {
   background-color: #1c9169;
 }
 
-/* line 70, ../../dev/scss/lager.scss */
+/* line 68, ../../dev/scss/lager.scss */
 .row_disabled {
   background-color: #1c9169;
   border: 2px solid #1c9169;
 }
-/* line 74, ../../dev/scss/lager.scss */
+/* line 72, ../../dev/scss/lager.scss */
 .row_disabled .save {
   display: none;
 }
-/* line 77, ../../dev/scss/lager.scss */
+/* line 75, ../../dev/scss/lager.scss */
 .row_disabled .save_correct {
   display: initial;
 }
-/* line 80, ../../dev/scss/lager.scss */
+/* line 78, ../../dev/scss/lager.scss */
 .row_disabled input[type=number] {
   color: #1c9169;
   border: 2px solid #252120;

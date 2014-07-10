@@ -1,46 +1,95 @@
 /* line 1, ../../dev/scss/print.scss */
 body {
-  width: 800px; }
+  width: 700px;
+}
 
 /* line 4, ../../dev/scss/print.scss */
 #header {
+  position: relative;
+  width: 700px;
+  height: 70px;
   font-weight: bold;
   font-size: large;
-  text-align: right; }
-  /* line 8, ../../dev/scss/print.scss */
-  #header ul {
-    width: 800px; }
-  /* line 11, ../../dev/scss/print.scss */
-  #header li {
-    border: none;
-    width: 200px; }
-
-/* line 16, ../../dev/scss/print.scss */
-.table {
-  float: left; }
-
-/* line 20, ../../dev/scss/print.scss */
-.legend li {
-  text-align: center;
-  font-weight: bold; }
-
-/* line 25, ../../dev/scss/print.scss */
-ul {
-  list-style-type: none;
-  width: 270px;
+}
+/* line 11, ../../dev/scss/print.scss */
+#header #logo {
+  width: 230px;
+  height: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+/* line 18, ../../dev/scss/print.scss */
+#header #datum {
+  position: absolute;
   height: 30px;
-  margin: 0 20px; }
+  top: 0;
+  right: 0;
+  width: 250px;
+}
+/* line 25, ../../dev/scss/print.scss */
+#header #comment {
+  position: absolute;
+  width: 250px;
+  height: 30px;
+  top: 30px;
+  right: 0px;
+}
 
-/* line 31, ../../dev/scss/print.scss */
-li {
-  width: 60px;
-  float: left;
-  padding: 4px;
-  border: 1px solid #000;
+/* line 33, ../../dev/scss/print.scss */
+.table {
+  margin-top: 10px;
+  position: relative;
+  width: 700px;
+  height: 650px;
+}
+/* line 38, ../../dev/scss/print.scss */
+.table table {
+  width: 325px;
+}
+/* line 41, ../../dev/scss/print.scss */
+.table td {
   text-align: right;
-  box-sizing: border-box; }
-
-/* line 39, ../../dev/scss/print.scss */
-.name {
-  width: 150px;
-  text-align: left; }
+  border: 1px solid #000;
+}
+/* line 45, ../../dev/scss/print.scss */
+.table #umsatz {
+  position: absolute;
+  width: 250px;
+  height: 25px;
+  top: 0;
+  left: 0;
+  font-weight: bold;
+  font-size: large;
+}
+/* line 54, ../../dev/scss/print.scss */
+.table #detail {
+  position: absolute;
+  width: 250px;
+  height: 25px;
+  top: 25px;
+  left: 0;
+  font-weight: bold;
+  font-size: large;
+}
+/* line 63, ../../dev/scss/print.scss */
+.table #left {
+  position: absolute;
+  top: 50px;
+  left: 0;
+}
+/* line 68, ../../dev/scss/print.scss */
+.table #right {
+  position: absolute;
+  top: 50px;
+  right: 0;
+}
+/* line 73, ../../dev/scss/print.scss */
+.table .legend {
+  font-weight: bold;
+  text-align: center;
+}
+/* line 77, ../../dev/scss/print.scss */
+.table .name {
+  text-align: left;
+}

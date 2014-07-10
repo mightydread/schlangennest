@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=850px">
+    <meta name="viewport" content="width=700px">
     <title>Abrechnung <?php echo date('d.m.Y',strtotime($_POST['datum'])); ?></title>
     <?php require $_SERVER["DOCUMENT_ROOT"].'/includes/admin.php' ?>
     <link rel="stylesheet" type="text/css" href="/media/css/print.css">
@@ -10,58 +10,65 @@
 
 <body>
 	<div id="header" >
-        <ul>
-            <li>Datum: <?php echo date('d.m.Y',strtotime($_POST['datum'])); ?></li>
-            <li>Verastaltung:</li>
-        </ul>
-    </div>
-    <br>
-    <hr>
-    <div class="table">
-        <ul class="legend">
-            <li class="name" >Artikel</li>
-            <li>V</li>
-            <li>TU</li>
-        </ul>
-        <?php 
-        $umsatz_gesamt="0";
-        foreach (waren(kasten) as $typ) {
+        <div id="logo"><img src="/media/images/logo_scandale.png" width="230px" ></div>
+        <div id="datum" >Datum: <?php echo date('d.m.Y',strtotime($_POST['datum'])); ?></div>
+        <div id="comment" >Verastaltung:</div>
+    </ul>
+</div>
+<hr>
+<div class="table">
+    <?php 
+    $umsatz_gesamt="0";
+    foreach (waren() as $typ) {
+        if ($typ == "barbara" or $typ == "mexi" or $typ == "hasel" or $typ == "effect") {
 
-            echo "<ul><li class=name>".full_name($typ)."</li>";
+        }
+        else {
             $sql = "SELECT * FROM $typ WHERE datum = '".$_POST['datum']."'";
             $result = mysqli_query($con,$sql);
             $row = mysqli_fetch_array($result);
             $umsatz_gesamt = $umsatz_gesamt+$row['umsatz'];
-            echo "<li>".$row['verbrauch']."</li>";
-            echo "<li>".round($row['umsatz'],2)." €</li></ul>";
-
+            $array[$typ] = array( 'name' => full_name($typ), 'verbrauch' => $row['verbrauch'], 'umsatz' => round($row['umsatz'],2));
         }
-        
+    } 
+    ?>
+    <div id="umsatz">Tagesumsatz: <?php echo $umsatz_gesamt." €";?></div>
+    <div id="detail">Details:</div>
+    <table id="left" >
+        <tr>
+            <td class="name legend">&nbsp;Artikel</td>
+            <td class="legend">Verbrauch</td>
+            <td class="legend">Umsatz</td>
+        </tr>
+        <?php 
+        foreach (waren(kasten) as $typ) {
+            if ($typ == "effect") {
+            }
+            else {
+                echo "<tr><td class=name>&nbsp;".$array[$typ]['name']."</td>";
+                echo "<td>".$array[$typ]['verbrauch']." Flaschen&nbsp; </td>";
+                echo "<td>".$array[$typ]['umsatz']." €&nbsp; </td></tr>";
+            }
+        }
         ?>
-    </div>
-    <div class="table">
-        <ul class="legend">
-            <li class="name" >Artikel</li>
-            <li>V</li>
-            <li>TU</li>
-        </ul>
+    </table>
+    <table id="right">
+        <tr>
+            <td class="name legend" >&nbsp;Artikel</td>
+            <td class="legend">Verbrauch</td>
+            <td class="legend">Umsatz</td>
+        </tr>
         <?php
         foreach (waren(flasche) as $typ) {
             if ($typ == "barbara" or $typ == "mexi" or $typ == "hasel"){}
               else {
-                echo "<ul><li class=name>".full_name($typ)."</li>";
-                $sql = "SELECT * FROM $typ WHERE datum = '".$_POST['datum']."'";
-                $result = mysqli_query($con,$sql);
-                $row = mysqli_fetch_array($result);
-                $umsatz_gesamt = $umsatz_gesamt+$row['umsatz'];
-                echo "<li>".$row['verbrauch']."</li>";
-                echo "<li>".round($row['umsatz'],2)." €</li></ul>";
-
+                 echo "<tr><td class=name>&nbsp;".$array[$typ]['name']."</td>";
+                echo "<td>".$array[$typ]['verbrauch']." Liter&nbsp; </td>";
+                echo "<td>".$array[$typ]['umsatz']." €&nbsp; </td></tr>";
             }
         }
         ?>
-    </div>
-    
-    <div id="TU">Tagesumsatz gesamt: <?php echo $umsatz_gesamt." €";?></div>
+    </table>
+</div>
 </body>
 </html>

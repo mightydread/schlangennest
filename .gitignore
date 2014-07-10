@@ -1,9 +1,9 @@
 
 /media/icons.psd
-.sass-cache
-/.sass-cache/
-schlange.sublime-project
-schlange.sublime-workspace
+*.sass-cache
+*/.sass-cache/
 media/images/.AppleDouble
 /.AppleDouble/
 */.AppleDouble/
+*.htaccess
+*.htpasswd

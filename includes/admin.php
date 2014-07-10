@@ -25,8 +25,8 @@ function create_id_array($data,$column,$sort) {
         $sql="SELECT id FROM members WHERE $column LIKE '%$search_term_esc%' ORDER BY ! ASCII($sort),$sort DESC";
     }
     else {
-    $sql="SELECT id FROM members WHERE $column LIKE '%$search_term_esc%' ORDER BY ! ASCII($sort),$sort";
-}
+        $sql="SELECT id FROM members WHERE $column LIKE '%$search_term_esc%' ORDER BY ! ASCII($sort),$sort";
+    }
     // echo $sql;
     $result = mysqli_query($con,$sql);
     $all_id = array();
@@ -41,8 +41,11 @@ function update_db ($data1,$data2,$data3) {
     $sql   ="UPDATE members SET ".$data3."='".$data2."' WHERE id =".$data1."";
     mysqli_query($con,$sql);
 }
-function add_to_db ($nummer,$name,$ratten)  {
+function add_to_db ($nummer,$name)  {
     global $con;
+    if ($nummer <= 50) { $ratten=3; }
+    elseif ($nummer > 50 and $nummer <= 150) { $ratten=2; }
+    elseif ($nummer > 150) { $ratten=1; }
     $sql   ="INSERT INTO members (id,name,ratten) VALUES (".$nummer.",'".$name."',".$ratten.")";
     mysqli_query($con,$sql);
 }
@@ -79,6 +82,13 @@ function waren ($art = "all") {
     while  ($row = mysqli_fetch_array($result,MYSQLI_NUM)) { $array[] = $row['0']; }
     return $array;
 }
+function info ($typ) {
+    global $con;
+    $sql = "SELECT * FROM namen WHERE db_name = '".$typ."'";
+    $result = mysqli_query($con,$sql);
+    while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {$a['st']=$row['einheit'];$a['art']=$row['art'];$a['preis']=$row['preis'];}
+    return $a;
+}
 function tabelle ($typ) {
     global $con;
     $sql = "SELECT * FROM ".$typ."";
@@ -110,6 +120,33 @@ function umsatz ($foo="bar") {
     }
     return $temp;
 }
+function kalender ($foo="bar") {
+    global $con;
+    foreach (waren() as $typ) {
+        if ($typ == "effect") {
+        }
+        $sql = "SELECT * FROM $typ";
+        $result = mysqli_query($con,$sql);
+        while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+            if ($row['umsatz'] != 0) {
+                $sql2 = "SELECT 1 FROM abrechnung WHERE datum ='".$row['datum']."' LIMIT 1";
+                $result2 = mysqli_query($con,$sql2);
+                if (mysqli_fetch_row($result2)) { 
+                }
+                else {
+                    $array[$row['datum']][$typ]=$row['umsatz'];
+                }
+            }
+        }
+    }
+    foreach ($array as $datum => $umsatz) {
+        $array2[$datum] = 0;
+        foreach ($umsatz as $typ => $value ) {
+            $array2[$datum] = $array2[$datum]+$value;
+        }
+    }
+    return $array2;
+}
 function add_row_umsatz ($datum) {
     global $con;
     $sql = "SELECT 1 FROM abrechnung WHERE datum ='".$datum."' LIMIT 1";
@@ -122,19 +159,20 @@ function add_row_umsatz ($datum) {
     }
 }
 function umsatz_speichern ($datum,$umsatz_br,$frei,$rabatt,$sonst,$umsatz_gz) {
-global $con;
-$tg = ($umsatz_gz+$sonst+$rabatt+$frei)-$umsatz_br;
-$sql = "UPDATE abrechnung SET umsatz_br='".$umsatz_br."', frei='".$frei."',rabatt='".$rabatt."',sonst='".$sonst."',umsatz_gz='".$umsatz_gz."',trinkgeld='".$tg."' WHERE datum = '".$datum."' ";
-mysqli_query($con,$sql);
+    global $con;
+    $tg = ($umsatz_gz+$sonst+$rabatt+$frei)-$umsatz_br;
+    $sql = "UPDATE abrechnung SET umsatz_br='".$umsatz_br."', frei='".$frei."',rabatt='".$rabatt."',sonst='".$sonst."',umsatz_gz='".$umsatz_gz."',trinkgeld='".$tg."' WHERE datum = '".$datum."' ";
+    mysqli_query($con,$sql);
 }
 
 function umsatz_berechnen ($datum)  {
     global $con;
     $u_br="0";
     foreach (waren() as $typ) {
-        $sql = "SELECT umsatz FROM $typ WHERE datum = '".$datum."'";
+        if ($typ == "effect"){}
+            $sql = "SELECT umsatz FROM $typ WHERE datum = '".$datum."'";
         $result = mysqli_query($con,$sql);
-    $row = mysqli_fetch_array($result);
+        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
         $u_br = $u_br+$row['umsatz'];
     }
     return $u_br;

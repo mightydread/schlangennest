@@ -23,8 +23,13 @@
                 <li>Datum</li>
                 <li>Zugang</li>
                 <li>Abgang</li>
+                <?php if (info($typ)['art'] == "kasten") { ?>
                 <li>Kasten</li>
                 <li>Flaschen</li>
+                <?php } else { ?>
+                <li>Flaschen</li>
+                <li>Anbruch</li>
+                <?php } ?>
                 <li>Verbrauch</li>
                 <li>Umsatz</li>
             </ul>
