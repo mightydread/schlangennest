@@ -11,10 +11,50 @@
 	<link rel="stylesheet" type="text/css" href="../media/css/admin.css">
 </head>
 <body>
+	<?php print_r(kalender()); ?>
 	Sucess!!!<br>
+	<div id="wrap">
+		<div id="umsatz_kalender">
+			<?php
+			foreach (waren() as $typ) {
+				if ($typ == "effect") {
+				}
+				$sql = "SELECT * FROM $typ";
+				$result = mysqli_query($con,$sql);
+				while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+					if ($row['umsatz'] != 0) {
+						$array[$row['datum']][$typ]=$row['umsatz'];
+					}
+				}
+			}
+			foreach ($array as $datum => $umsatz) {
+				$array[$datum]['gesamt'] = 0;
+				foreach ($umsatz as $typ => $value ) {
+					$array[$datum]['gesamt'] = $array[$datum]['gesamt']+$value;
+				}
+				?>
+				<div class="button">
+					<?php 
+					echo date('d.m.y', strtotime($datum));
+					echo "<br>";
+					echo $array[$datum]['gesamt']." €";
+					?>
+					<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
+						<input type="hidden" name=datum value="<?php echo $datum ?>">
+						<input type=submit name="save_datum">
+					</form>
+				</div>
+				<?php }
 
-	<?php 
-	
+				?>
+
+			</div>
+		</div>
+
+
+
+		<?php 
+
 //     print_r($db_name);
 //     $verbrauch=0;
 //     $umsatz=0;
@@ -28,7 +68,7 @@
 //         }
 //         foreach (info($typ) as $key => $value) {
 //             $array[$typ][$key]=$value;
-            
+
 //         }
 
 //         foreach ($array[$typ] as $key => $value) {
@@ -66,15 +106,15 @@
 //                 sleep(0.5);
 //             }
 //         }
-        
+
 //         sleep(0.5);
 //     }
 //     echo "<br>";
 //     mysqli_close($con);
 //     print_r($array);
 
-    ?>
+		?>
 
 
-</body>
-</html>
+	</body>
+	</html>

@@ -365,6 +365,7 @@ input[type=date] {
         background-color: $grau;
     }
 }
+/* Umsatz */
 #umsatz_panel {
     width: 800px;
     margin:auto;
@@ -389,9 +390,14 @@ input[type=date] {
     //     -webkit-box-shadow: none;
     //     -webkit-appearance: none;
     // }
-input {
-    width: 90px;
-}
+    input {
+        width: 90px;
+    }
+    input[type=submit] {
+        &:hover {
+            background-color: $grau;
+        }
+    }
     li {
         // height: 20px;
         font-size: 13px;
@@ -403,16 +409,47 @@ input {
         background-color: $schwarz;
     }
 }
-#set_date {
-    float: left;
-    width: 658px;
-    height: 20px;
-    margin: 0px 71px;
-    margin-bottom: 10px;
-    input {
-        width: 90px;
-    }   
-}
 #legende {
     height: 40px;
+}
+#umsatz_kalender {
+    margin: 0px 24px;
+    width: 752px;
+    // height: 700px;
+    // background-color: $schwarz;
+    &:after {
+        content: ".";
+        display:block;
+        height:0;
+        clear:both;
+        visibility:hidden;
+    }
+    .button {
+        margin: 7px;
+        width: 80px;
+        height: 40px;
+        float: left;
+        position: relative;
+        background-color: $schwarz;
+        &:hover {
+            background-color: $grau;
+        }
+        .datum {
+            margin-top: 2px;
+            font-size: 15px;
+        }
+        .umsatz {
+            margin-top: 1px;
+            font-size: 13px;
+        }
+        input[type=submit] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 80px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0);
+            color: rgba(0, 0, 0, 0);
+        }
+    }
 }
