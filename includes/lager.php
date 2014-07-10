@@ -29,12 +29,14 @@ if (!function_exists('waren')) {
         return $array;
     }
 }
+if (!function_exists('info')) {
 function info ($typ) {
     global $con;
     $sql = "SELECT * FROM namen WHERE db_name = '".$typ."'";
     $result = mysqli_query($con,$sql);
     while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {$a['st']=$row['einheit'];$a['art']=$row['art'];$a['preis']=$row['preis'];}
     return $a;
+}
 }
 function add_row ($typ,$datum) {
     global $con;

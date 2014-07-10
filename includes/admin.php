@@ -79,6 +79,13 @@ function waren ($art = "all") {
     while  ($row = mysqli_fetch_array($result,MYSQLI_NUM)) { $array[] = $row['0']; }
     return $array;
 }
+function info ($typ) {
+    global $con;
+    $sql = "SELECT * FROM namen WHERE db_name = '".$typ."'";
+    $result = mysqli_query($con,$sql);
+    while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {$a['st']=$row['einheit'];$a['art']=$row['art'];$a['preis']=$row['preis'];}
+    return $a;
+}
 function tabelle ($typ) {
     global $con;
     $sql = "SELECT * FROM ".$typ."";
