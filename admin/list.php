@@ -87,7 +87,7 @@
                 <?php 
             }
             elseif (!check_for_row($_POST['id']))   {
-                add_to_db($_POST['id'],$_POST['name'],$_GET['ratten']); ?>
+                add_to_db($_POST['id'],$_POST['name']); ?>
                 <input class="message" value="Mitglied hinzugefügt!" disabled>
                 <?php 
             } 

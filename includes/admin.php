@@ -41,8 +41,11 @@ function update_db ($data1,$data2,$data3) {
     $sql   ="UPDATE members SET ".$data3."='".$data2."' WHERE id =".$data1."";
     mysqli_query($con,$sql);
 }
-function add_to_db ($nummer,$name,$ratten)  {
+function add_to_db ($nummer,$name)  {
     global $con;
+    if ($nummer <= 50) { $ratten=3; }
+    elseif ($nummer > 50 and $nummer <= 150) { $ratten=2; }
+    elseif ($nummer > 150) { $ratten=1; }
     $sql   ="INSERT INTO members (id,name,ratten) VALUES (".$nummer.",'".$name."',".$ratten.")";
     mysqli_query($con,$sql);
 }
