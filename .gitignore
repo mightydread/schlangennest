@@ -7,3 +7,4 @@ media/images/.AppleDouble
 */.AppleDouble/
 *.htaccess
 *.htpasswd
+/dev/*
