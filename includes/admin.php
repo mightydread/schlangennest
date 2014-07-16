@@ -64,6 +64,18 @@ function email_array ($cond) {
     $email_temp = $email_temp['email'];
     return $email_temp;
 }
+function sms_array ($cond) {
+    global $con;
+    if ($cond == all) {$sql="SELECT telefon FROM members ORDER BY id";}
+    else   {$sql= "SELECT telefon FROM members WHERE ".$cond."=1 ORDER BY id";}
+    $result = mysqli_query($con,$sql);
+    $sms_temp = array();
+    while ($row=mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+        $sms_temp=array_merge_recursive($sms_temp,$row);
+    }
+    $sms_temp = $sms_temp['telefon'];
+    return $sms_temp;
+}
 //
 // Lager Functions
 //
