@@ -43,7 +43,7 @@
         <?php 
                 foreach ($id_array as $key) {
             $row = select_row($key); ?>
-            <form method=post class=table_row action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]).'#'.$key;?>?sort=<?php echo $_GET['sort'];?>&ratten=<?php echo $_GET['ratten'];?>" id="<?php echo $key;?>" >
+            <form method=post class=table_row action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"])?>?sort=<?php echo $_GET['sort'];?>&ratten=<?php echo $_GET['ratten'].'#'.$key;;?>" id="<?php echo $key;?>" >
                 <input type=hidden name=ratten value="<?php echo $row['ratten'];?>" >
                 <input class=nummer name=id value="<?php echo $row['id'];?>" type=text readonly>
                 <input class=name name=name value="<?php echo $row['name'];?>" type=text>
