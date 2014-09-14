@@ -157,6 +157,7 @@ function kalender ($foo="bar") {
             $array2[$datum] = $array2[$datum]+$value;
         }
     }
+    ksort($array2);
     return $array2;
 }
 function add_row_umsatz ($datum) {
