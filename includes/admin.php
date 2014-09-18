@@ -190,4 +190,36 @@ function umsatz_berechnen ($datum)  {
     }
     return $u_br;
 }
+//
+//Veranstaltung
+//
+function all_va ($foo="bar") {
+    global $con;
+    $sql = "SELECT * FROM va ORDER BY datum ASC";
+    $result = mysqli_query($con,$sql);
+    while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+            $temp[] = $row; 
+        }
+        return $temp;
+}
+function new_va ($datum,$name) {
+    global $con;
+    $sql = "INSERT INTO va (datum,name) VALUES ('".$datum."','".$name."')";
+    mysqli_query($con,$sql);
+}
+function get_va ($datum) {
+    global $con;
+    $sql="SELECT 1 FROM va WHERE datum ='".$datum."'";
+    $result = mysqli_query($con,$sql);
+    if (mysqli_fetch_row($result)) { 
+        $sql="SELECT * FROM va WHERE datum ='".$datum."'";
+        $result = mysqli_query($con,$sql);
+        while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
+            return $row; 
+        }
+    }
+    else {
+        return "false";
+    }
+}
 ?>

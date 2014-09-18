@@ -12,7 +12,7 @@
 	<div id="header" >
         <div id="logo"><img src="/media/images/logo_scandale.png" width="230px" ></div>
         <div id="datum" >Datum: <?php echo date('d.m.Y',strtotime($_POST['datum'])); ?></div>
-        <div id="comment" >Verastaltung:</div>
+        <div id="comment" >Verastaltung: <?php echo get_va(date('Y-m-d',strtotime($_POST['datum'])))['name']; ?></div>
     </ul>
 </div>
 <hr>
