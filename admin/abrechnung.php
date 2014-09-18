@@ -38,24 +38,7 @@
             <input type="submit" name="save_va" form="new">
         </form>
     </div>
-            <div id="umsatz_kalender">
-                <?php
-                foreach (kalender() as $datum => $umsatz) {
-                    ?>
-                    <div class="button">
-                        <?php 
-                        echo "<div class=datum>".date('d.m.y', strtotime($datum))."</div>";
-                        echo "<div class=umsatz>".$umsatz." €</div>";
-                        ?>
-                        <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" >
-                            <input type="hidden" name=datum value="<?php echo $datum ?>">
-                            <input type=submit name="save_datum">
-                        </form>
-                    </div>
-                    <?php 
-                }
-                ?>
-            </div>
+            <br>
                 <ul class="umsatz_row" id="legende">
                     <li>Datum</li>
                     <li>Umsatz<br>berechnet</li>

@@ -18,16 +18,25 @@
                 if (!isset($_SESSION[$typ]['st']) or !isset($_SESSION[$typ]['art']) or !isset($_SESSION[$typ]['preis'])) {$_SESSION[$typ]=array("st"=>info($typ)['st'],"art"=>info($typ)['art'],"preis"=>info($typ)['preis']);}
 
                 if (isset($_POST[$typ])) {
-                    if (safety_check($typ,$_POST[$typ._g],$_POST[$typ._k],get_date())==0) { 
+                    if ($_POST[$typ._g] == '') {
+                        $_SESSION[$typ]['i_g']= 0;
+                    }
+                    else {
+                        $_SESSION[$typ]['i_g']=$_POST[$typ._g];
+                    }
+                    if ($_POST[$typ._k] == '') {
+                        $_SESSION[$typ]['i_k']= 0;
+                    }
+                    else {
+                        $_SESSION[$typ]['i_k']=$_POST[$typ._k];
+                    }
+                    if (safety_check($typ,$_SESSION[$typ]['i_g'],$_SESSION[$typ]['i_k'],get_date())==0) { 
                         echo "<script>"; 
                         echo "alert('Mehr als letzes mal')";
                         echo "</script>";
                     }
-
-                    $_SESSION[$typ]['i_g']=$_POST[$typ._g];
-                    $_SESSION[$typ]['i_k']=$_POST[$typ._k];
                     add_row($typ,get_date());
-                    inventur($typ,$_SESSION[$typ]['i_g'],$_SESSION[$typ]['i_k'],get_date());
+                    inventur($typ,$_SESSION[$typ]['st'],$_SESSION[$typ]['i_g'],$_SESSION[$typ]['i_k'],get_date());
                     verbrauch($typ,$_SESSION[$typ]['st'],$_SESSION[$typ]['art'],$_SESSION[$typ]['preis'],get_date());
                     $_SESSION[$typ]['done_inv'] = "ok";
 

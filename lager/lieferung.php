@@ -16,6 +16,12 @@
             foreach (waren() as $typ) {
                 if (!isset($_SESSION[$typ])) {$_SESSION[$typ]=array("zugang"=>"0", "art"=>info($typ)['art']);}
                 if (isset($_POST[$typ])) {
+                    if ($_POST[$typ._z] == '') {
+                        $_SESSION[$typ]['zugang']= 0;
+                    }
+                    else {
+                        $_SESSION[$typ]['zugang']=$_POST[$typ._z];
+                    }
                     $_SESSION[$typ]['zugang']=$_POST[$typ._z];                    
                     add_row($typ,get_date());
                     zugang($typ,$_SESSION[$typ]['zugang'],get_date());

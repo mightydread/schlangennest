@@ -73,8 +73,11 @@ function verbrauch ($typ,$st,$art,$preis,$datum) {
     $sql = "UPDATE ".$typ." SET verbrauch=".$verbrauch.", umsatz=".round($umsatz,2)." WHERE datum='".$inv[1]['datum']."'";
     if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
 }
-function inventur ($typ,$i_g,$i_k,$datum) {
+function inventur ($typ,$st,$i_g,$i_k,$datum) {
     global $con;
+    $a = ($i_g*$st)+$i_k;
+    $i_g = ($a-($a%$st))/$st;
+    $i_k = $a%$st;
     $sql = "UPDATE ".$typ." SET i_g='".$i_g."', i_k='".$i_k."' WHERE datum='".$datum."'";
     if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
 }
@@ -126,5 +129,8 @@ function safety_check ($typ,$i_g,$i_k,$datum) {
     $a= $a+($row[zugang]*info($typ)['st']);
     if ($a<$b) {
         return 0;
+    }
+    else {
+        return 1;
     }
 }
