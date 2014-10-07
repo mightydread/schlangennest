@@ -1,10 +1,3 @@
-
-/media/icons.psd
-*.sass-cache
-*/.sass-cache/
-media/images/.AppleDouble
-/.AppleDouble/
-*/.AppleDouble/
-*.htaccess
-*.htpasswd
-/dev/*
+.sass-cache
+node-modules
+css/build
