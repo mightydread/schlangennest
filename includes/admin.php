@@ -1,7 +1,7 @@
 <?php
-require '../includes/db.php';
+require 'db.php';
 mysqli_set_charset($con, 'utf8');
- //
+//
 // Member List Functions
 //
 function select_row ($data) {
@@ -43,6 +43,7 @@ function update_db ($data1,$data2,$data3) {
 }
 function add_to_db ($nummer,$name)  {
     global $con;
+    $ratten=1;
     if ($nummer <= 50) { $ratten=3; }
     elseif ($nummer > 50 and $nummer <= 150) { $ratten=2; }
     elseif ($nummer > 150) { $ratten=1; }
@@ -54,7 +55,7 @@ function add_to_db ($nummer,$name)  {
 //
 function email_array ($cond) {
     global $con;
-    if ($cond == all) {$sql="SELECT email FROM members ORDER BY id";}
+    if ($cond == 'all') {$sql="SELECT email FROM members ORDER BY id";}
     else   {$sql= "SELECT email FROM members WHERE ".$cond."=1 ORDER BY id";}
     $result = mysqli_query($con,$sql);
     $email_temp = array();
@@ -66,7 +67,7 @@ function email_array ($cond) {
 }
 function sms_array ($cond) {
     global $con;
-    if ($cond == all) {$sql="SELECT telefon FROM members ORDER BY id";}
+    if ($cond == 'all') {$sql="SELECT telefon FROM members ORDER BY id";}
     else   {$sql= "SELECT telefon FROM members WHERE ".$cond."=1 ORDER BY id";}
     $result = mysqli_query($con,$sql);
     $sms_temp = array();
@@ -96,6 +97,7 @@ function waren ($art = "all") {
 }
 function info ($typ) {
     global $con;
+    $a=array();
     $sql = "SELECT * FROM namen WHERE db_name = '".$typ."'";
     $result = mysqli_query($con,$sql);
     while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {$a['st']=$row['einheit'];$a['art']=$row['art'];$a['preis']=$row['preis'];}
@@ -132,34 +134,7 @@ function umsatz ($foo="bar") {
     }
     return $temp;
 }
-function kalender ($foo="bar") {
-    global $con;
-    foreach (waren() as $typ) {
-        if ($typ == "effect") {
-        }
-        $sql = "SELECT * FROM $typ";
-        $result = mysqli_query($con,$sql);
-        while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
-            if ($row['umsatz'] != 0) {
-                $sql2 = "SELECT 1 FROM abrechnung WHERE datum ='".$row['datum']."' LIMIT 1";
-                $result2 = mysqli_query($con,$sql2);
-                if (mysqli_fetch_row($result2)) { 
-                }
-                else {
-                    $array[$row['datum']][$typ]=$row['umsatz'];
-                }
-            }
-        }
-    }
-    foreach ($array as $datum => $umsatz) {
-        $array2[$datum] = 0;
-        foreach ($umsatz as $typ => $value ) {
-            $array2[$datum] = $array2[$datum]+$value;
-        }
-    }
-    ksort($array2);
-    return $array2;
-}
+
 function add_row_umsatz ($datum) {
     global $con;
     $sql = "SELECT 1 FROM abrechnung WHERE datum ='".$datum."' LIMIT 1";
@@ -195,6 +170,7 @@ function umsatz_berechnen ($datum)  {
 //
 function all_va ($foo="bar") {
     global $con;
+    $temp=array();
     $sql = "SELECT * FROM va ORDER BY datum ASC";
     $result = mysqli_query($con,$sql);
     while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
@@ -222,4 +198,4 @@ function get_va ($datum) {
         return "false";
     }
 }
-?>
+

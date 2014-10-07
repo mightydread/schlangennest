@@ -1,5 +1,5 @@
 <?php
-require '../includes/db.php';
+require 'db.php';
 mysqli_set_charset($con, 'utf8');
 function get_date () {
     if (isset($_POST['datum'])) {
@@ -12,10 +12,10 @@ function get_date () {
 if (!function_exists('full_name')) {
     function full_name ($typ) {
         global $con;
-        $array = array();
+        // $tmparray = array();
         $sql= "SELECT full_name FROM namen WHERE db_name = '".$typ."'";
-        $array = mysqli_fetch_array(mysqli_query($con,$sql));
-        return $array['full_name'];
+        $tmparray = mysqli_fetch_array(mysqli_query($con,$sql));
+        return $tmparray['full_name'];
     }
 }
 if (!function_exists('waren')) {
@@ -32,6 +32,7 @@ if (!function_exists('waren')) {
 if (!function_exists('info')) {
     function info ($typ) {
         global $con;
+        $a=array();
         $sql = "SELECT * FROM namen WHERE db_name = '".$typ."'";
         $result = mysqli_query($con,$sql);
         while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {$a['st']=$row['einheit'];$a['art']=$row['art'];$a['preis']=$row['preis'];}
@@ -58,6 +59,7 @@ function letzte_inv ($typ,$datum) {
 }
 function verbrauch ($typ,$st,$art,$preis,$datum) {
     global $con;
+    $umsatz=0;
     $inv[1] = letzte_inv($typ,$datum);
     $sql = "SELECT * FROM ".$typ." WHERE datum='".$datum."'";
     $result = mysqli_query($con,$sql);
@@ -85,7 +87,7 @@ function zugang ($typ,$anzahl,$datum) {
     global $con;
     $sql = "SELECT * FROM ".$typ." WHERE datum ='".$datum."' ORDER BY datum DESC LIMIT 1";
     $result = mysqli_query($con,$sql);
-    $array_temp=array();
+   // $array_temp=array();
     $array_temp=mysqli_fetch_array($result,MYSQLI_ASSOC);
     if ($array_temp['i_g'] == "0" and $array_temp['i_k'] == "0"){
         $inv[1]=letzte_inv($typ,$datum);
@@ -103,13 +105,13 @@ function abgang ($typ,$anzahl,$datum) {
     global $con;
     $sql = "SELECT * FROM ".$typ." WHERE datum ='".$datum."' ORDER BY datum DESC LIMIT 1";
     $result = mysqli_query($con,$sql);
-    $array_temp=array();
+    // $array_temp=array();
     $array_temp=mysqli_fetch_array($result,MYSQLI_ASSOC);
     if ($array_temp['i_g'] == "0" and $array_temp['i_k'] == "0"){
         $inv[1]=letzte_inv($typ,$datum);
         $i_k=$inv[1]['i_k']-$anzahl;
-        $verbrauch=$anzahl*info($typ)['st'];
-        $sql = "UPDATE ".$typ." SET i_g=".$inv[1]['i_g'].", i_k='".$i_k."', verbrauch=".$verbrauch.", abgang=".$anzahl." WHERE datum='".$datum."'";
+       // $verbrauch=$anzahl*info($typ)['st'];
+        $sql = "UPDATE ".$typ." SET i_g=".$inv[1]['i_g'].", i_k='".$i_k."', abgang=".$anzahl." WHERE datum='".$datum."'";
         if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
     }
     else {
@@ -121,12 +123,12 @@ function abgang ($typ,$anzahl,$datum) {
 }
 function safety_check ($typ,$i_g,$i_k,$datum) {
     global $con;
-    $a=letzte_inv($typ,$datum)[i_g]*info($typ)['st']+letzte_inv($typ,$datum)[i_k];
+    $a=letzte_inv($typ,$datum)['i_g']*info($typ)['st']+letzte_inv($typ,$datum)['i_k'];
     $b=$i_g*info($typ)['st']+$i_k;
     $sql = "SELECT * FROM ".$typ." WHERE datum ='".$datum."' ORDER BY datum DESC LIMIT 1";
     $result = mysqli_query($con,$sql);
     $row[] = mysqli_fetch_array($result,MYSQLI_ASSOC);
-    $a= $a+($row[zugang]*info($typ)['st']);
+    $a= $a+($row['zugang']*info($typ)['st']);
     if ($a<$b) {
         return 0;
     }

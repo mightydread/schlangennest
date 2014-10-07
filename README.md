@@ -1,22 +1,16 @@
 Schlangennest
 ============
 
-TODO
-============
+Schlangennest is a Stock management System for Nightclubs build with php
 
+At the moment it is still tailored for a specific Club but I will make it more generic in the future.
 
-- (DONE) Last visited check so that people cannot check in twice
-- Better icons
-- Styling
-- (DONE) Cancel checkbox overlay
-- Abrechnung tab (in progress)
-- (DONE) Sorting memberlist
-- (DONE) Slice email results
-- Major code optimization
+What I use to build it
+=======
 
-Upcoming features
-============
-- Photos of members
-- Send SMS to members
-
-
+-- Grunt
+-- grunt-autoprefixer
+-- grunt-contrib-cssmin
+-- grunt-contrib-sass
+-- grunt-contrib-watch
+-- grunt-svgstore

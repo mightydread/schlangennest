@@ -1,5 +1,5 @@
 <?php
-require $_SERVER['DOCUMENT_ROOT'].'/includes/db.php';
+require 'db.php';
 // functions
 function test_input ($data) {
     $data  = trim($data);
@@ -50,4 +50,3 @@ function visit_counter ($data) {
         mysqli_query($con,$sql2);
     }
 }
-?>

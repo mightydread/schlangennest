@@ -1,0 +1,56 @@
+// Colors
+$schwarz: #252120;
+$grau: lighten($schwarz, 10%);
+$weiss: lighten($schwarz, 60%);
+$rot: #e73c1e;
+$gruen: #1c9169;
+
+body {
+    background-color: $schwarz;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+}
+.big_menu {
+    svg {
+    margin: 42px;
+    width: 189px;
+    display: inline-block;
+    box-sizing: border-box;
+    height: 189px;
+    }
+    .red {
+        fill:$rot;
+    } 
+    .green {
+        fill:$gruen;
+    }   
+
+}
+#wrap {
+    background-color: $grau;
+    width: 830px;
+    margin: 0px auto;
+   // padding: 5px 10px 10px 10px;
+   &:after {
+    content: ".";
+    display:block;
+    height:0;
+    clear:both;
+    visibility:hidden;
+}
+}
+ul {
+    list-style: none;
+    padding: 0px;
+    -webkit-margin-before: 0em;
+}
+input {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+   font-weight: 300;
+   padding:0px;
+   
+}

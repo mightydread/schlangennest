@@ -1,0 +1,117 @@
+@import "global";
+.nav {
+    width: 100%;
+    position: relative;
+    background-color: $gruen;
+    height: 62px;
+    margin-bottom: 12px;
+    -webkit-padding-start: 0px;
+    -webkit-margin-before: 0em;
+    ul {
+       width: 100%;
+       height: 100%;
+    }
+    li {
+        display: inline-block;
+        margin: 4px 75px;
+        width: 54px;
+        height: 54px;
+    }
+    svg {
+        width: 54px;
+        height: 54px;
+        padding: 0;
+        margin: 0;
+        fill: $schwarz;
+            &:hover {
+                    fill: darken($gruen,10%);
+            }
+    }
+    .active {
+        svg {
+            fill: darken($gruen,10%);
+        }
+    }
+}
+#inventur_wrap {
+    width: 800px;
+    margin: auto;
+    &:after {
+        content: ".";
+        display:block;
+        height:0;
+        clear:both;
+        visibility:hidden;
+    }
+}
+%cell {
+        height: 50px;
+        float: left;
+        display:block;
+        margin: 0px 25px;
+    }
+.row {
+    width: 800px;
+    background-color: $schwarz;
+    float: left;
+    margin: 5px auto;
+    height: 50px;
+    border: 2px solid $schwarz;
+    // box-sizing: border-box;
+    .name, .anzahl, .save, .save_correct, .info {
+        @extend %cell
+    }
+    .name {
+
+        width: 400px;
+        font-size: 39px;
+        font-weight: bolder;
+        padding-top: 2px;
+box-sizing: border-box;
+    }
+    .anzahl, .save, .save_correct, .info {
+        width: 50px;
+    }
+    .anzahl {
+        margin-left: 0px;
+    }
+    .save_correct {
+        display: none;
+    }
+    .info {
+        box-sizing: border-box;
+        padding-top: 17px;
+        margin: 0px;
+        // font-size: small; 
+    }
+    input[type=number] {
+        // margin: 4px 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        width: 50px;
+        // -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+        // box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
+        border: 2px solid $gruen;
+        text-align: center;
+        color: #000;
+        font-size: xx-large;
+        font-weight: bold;
+        background-color: $gruen;
+    }
+}
+.row_disabled {
+    @extend .row;
+    background-color: $gruen;
+    border: 2px solid $gruen;
+    .save {
+        display: none;
+    }
+    .save_correct {
+        display: initial;
+    }
+    input[type=number] {
+        color: $gruen;
+        border: 2px solid $schwarz;
+        background-color: $schwarz;
+    }
+}
