@@ -3,7 +3,7 @@
     width: 100%;
     position: relative;
     background-color: $gruen;
-    height: 62px;
+    height: 100px;
     margin-bottom: 12px;
     -webkit-padding-start: 0px;
     -webkit-margin-before: 0em;
@@ -13,13 +13,13 @@
     }
     li {
         display: inline-block;
-        margin: 4px 75px;
-        width: 54px;
-        height: 54px;
+        margin: 4px 40px;
+        width: 92px;
+        height: 92px;
     }
     svg {
-        width: 54px;
-        height: 54px;
+        width: 100%;
+        height: 100%;
         padding: 0;
         margin: 0;
         fill: $schwarz;
@@ -34,7 +34,7 @@
     }
 }
 #inventur_wrap {
-    width: 800px;
+    width: 700px;
     margin: auto;
     &:after {
         content: ".";
@@ -43,75 +43,77 @@
         clear:both;
         visibility:hidden;
     }
-}
-%cell {
-        height: 50px;
+    ul {
+        width: 100%;
+        height: 60px;
+    }
+    form {
+        background-color: $schwarz;
+        height: 100%;
+    }
+    label {
         float: left;
-        display:block;
-        margin: 0px 25px;
-    }
-.row {
-    width: 800px;
-    background-color: $schwarz;
-    float: left;
-    margin: 5px auto;
-    height: 50px;
-    border: 2px solid $schwarz;
-    // box-sizing: border-box;
-    .name, .anzahl, .save, .save_correct, .info {
-        @extend %cell
-    }
-    .name {
-
-        width: 400px;
-        font-size: 39px;
+        width: 260px;
+        height: 100%;
+        font-size: 36px;
+        padding: 12px 0px;
         font-weight: bolder;
-        padding-top: 2px;
-box-sizing: border-box;
+        box-sizing:border-box;
     }
-    .anzahl, .save, .save_correct, .info {
-        width: 50px;
-    }
-    .anzahl {
-        margin-left: 0px;
-    }
-    .save_correct {
-        display: none;
-    }
-    .info {
-        box-sizing: border-box;
-        padding-top: 17px;
-        margin: 0px;
-        // font-size: small; 
+    li {
+        float: left;
+        position: relative;
+        width: 60px;
+        //height: 100%;
+        font-size: 16px;
+        margin: 0 10px;
+        padding: 20px 0px;
     }
     input[type=number] {
-        // margin: 4px 0px;
+        float: left;
         padding: 0px;
+        margin: 0 10px;
         box-sizing: border-box;
-        width: 50px;
-        // -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-        // box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-        border: 2px solid $gruen;
+        width: 60px;
+        height: 100%;
+        border: 0;
         text-align: center;
-        color: #000;
-        font-size: xx-large;
+        color: $schwarz;
+        font-size: 36px;
         font-weight: bold;
         background-color: $gruen;
     }
-}
-.row_disabled {
-    @extend .row;
-    background-color: $gruen;
-    border: 2px solid $gruen;
-    .save {
-        display: none;
+    .button {
+        padding: 0;
+        margin:0 30px;
+        height: 60px;
     }
-    .save_correct {
-        display: initial;
+    input[type=submit] {
+        
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
     }
-    input[type=number] {
-        color: $gruen;
-        border: 2px solid $schwarz;
-        background-color: $schwarz;
+    svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        fill:$gruen;
+    }
+    .done {
+        svg {
+            fill:$schwarz;
+        }
+        background-color: $gruen;
+        input[type=number] {
+            color: $gruen;
+            border: 0;
+            background-color: $schwarz;
+        }
     }
 }

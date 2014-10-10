@@ -2,6 +2,7 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
+secret: grunt.file.readJSON('secret.json'),
     pkg: grunt.file.readJSON('package.json'),
     sass: {                              // Task
       dist: {                            // Target
@@ -26,7 +27,7 @@ module.exports = function(grunt) {
       },
       default : {
         files: {
-          './includes/icons.svg': ['./icons/svg/*.svg'],
+          './web/includes/icons.svg': ['./icons/svg/*.svg'],
         },
       },
     },
@@ -52,6 +53,48 @@ module.exports = function(grunt) {
       ext: '.css'
     }]
   },
+},
+'sftp-deploy': {
+  build: {
+    auth: {
+      host: '192.168.2.106',
+      port: 300,
+      authKey: 'privateKey'
+    },
+    cache: 'sftpCache.json',
+    src: 'web',
+    dest: '/var/schlangennest',
+   // exclusions: ['/path/to/source/folder/**/.DS_Store', '/path/to/source/folder/**/Thumbs.db', 'dist/tmp'],
+    serverSep: '/',
+    concurrency: 4,
+    progress: false
+  }
+},
+sftp: {
+  upload: {
+    files: {
+      "./": ["./web/*"]
+    },
+    options: {
+      path: '/var/schlangennest',
+      host: '<%= secret.host %>',
+      port: '<%= secret.port %>',
+      username: '<%= secret.username %>',
+      privateKey: grunt.file.read("id_dsa"),
+      showProgress: true
+    }
+  }
+},
+sshexec: {
+  test: {
+    command: 'uptime',
+    options: {
+      host: '<%= secret.host %>',
+      port: '<%= secret.port %>',
+      username: '<%= secret.username %>',
+      privateKey: grunt.file.read("id_dsa")
+    }
+  }
 },
     watch: {
       css: {
@@ -83,6 +126,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-svgstore');
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-ssh');
+  grunt.loadNpmTasks('grunt-sftp-deploy');
 
   // Default task(s).
   grunt.registerTask('default', ['watch']);

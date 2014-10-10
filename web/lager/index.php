@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Lager</title>
+    <meta name="viewport" content="width=700">
     <link rel="stylesheet" type="text/css" href="/media/css/lager.css">
 </head>
 <body>

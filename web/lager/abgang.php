@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=850px">
+    <meta name="viewport" content="width=700px">
     <title>Lager Abgang</title>
     <link rel="stylesheet" type="text/css" href="/media/css/lager.css">
     <?php require 'lager.php' ?>
@@ -27,18 +27,16 @@
                     add_row($typ,get_date());
                     abgang($typ,$_SESSION[$typ]['a'],get_date());
                     $_SESSION[$typ]['done_ab'] = "ok";
-                }
-                if (isset($_SESSION[$typ]['done_ab'])) { ?>
-                <form class="row_disabled" id="<?php echo $typ;?>_correct" method="post" onsubmit="return confirm('Do you really want to submit the form?');" action="<?php echo $_SERVER['PHP_SELF'];?>#<?php echo $typ;?>_correct" >
-                    <?php } else { ?>
-                    <form class="row" id="<?php echo $typ;?>" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>#<?php echo $typ;?>_correct" >
-                        <?php } ?>
+                } ?>
+                <ul>
+                    <form id="<?php echo $typ;?>" method="post"  action="<?php echo $_SERVER['PHP_SELF'];?>#<?php echo $typ;?>" <?php if(isset($_SESSION[$typ]['done_ab'])){?>class="done" onsubmit="return confirm('Korrwktur vornehmen?');"<?php }?>>
                         <label for="<?php echo $typ;?>_a" class="name"><?php echo full_name($typ);?></label>
-                        <div class="info"><?php if ($_SESSION[$typ]['art'] == "kasten"){ echo "Fl. :";} else { echo "Anbr. :";}?></div><input id="<?php echo $typ;?>_a" class=anzahl type=number step=any onfocus="this.value = '';" value="<?php echo  $_SESSION[$typ]['a'];?>" min=0 name="<?php echo $typ;?>_a" >
-                        <input class=save type=submit form="<?php echo $typ;?>" name="<?php echo $typ;?>" src="/media/images/save.png">
-                        <input class=save_correct type=submit form="<?php echo $typ;?>_correct" name="<?php echo $typ;?>" src="/media/images/save.png">
+                        <li></li><li></li>
+                        <li><?php if ($_SESSION[$typ]['art'] == "kasten"){ echo "Flaschen";} else { echo "Anbruch";}?></li>
+                        <input id="<?php echo $typ;?>_a" class=anzahl type=number step=any onfocus="this.value = '';" value="<?php echo  $_SESSION[$typ]['a'];?>" min=0 name="<?php echo $typ;?>_a" >
+                        <li class="button"><svg><use xlink:href="#icons_check" /></svg><input type=submit form="<?php echo $typ;?>" name="<?php echo $typ;?>"></li>
                     </form>
-
+                </ul>
                 <?php }?>
             </div>  
         </div>

@@ -3,12 +3,18 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="135px" height="135px" viewBox="0 0 135 135" style="enable-background:new 0 0 135 135;" xml:space="preserve">
-<path style="fill:#1C9169;" d="M125,5v5h5v5h5v105h-5v5h-5v5H10v-5H5v-5H0V15h5v-5h5V5H125L125,5z M15,10v5h-5v5H5v95h5v5h5v5h105
-	v-5h5v-5h5V20h-5v-5h-5v-5H15L15,10z"/>
-<path style="fill:#1C9169;" d="M90,20h25l0,5h5v5h0v30h-5v5H75v-5h-5V25h5v-5H90L90,20z M110,30v-5H80v5h-5v25h5v5h30v-5h5V30H110
-	L110,30L110,30z"/>
-<path style="fill:#1C9169;" d="M90,70h25l0,5h5v5h0v30h-5v5H75v-5h-5V75h5v-5H90L90,70z M110,80v-5H80v5h-5v25h5v5h30v-5h5V80H110
-	L110,80L110,80z"/>
-<polygon style="fill:#1C9169;" points="60,85 60,110 55,110 55,115 50,115 50,115 20,115 20,110 15,110 15,70 20,70 20,65 55,65 
-	55,70 60,70 60,85 60,85 "/>
+<g>
+	<path style="fill:#1C9169;" d="M125,5v5h5v5h5v105h-5v5h-5v5H10v-5H5v-5H0V15h5v-5h5V5H125L125,5z M15,10v5h-5v5H5v95h5v5h5v5h105
+		v-5h5v-5h5V20h-5v-5h-5v-5H15L15,10z"/>
+	<g>
+		<path style="fill:#1C9169;" d="M90,20h25l0,5h5v5h0v30h-5v5H75v-5h-5V25h5v-5H90L90,20z M110,30v-5H80v5h-5v25h5v5h30v-5h5V30H110
+			L110,30L110,30z"/>
+	</g>
+	<g>
+		<path style="fill:#1C9169;" d="M90,70h25l0,5h5v5h0v30h-5v5H75v-5h-5V75h5v-5H90L90,70z M110,80v-5H80v5h-5v25h5v5h30v-5h5V80H110
+			L110,80L110,80z"/>
+	</g>
+	<polygon style="fill:#1C9169;" points="60,85 60,110 55,110 55,115 50,115 50,115 20,115 20,110 15,110 15,70 20,70 20,65 55,65 
+		55,70 60,70 60,85 60,85 	"/>
+</g>
 </svg>

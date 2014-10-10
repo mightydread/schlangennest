@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=850px">
+    <meta name="viewport" content="width=830px">
     <title>Mitglieder</title>
     <?php require 'admin.php' ?>
     <link rel="stylesheet" type="text/css" href="/media/css/admin.css">

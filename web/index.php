@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Schlangenkoenig</title>
+    <title>Schlangennest</title>
+    <meta name="viewport" content="width=830">
     <link rel="stylesheet" type="text/css" href="/media/css/global.css">
 </head>
 <body>

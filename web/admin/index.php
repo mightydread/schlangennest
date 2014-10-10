@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <meta name="viewport" content="width=850px">
+    <meta name="viewport" content="width=830px">
     <meta http-equiv="content-type" content="text/html; charset=UTF8" />
     <title>Mitglieder</title>
     <?php require 'admin.php' ?>

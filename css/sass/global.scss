@@ -32,9 +32,8 @@ body {
 }
 #wrap {
     background-color: $grau;
-    width: 830px;
+    width: 100%;
     margin: 0px auto;
-   // padding: 5px 10px 10px 10px;
    &:after {
     content: ".";
     display:block;
