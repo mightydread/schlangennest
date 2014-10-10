@@ -11,9 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="../media/css/admin.css">
 </head>
 <body>
-  <form method="get">
-  <input type="submit" name=test style="background:url(/media/images/save.png) no-repeat;">
-  </form>
+
 
 
 </body>

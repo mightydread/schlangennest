@@ -2,19 +2,20 @@ module.exports = function(grunt) {
 
   // Project configuration.
   grunt.initConfig({
-secret: grunt.file.readJSON('secret.json'),
+    secret: grunt.file.readJSON('secret.json'),
     pkg: grunt.file.readJSON('package.json'),
     sass: {                              // Task
       dist: {                            // Target
         options: {                       // Target options
-        style: 'expanded'
+          style: 'expanded'
         },
         files: {                         // Dictionary of files
           './css/build/unprefixed/admin.css': './css/sass/admin.scss',       // 'destination': 'source'
           './css/build/unprefixed/check.css': './css/sass/check.scss',       // 'destination': 'source'
           './css/build/unprefixed/lager.css': './css/sass/lager.scss',       // 'destination': 'source'
           './css/build/unprefixed/global.css': './css/sass/global.scss',       // 'destination': 'source'
-          './css/build/unprefixed/print.css': './css/sass/print.scss'
+          './css/build/unprefixed/print.css': './css/sass/print.scss',
+          './css/build/unprefixed/reset.css': './css/sass/reset.scss',
         },
       },
     },
@@ -44,62 +45,85 @@ secret: grunt.file.readJSON('secret.json'),
       },
     },
     cssmin: {
-  my_target: {
-    files: [{
-      expand: true,
-      flatten: true,
-      src: ['./css/build/prefixed/*.css'],
-      dest: './web/media/css/',
-      ext: '.css'
-    }]
-  },
-},
-'sftp-deploy': {
-  build: {
-    auth: {
-      host: '192.168.2.106',
-      port: 300,
-      authKey: 'privateKey'
+      my_target: {
+        files: [{
+          expand: true,
+          flatten: true,
+          src: ['./css/build/prefixed/*.css'],
+          dest: './web/media/css/',
+          ext: '.css'
+        }]
+      },
     },
-    cache: 'sftpCache.json',
-    src: 'web',
-    dest: '/var/schlangennest',
-   // exclusions: ['/path/to/source/folder/**/.DS_Store', '/path/to/source/folder/**/Thumbs.db', 'dist/tmp'],
-    serverSep: '/',
-    concurrency: 4,
-    progress: false
-  }
-},
-sftp: {
-  upload: {
-    files: {
-      "./": ["./web/*"]
+    sftp: {
+      css_upload: {
+        files: {
+          "./": ["web/media/css/*"],
+        },
+        options: {
+          path: '/var/schlangennest/media/css',
+          srcBasePath: 'web/media/css/',
+          host: '<%= secret.hal.host %>',
+          port: '<%= secret.hal.port %>',
+          username: '<%= secret.hal.username %>',
+          privateKey: grunt.file.read("id_dsa"),
+          showProgress: true
+        },
+      },
+      upload: {
+        files: {
+          "./": ["web/**"],
+        },
+        options: {
+          path: '/var/www/schlangennest',
+          srcBasePath: 'web/',
+          host: '<%= secret.bob.host %>',
+          port: '<%= secret.bob.port %>',
+          username: '<%= secret.bob.username %>',
+          privateKey: grunt.file.read("id_dsa"),
+          showProgress: true
+        }
+      },
+      upload_dev: {
+        files: {
+          "./": ["web/**"],
+        },
+        options: {
+          path: '/var/schlangennest',
+          srcBasePath: 'web/',
+          host: '<%= secret.hal.host %>',
+          port: '<%= secret.hal.port %>',
+          username: '<%= secret.hal.username %>',
+          privateKey: grunt.file.read("id_dsa"),
+          showProgress: true
+        }
+      }
     },
-    options: {
-      path: '/var/schlangennest',
-      host: '<%= secret.host %>',
-      port: '<%= secret.port %>',
-      username: '<%= secret.username %>',
-      privateKey: grunt.file.read("id_dsa"),
-      showProgress: true
-    }
-  }
-},
-sshexec: {
-  test: {
-    command: 'uptime',
-    options: {
-      host: '<%= secret.host %>',
-      port: '<%= secret.port %>',
-      username: '<%= secret.username %>',
-      privateKey: grunt.file.read("id_dsa")
-    }
-  }
-},
+    sshexec: {
+      stop_server: {
+        command: 'sudo service apache2 stop',
+        options: {
+          host: '<%= secret.bob.host %>',
+          port: '<%= secret.bob.port %>',
+          username: '<%= secret.bob.username %>',
+          privateKey: grunt.file.read("id_dsa")
+        },
+      },
+      start_server: {
+        command: 'sudo service apache2 start',
+        options: {
+          host: '<%= secret.bob.host %>',
+          port: '<%= secret.bob.port %>',
+          username: '<%= secret.bob.username %>',
+          privateKey: grunt.file.read("id_dsa")
+        },
+      },
+
+    },
     watch: {
       css: {
         files: ['./css/sass/*.scss'],
-        tasks: ['sass','autoprefixer','cssmin'],
+        tasks: ['sass','autoprefixer','cssmin','sftp:css_upload'],
         options: {
           spawn: false,
         },
@@ -107,6 +131,13 @@ sshexec: {
       svg: {
         files:['./icons/svg/*.svg'],
         tasks: ['svgstore'],
+        options: {
+          spawn: false,
+        },
+      },
+      deploy: {
+        files: ['web/**'],
+        tasks: ['sftp:upload_dev'],
         options: {
           spawn: false,
         },
@@ -119,7 +150,10 @@ sshexec: {
       },
     },
   });
-
+ // on watch events configure sftp.test.files to only run on changed file
+ grunt.event.on('watch', function(action, filepath) {
+  grunt.config('sftp.upload_dev.files', {"./": filepath});
+});
   // Load the plugins
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -127,9 +161,9 @@ sshexec: {
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-ssh');
-  grunt.loadNpmTasks('grunt-sftp-deploy');
 
   // Default task(s).
   grunt.registerTask('default', ['watch']);
+  grunt.registerTask('deploy', ['sshexec:stop_server','sftp:upload','sshexec:start_server']);
 
 };

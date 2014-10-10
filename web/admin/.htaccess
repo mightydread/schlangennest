@@ -1,0 +1,4 @@
+AuthType Basic
+AuthUserFile /etc/apache2/.htpasswd
+AuthName "Scandale Administration"
+Require valid-user

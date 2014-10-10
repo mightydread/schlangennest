@@ -4,7 +4,7 @@
     position: relative;
     background-color: $gruen;
     height: 100px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     -webkit-padding-start: 0px;
     -webkit-margin-before: 0em;
     ul {
@@ -13,9 +13,9 @@
     }
     li {
         display: inline-block;
-        margin: 4px 40px;
-        width: 92px;
-        height: 92px;
+        margin: 5px 4%;
+        width: 15%;
+        height: 90%;
     }
     svg {
         width: 100%;
@@ -34,7 +34,7 @@
     }
 }
 #inventur_wrap {
-    width: 700px;
+    width: 100%;
     margin: auto;
     &:after {
         content: ".";
@@ -46,35 +46,37 @@
     ul {
         width: 100%;
         height: 60px;
+        margin: 10px 0px;
     }
     form {
         background-color: $schwarz;
         height: 100%;
     }
     label {
-        float: left;
-        width: 260px;
+        display: inline-block;
+        vertical-align: middle;
+        width: 36%;
         height: 100%;
-        font-size: 36px;
+        font-size: 35px;
         padding: 12px 0px;
         font-weight: bolder;
         box-sizing:border-box;
     }
     li {
-        float: left;
+        vertical-align: middle;
+        display: inline-block;
         position: relative;
-        width: 60px;
-        //height: 100%;
+        width: 8%;
         font-size: 16px;
-        margin: 0 10px;
+        margin: 0 2%;
         padding: 20px 0px;
     }
     input[type=number] {
-        float: left;
+        
         padding: 0px;
-        margin: 0 10px;
+        margin: 0 2%;
         box-sizing: border-box;
-        width: 60px;
+        width: 8%;
         height: 100%;
         border: 0;
         text-align: center;
@@ -85,8 +87,8 @@
     }
     .button {
         padding: 0;
-        margin:0 30px;
-        height: 60px;
+        //margin:0 2%;
+        height: 100%;
     }
     input[type=submit] {
         

@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=700px">
     <title>Lager Lieferung</title>
+    <link rel="stylesheet" type="text/css" href="/media/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/media/css/lager.css">
     <?php require 'lager.php' ?>
 </head>

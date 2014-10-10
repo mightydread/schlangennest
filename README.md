@@ -8,9 +8,9 @@ At the moment it is still tailored for a specific Club but I will make it more g
 What I use to build it
 =======
 
--- Grunt
--- grunt-autoprefixer
--- grunt-contrib-cssmin
--- grunt-contrib-sass
--- grunt-contrib-watch
--- grunt-svgstore
+- Grunt
+- grunt-autoprefixer
+- grunt-contrib-cssmin
+- grunt-contrib-sass
+- grunt-contrib-watch
+- grunt-svgstore

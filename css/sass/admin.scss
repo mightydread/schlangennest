@@ -359,7 +359,7 @@ li {
         visibility:hidden;
     }
     ul {
-        float:left;
+        //float:left;
         width: 752px;
         height: 20px;
         margin: 0px 24px 5px;
@@ -393,7 +393,7 @@ li {
     }
 }
 #va_panel {
-    width: 800px;
+    width: 100%;
     margin:auto;
     &:after {
         content: ".";
