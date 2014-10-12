@@ -4,6 +4,9 @@ $grau: lighten($schwarz, 10%);
 $weiss: lighten($schwarz, 60%);
 $rot: #e73c1e;
 $gruen: #1c9169;
+@mixin shadow {
+    box-shadow:0px 0.5px 2px darken($schwarz, 10%);
+}
 
 body {
     background-color: $schwarz;
@@ -31,7 +34,7 @@ body {
 
 }
 #wrap {
-    background-color: $grau;
+    background: linear-gradient($grau, darken($grau, 5%));
     width: 100%;
     margin: 0px auto;
    &:after {
@@ -52,4 +55,9 @@ input {
    font-weight: 300;
    padding:0px;
    
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
 }
