@@ -3,8 +3,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="135px" height="135px" viewBox="0 0 135 135" style="enable-background:new 0 0 135 135;" xml:space="preserve">
-<g>
-	<polygon style="fill:#1C9169;" points="25,0 25,135 30,135 30,5 105,5 105,135 110,135 110,0 25,0 25,0 	"/>
-	<polygon style="fill:#1C9169;" points="85,65 95,65 95,75 85,75 85,70 75,70 75,65 85,65 	"/>
-</g>
+<polygon style="fill:#252321;" points="65,85 70,85 70,70 75,70 75,65 80,65 80,60 85,60 85,55 90,55 90,30 85,30 85,25 50,25 
+	50,30 45,30 45,40 50,40 50,35 55,35 55,30 80,30 80,35 85,35 85,50 80,50 80,55 75,55 75,60 70,60 70,65 65,65 65,85 65,85 "/>
+<polygon style="fill:#252321;" points="65.1,95 70.1,95 70.1,100 65.1,100 65.1,95 65.1,95 "/>
 </svg>

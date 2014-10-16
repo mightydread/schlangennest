@@ -7,36 +7,30 @@ function test_input ($data) {
     $data  = htmlspecialchars($data);
     return $data;
 }
+function get_date () {
+    $time  = time() - (12 * 60 * 60);
+    return date("Y-m-d", $time);
+}
 function door_check ($data) {
-    global $con,$exist;
+    global $con,$result;
     $sql   = "SELECT * FROM members WHERE id=".$data."";
     $result = mysqli_query($con,$sql);
     if (mysqli_fetch_row($result)) {
         $array = mysqli_fetch_array(mysqli_query($con,$sql));
-        $time  = time() - (12 * 60 * 60);
-    $datum  = date("Y-m-d", $time);
-    if ($array['lastvisit'] == $datum) {
-        echo "<span class=error >Karte heute schon registriert!</span>";
-    }
-    else {
-        echo $array['name'];
-        echo "<br>";
-        for ($x=1; $x<=$array['ratten']; $x++)    {
-            echo "<img class=\"ratte\" src=\"/media/images/ratte.png\">";
+        if ($array['lastvisit'] == get_date()) {
+            $result = array("check" => "already_in");
         }
-        $exist = true;
-    }
+        else {
+             $result = array("check" => "exist", "id" => "$data" "name" => $array['name'],"ratten" => $array['ratten']);
+        }
     }
     else   {
-        echo "<span class=error >Karte ist nicht registriert!</span>";
+         $result = array("check" => "invalid_number");
     }
-
 }
 function add_lastvisit ($data) {
     global $con;
-    $time  = time() - (12 * 60 * 60);
-    $datum  = date("Y-m-d", $time);
-    $sql   = "UPDATE members SET lastvisit='".$datum."' WHERE id=".$data."";
+    $sql   = "UPDATE members SET lastvisit='".get_date()."' WHERE id=".$data."";
     mysqli_query($con,$sql);
 }
 function visit_counter ($data) {

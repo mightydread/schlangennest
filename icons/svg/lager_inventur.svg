@@ -4,20 +4,20 @@
 <svg version="1.1" id="Layer_3" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 width="135px" height="135px" viewBox="0 0 135 135" style="enable-background:new 0 0 135 135;" xml:space="preserve">
 <g>
-	<polygon style="fill:#1C9169;" points="35,85 40,85 40,70 45,70 45,65 50,65 50,60 55,60 55,55 60,55 60,30 55,30 55,25 20,25 
+	<polygon style="fill:#252321;" points="35,85 40,85 40,70 45,70 45,65 50,65 50,60 55,60 55,55 60,55 60,30 55,30 55,25 20,25 
 		20,30 15,30 15,40 20,40 20,35 25,35 25,30 50,30 50,35 55,35 55,50 50,50 50,55 45,55 45,60 40,60 40,65 35,65 35,85 35,85 	"/>
 	<g>
-		<path style="fill:#1C9169;" d="M90,20h25l0,5h5v5h0v30h-5v5H75v-5h-5V25h5v-5H90L90,20z M110,30v-5H80v5h-5v25h5v5h30v-5h5V30H110
+		<path style="fill:#252321;" d="M90,20h25l0,5h5v5h0v30h-5v5H75v-5h-5V25h5v-5H90L90,20z M110,30v-5H80v5h-5v25h5v5h30v-5h5V30H110
 			L110,30L110,30z"/>
 	</g>
 	<g>
-		<path style="fill:#1C9169;" d="M90,70h25l0,5h5v5h0v30h-5v5H75v-5h-5V75h5v-5H90L90,70z M110,80v-5H80v5h-5v25h5v5h30v-5h5V80H110
+		<path style="fill:#252321;" d="M90,70h25l0,5h5v5h0v30h-5v5H75v-5h-5V75h5v-5H90L90,70z M110,80v-5H80v5h-5v25h5v5h30v-5h5V80H110
 			L110,80L110,80z"/>
 	</g>
-	<polygon style="fill:#1C9169;" points="35,95 40,95 40,100 35,100 35,95 35,95 	"/>
-	<path style="fill:#1C9169;" d="M125,5v5h5v5h5v105h-5v5h-5v5H10v-5H5v-5H0V15h5v-5h5V5H125L125,5z M15,10v5h-5v5H5v95h5v5h5v5h105
+	<polygon style="fill:#252321;" points="35,95 40,95 40,100 35,100 35,95 35,95 	"/>
+	<path style="fill:#252321;" d="M125,5v5h5v5h5v105h-5v5h-5v5H10v-5H5v-5H0V15h5v-5h5V5H125L125,5z M15,10v5h-5v5H5v95h5v5h5v5h105
 		v-5h5v-5h5V20h-5v-5h-5v-5H15L15,10z"/>
-	<polygon style="fill:#1C9169;" points="55,130 10,130 10,125 5,125 5,120 0,120 0,30 5,30 5,115 10,115 10,120 15,120 15,125 
+	<polygon style="fill:#252321;" points="55,130 10,130 10,125 5,125 5,120 0,120 0,30 5,30 5,115 10,115 10,120 15,120 15,125 
 		120,125 120,120 125,120 125,115 130,115 130,30 135,30 135,120 130,120 130,125 125,125 125,130 55,130 55,130 	"/>
 </g>
 </svg>

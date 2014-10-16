@@ -11,7 +11,6 @@
     <?php require 'lager.php' ?>
 </head>
     <body>
-    <?php include 'icons.svg' ?>
         <div id="wrap">
         <?php include 'navbar.php' ?>
             <div id="inventur_wrap" >

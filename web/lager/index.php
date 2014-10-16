@@ -8,7 +8,6 @@
     <link rel="stylesheet" type="text/css" href="/media/css/lager.css">
 </head>
 <body>
-<?php include 'icons.svg' ?>
    <div id="wrap">
    <?php include 'navbar.php' ?>
     <div>

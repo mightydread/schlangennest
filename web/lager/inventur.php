@@ -11,7 +11,6 @@
     <?php require 'lager.php' ?>
 </head>
 <body>
-<?php include 'icons.svg' ?>
     <div id="wrap">
     <?php include 'navbar.php' ?>
         <div id="inventur_wrap" >
@@ -52,7 +51,7 @@
                     <input id="<?php echo $typ;?>_g" class=anzahl type=number step=any onfocus="this.value = '';" value="<?php echo  $_SESSION[$typ]['i_g'];?>" min=0 name="<?php echo $typ;?>_g" >
                     <li><?php if ($_SESSION[$typ]['art'] == "kasten"){ echo "Flaschen";} else { echo "Anbruch";}?></li>
                     <input type=number step=any onfocus="this.value = '';" value="<?php echo  $_SESSION[$typ]['i_k'];?>" min=0 name="<?php echo $typ;?>_k" >
-                    <li class="button"><svg><use xlink:href="#icons_check" /></svg><input type=submit form="<?php echo $typ;?>" name="<?php echo $typ;?>"></li>
+                    <li class="button"><svg><use xlink:href="#lager_check" /></svg><input type=submit form="<?php echo $typ;?>" name="<?php echo $typ;?>"></li>
                     </form>
                 </ul>
             <?php }?>

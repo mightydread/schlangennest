@@ -26,9 +26,19 @@ module.exports = function(grunt) {
           style: "display: none;",
         },
       },
-      default : {
+      admin : {
         files: {
-          './web/includes/icons.svg': ['./icons/svg/*.svg'],
+          './web/includes/icons_admin.svg': ['./icons/svg/admin_*.svg'],
+        },
+      },
+      lager : {
+        files: {
+          './web/includes/icons_lager.svg': ['./icons/svg/lager_*.svg'],
+        },
+      },
+      door : {
+        files: {
+          './web/includes/icons_door.svg': ['./icons/svg/door_*.svg'],
         },
       },
     },
@@ -128,9 +138,23 @@ module.exports = function(grunt) {
           spawn: false,
         },
       },
-      svg: {
-        files:['./icons/svg/*.svg'],
-        tasks: ['svgstore'],
+      svg_admin: {
+        files:['./icons/svg/admin_*.svg'],
+        tasks: ['svgstore:admin'],
+        options: {
+          spawn: false,
+        },
+      },
+      svg_lager: {
+        files:['./icons/svg/lager_*.svg'],
+        tasks: ['svgstore:lager'],
+        options: {
+          spawn: false,
+        },
+      },
+      svg_door: {
+        files:['./icons/svg/door_*.svg'],
+        tasks: ['svgstore:door'],
         options: {
           spawn: false,
         },
