@@ -1,0 +1,98 @@
+@import "global";
+#door_back {
+    fill: $rot;
+}
+#door_check {
+    fill: $gruen;
+}
+#door_ratte {
+
+}
+#door_ok {
+    fill: $gruen;
+}
+svg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        
+    }
+.input {
+    position: relative;
+    width: 700px;
+    height: 150px;
+    margin: auto;
+    
+    #id_input {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .hidden {
+        display: none;
+    }
+    .result {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px 0;
+        font-size: 50px;
+        text-align: center;
+        height: 100%;
+        background-color: $gruen;
+        box-sizing: border-box;
+        li {
+            position: relative;
+            height: 40px;
+            width: 100px;
+        }
+    }
+    .red {
+        background-color: $rot;
+    }
+    input[type=number] {
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        padding: 0px;
+        font-size: 150px;
+        background-color: $weiss;
+        border: 0;
+        text-align: center;
+
+    }
+}
+.buttons {
+    input[type=submit] {
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+    }
+    li {
+        position: relative;
+        width: 343px;
+        height: 343px;
+        // background-color: $gruen;
+        display: none;
+        &:hover {
+            background-color:$schwarz;
+        }
+    }
+    .all {
+        margin: 4px 0;
+        li {
+            display: inline-block;
+        }
+    }
+    .big {
+        display: inline-block;
+        width: 700px;
+        height: 700px;
+    }
+}
