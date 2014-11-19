@@ -16,7 +16,6 @@
      <h1>Hinweis</h1> 
      <p>Erst Lieferung oder Abgang eintragen dann Inventur machen.</p>
      <p>Bei Problemen Mighty anrufen: 015252680305</p> 
-     <?php print_r($_SESSION); ?> 
     </div>
 </div>
 </body>
