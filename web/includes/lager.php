@@ -2,8 +2,8 @@
 require 'db.php';
 mysqli_set_charset($con, 'utf8');
 function get_date () {
-    if (isset($_POST['datum'])) {
-        return $_POST['datum'];
+    if (isset($_GET['datum'])) {
+        return $_GET['datum'];
     }
     else {
         return date("Y-m-d");
@@ -37,6 +37,41 @@ if (!function_exists('info')) {
         $result = mysqli_query($con,$sql);
         while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {$a['st']=$row['einheit'];$a['art']=$row['art'];$a['preis']=$row['preis'];}
         return $a;
+    }
+}
+function check_existing ($typ,$datum) {
+    global $con;
+    $sql="SELECT 1 FROM ".$typ." WHERE datum ='".$datum."'";
+    $result = mysqli_query($con,$sql);
+    if (mysqli_fetch_row($result)) { 
+        return 1;
+    }
+    else {
+        return 0;
+    }
+}
+function populate_session ($datum) {
+    global $con;
+    foreach (waren() as $typ) {
+        $info[$typ] = info($typ);
+        if (check_existing($typ,$datum) == "1") {
+            $sql = "SELECT * FROM ".$typ." WHERE datum ='".$datum."' ORDER BY datum DESC LIMIT 1";
+            $result = mysqli_query($con,$sql);
+            $row[$typ] = mysqli_fetch_array($result,MYSQLI_ASSOC);
+        } else {
+            $row[$typ] = array("i_g"=> "0","i_k"=>"0","zugang"=>"0","abgang"=>"0");
+        }
+        if ($row[$typ]['zugang'] != 0) { $_SESSION[$typ]['done_zg'] = "ok"; }
+        if ($row[$typ]['abgang'] != 0) { $_SESSION[$typ]['done_ab'] = "ok"; }
+        // if ($row[$typ]['i_g'] != 0 and $row[$typ]['i_k'] != 0) { $_SESSION[$typ]['done_inv'] = "ok"; }
+        if ($row[$typ]['verbrauch'] != 0) { $_SESSION[$typ]['done_inv'] = "ok"; }
+        $_SESSION[$typ]['i_g']=$row[$typ]['i_g'];
+        $_SESSION[$typ]['i_k']=$row[$typ]['i_k'];
+        $_SESSION[$typ]['zugang']=$row[$typ]['zugang'];
+        $_SESSION[$typ]['abgang']=$row[$typ]['abgang'];
+        $_SESSION[$typ]['st']=$info[$typ]['st'];
+        $_SESSION[$typ]['art']=$info[$typ]['art'];
+        $_SESSION[$typ]['preis']=$info[$typ]['preis'];
     }
 }
 function add_row ($typ,$datum) {

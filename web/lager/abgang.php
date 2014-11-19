@@ -1,4 +1,3 @@
-<?php if (isset($_GET[ 'restart'])) { session_destroy(); } ?>
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html>
@@ -16,13 +15,12 @@
             <div id="inventur_wrap" >
             <?php 
             foreach (waren() as $typ) {
-                if (!isset($_SESSION[$typ]['art']) or !isset($_SESSION[$typ]['a'])) {$_SESSION[$typ]=array("a"=>"0","art"=>info($typ)['art']);}
                 if (isset($_POST[$typ])) {
                     if ($_POST[$typ.'_a'] == '') {
-                        $_SESSION[$typ]['a']= 0;
+                        $_SESSION[$typ]['abgang']= 0;
                     }
                     else {
-                        $_SESSION[$typ]['a']=$_POST[$typ.'_a'];
+                        $_SESSION[$typ]['abgang']=$_POST[$typ.'_a'];
                     }
                     add_row($typ,get_date());
                     abgang($typ,$_SESSION[$typ]['a'],get_date());
@@ -33,12 +31,13 @@
                         <label for="<?php echo $typ;?>_a" class="name"><?php echo full_name($typ);?></label>
                         <li></li><li></li>
                         <li><?php if ($_SESSION[$typ]['art'] == "kasten"){ echo "Flaschen";} else { echo "Anbruch";}?></li>
-                        <input id="<?php echo $typ;?>_a" class=anzahl type=number step=any onfocus="this.value = '';" value="<?php echo  $_SESSION[$typ]['a'];?>" min=0 name="<?php echo $typ;?>_a" >
+                        <input id="<?php echo $typ;?>_a" class=anzahl type=number step=any onfocus="this.value = '';" value="<?php echo  $_SESSION[$typ]['abgang'];?>" min=0 name="<?php echo $typ;?>_a" >
                         <li class="button"><svg><use xlink:href="#lager_check" /></svg><input type=submit form="<?php echo $typ;?>" name="<?php echo $typ;?>"></li>
                     </form>
                 </ul>
                 <?php }?>
             </div>  
         </div>
+        <?php print_r($_SESSION); ?> 
     </body>
 </html>

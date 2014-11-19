@@ -1,4 +1,3 @@
-<?php if (isset($_GET[ 'restart'])) { session_destroy(); } ?>
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html>
@@ -16,7 +15,6 @@
             <div id="inventur_wrap" >
             <?php 
             foreach (waren() as $typ) {
-                if (!isset($_SESSION[$typ]['art']) or !isset($_SESSION[$typ]['zugang'])) {$_SESSION[$typ]=array("zugang"=>"0", "art"=>info($typ)['art']);}
                 if (isset($_POST[$typ])) {
                     if ($_POST[$typ.'_z'] == '') {
                         $_SESSION[$typ]['zugang']= 0;
@@ -29,7 +27,7 @@
                     $_SESSION[$typ]['done_zg'] = "ok";
                 } ?>
                 <ul>
-                    <form id="<?php echo $typ;?>" method="post"  action="<?php echo $_SERVER['PHP_SELF'];?>#<?php echo $typ;?>" <?php if(isset($_SESSION[$typ]['done_zg'])){?>class="done" onsubmit="return confirm('Korrwktur vornehmen?');"<?php }?>>
+                    <form id="<?php echo $typ;?>" method="post"  action="<?php echo $_SERVER['PHP_SELF'];?>#<?php echo $typ;?>" <?php if(isset($_SESSION[$typ]['done_zg'])){?>class="done" onsubmit="return confirm('Korrektur vornehmen?');"<?php }?>>
                         <label for="<?php echo $typ;?>_z" class="name"><?php echo full_name($typ);?></label>
                         <li></li><li></li>
                         <li><?php if ($_SESSION[$typ]['art'] == "kasten"){ echo "Kasten";} else { echo round($_SESSION[$typ]['st'],2)." l Fl";}?></li>
@@ -40,5 +38,6 @@
                 <?php }?>
             </div>  
         </div>
+        <?php print_r($_SESSION); ?> 
     </body>
 </html>

@@ -1,3 +1,4 @@
+<?php session_destroy(); ?>
 <?php session_start(); ?>
 <!DOCTYPE HTML>
 <html>
@@ -13,9 +14,8 @@
 <body>
 
 <?php 
-$a = '1.5';
-$b = '1.00';
-echo $a%$b;
+populate_session('2014-11-13');
+print_r($_SESSION);
 ?>
 
 </body>
