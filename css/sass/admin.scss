@@ -349,8 +349,8 @@ li {
 }
 /* Umsatz */
 #umsatz_panel {
-    width: 800px;
-    margin:auto 5px;
+    width: 100%;
+    margin:auto;
     &:after {
         content: ".";
         display:block;
@@ -362,7 +362,7 @@ li {
         //float:left;
         width: 752px;
         height: 20px;
-        margin: 0px 24px 5px;
+        margin: 0px auto 5px;
     }
     input {
         width: 100%;
@@ -426,7 +426,7 @@ li {
         }
     }
     li {
-        // height: 20px;
+        max-height: 19px;
         width: 90px;
         font-size: 13px;
         margin: 2px;

@@ -5,3 +5,4 @@ css/build
 id_dsa
 secret.json
 sftpCache.json
+*.cache

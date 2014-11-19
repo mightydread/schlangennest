@@ -78,8 +78,8 @@ function verbrauch ($typ,$st,$art,$preis,$datum) {
 function inventur ($typ,$st,$i_g,$i_k,$datum) {
     global $con;
     $a = ($i_g*$st)+$i_k;
-    $i_g = ($a-($a%$st))/$st;
-    $i_k = $a%$st;
+    $i_k = fmod($a,$st);
+    $i_g = ($a-($i_k))/$st;
     $sql = "UPDATE ".$typ." SET i_g='".$i_g."', i_k='".$i_k."' WHERE datum='".$datum."'";
     if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
 }

@@ -71,12 +71,13 @@ module.exports = function(grunt) {
           "./": ["web/media/css/*"],
         },
         options: {
-          path: '/var/schlangennest/media/css',
+          path: '/var/www/media/css',
           srcBasePath: 'web/media/css/',
           host: '<%= secret.hal.host %>',
           port: '<%= secret.hal.port %>',
           username: '<%= secret.hal.username %>',
-          privateKey: grunt.file.read("id_dsa"),
+          password : '<%= secret.hal.pass %>',
+          // privateKey: grunt.file.read("id_dsa"),
           showProgress: true
         },
       },
@@ -99,12 +100,13 @@ module.exports = function(grunt) {
           "./": ["web/**"],
         },
         options: {
-          path: '/var/schlangennest',
+          path: '/var/www',
           srcBasePath: 'web/',
           host: '<%= secret.hal.host %>',
           port: '<%= secret.hal.port %>',
           username: '<%= secret.hal.username %>',
-          privateKey: grunt.file.read("id_dsa"),
+          password : '<%= secret.hal.pass %>',
+          // privateKey: grunt.file.read("id_dsa"),
           showProgress: true
         }
       }
@@ -128,12 +130,21 @@ module.exports = function(grunt) {
           privateKey: grunt.file.read("id_dsa")
         },
       },
-
+permissions: {
+        command: 'sudo chown -R http:http /var/www && sudo find /var/www -type d -print0 | xargs -0 sudo chmod 775 && sudo find /var/www -type f -print0 | xargs -0 sudo chmod 664',
+        options: {
+          host: '<%= secret.hal.host %>',
+          port: '<%= secret.hal.port %>',
+          username: '<%= secret.hal.username %>',
+          password : '<%= secret.hal.pass %>',
+          // privateKey: grunt.file.read("id_dsa"),
+        },
+      },
     },
     watch: {
       css: {
         files: ['./css/sass/*.scss'],
-        tasks: ['sass','autoprefixer','cssmin','sftp:css_upload'],
+        tasks: ['sass','autoprefixer','cssmin','sftp:css_upload','sshexec:permissions'],
         options: {
           spawn: false,
         },
@@ -161,7 +172,7 @@ module.exports = function(grunt) {
       },
       deploy: {
         files: ['web/**'],
-        tasks: ['sftp:upload_dev'],
+        tasks: ['sftp:upload_dev','sshexec:permissions'],
         options: {
           spawn: false,
         },
@@ -189,5 +200,5 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('default', ['watch']);
   grunt.registerTask('deploy', ['sshexec:stop_server','sftp:upload','sshexec:start_server']);
-
+  grunt.registerTask('dev_deploy', ['sftp:upload_dev','sshexec:permissions']);
 };

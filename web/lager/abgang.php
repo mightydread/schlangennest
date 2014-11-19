@@ -34,7 +34,7 @@
                         <li></li><li></li>
                         <li><?php if ($_SESSION[$typ]['art'] == "kasten"){ echo "Flaschen";} else { echo "Anbruch";}?></li>
                         <input id="<?php echo $typ;?>_a" class=anzahl type=number step=any onfocus="this.value = '';" value="<?php echo  $_SESSION[$typ]['a'];?>" min=0 name="<?php echo $typ;?>_a" >
-                        <li class="button"><svg><use xlink:href="#icons_check" /></svg><input type=submit form="<?php echo $typ;?>" name="<?php echo $typ;?>"></li>
+                        <li class="button"><svg><use xlink:href="#lager_check" /></svg><input type=submit form="<?php echo $typ;?>" name="<?php echo $typ;?>"></li>
                     </form>
                 </ul>
                 <?php }?>

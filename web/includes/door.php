@@ -21,7 +21,7 @@ function door_check ($data) {
             $result = array("check" => "already_in");
         }
         else {
-             $result = array("check" => "exist", "id" => "$data" "name" => $array['name'],"ratten" => $array['ratten']);
+             $result = array("check" => "exist", "id" => "$data", "name" => $array['name'],"ratten" => $array['ratten']);
         }
     }
     else   {

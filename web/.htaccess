@@ -90,4 +90,4 @@ BrowserMatch \bMSI[E] !no-gzip !gzip-only-text/html
 SetEnvIfNoCase Request_URI \.(?:gif|jpe?g|png)$ no-gzip
 
 
-php_value include_path "/var/www/schlangennest/includes"
+php_value include_path "/srv/http/webapps/scandale_dev/htdocs/includes"
