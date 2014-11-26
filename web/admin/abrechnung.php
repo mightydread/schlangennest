@@ -43,6 +43,19 @@
             </ul>
         </div>
         <br>
+        <div id="month_select">
+            <ul>
+            <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=6&year=14">Juni 14</a></li>
+            <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=7&year=14">Juli 14</a></li>
+            <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=8&year=14">August 14</a></li>
+            <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=9&year=14">September 14</a></li>
+            <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=10&year=14">Oktober 14</a></li>
+            <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=11&year=14">November 14</a></li>
+       <!-- <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=12&year=14">Dezember 14</a></li>
+            <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=1&year=15">Januar 15</a></li>
+            <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=2&year=15">Februar 15</a></li> -->
+        </div>
+        <br>
         <div id="umsatz_panel">
             <ul>
                 <li>Datum</li>
@@ -71,7 +84,8 @@
                 add_row_umsatz(date('Y-m-d',strtotime($_POST['datum'])));
                 umsatz_speichern(date('Y-m-d',strtotime($_POST['datum'])),$_POST['u_br'],$_POST['u_fr'],$_POST['u_halb'],$_POST['u_sonst'],$_POST['u_gz']);
             }?>
-            <?php foreach (umsatz() as $row) { ?>
+            <?php if (isset($_GET['month'])) {
+            foreach (umsatz($_GET['month'],$_GET['year']) as $row) { ?>
             <ul>
                 <li><?php echo date('d.m', strtotime($row['datum']));?></li>
                 <li><?php echo $row['umsatz_br'];?> €</li>
@@ -80,12 +94,13 @@
                 <li><?php echo $row['sonst'];?> €</li>
                 <li><?php echo $row['umsatz_gz'];?> €</li>
                 <li><?php echo $row['trinkgeld'] ;?> €</li>
-                <form method="post" target="_blank" action="abrechnungprint.php">
+                <li class="print"><form method="post" target="_blank" action="abrechnungprint.php">
                     <input type="hidden" name="datum" value="<?php echo $row['datum'];?>">
                     <input type="submit" name="print" value="Drucken">
-                </form>
+                    <input class=checkbox id="clean" name=clean value=1 type=checkbox>
+                </form></li>
             </ul>
-            <?php  } ?>
+            <?php  } }?>
         </div>
     </div>
 </body>

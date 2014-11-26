@@ -14,8 +14,11 @@
 <body>
 
 <?php 
-populate_session('2014-11-13');
-print_r($_SESSION);
+foreach (waren() as $key) {
+$sql="ALTER TABLE `scandale`.`".$key."` ADD COLUMN `hole` DECIMAL(10,1) NULL AFTER `abgang`;";
+    echo $sql;
+    echo "<br>";
+    }
 ?>
 
 </body>

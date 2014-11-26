@@ -14,61 +14,80 @@
         <div id="datum" >Datum: <?php echo date('d.m.Y',strtotime($_POST['datum'])); ?></div>
         <div id="comment" >Verastaltung: <?php echo get_va(date('Y-m-d',strtotime($_POST['datum'])))['name']; ?></div>
 
-</div>
-<hr>
-<div class="table">
-    <?php 
-    $umsatz_gesamt="0";
-    foreach (waren() as $typ) {
-        if ($typ == "barbara" or $typ == "mexi" or $typ == "hasel" or $typ == "effect") {
-
-        }
-        else {
-            $sql = "SELECT * FROM $typ WHERE datum = '".$_POST['datum']."'";
-            $result = mysqli_query($con,$sql);
-            $row = mysqli_fetch_array($result);
-            $umsatz_gesamt = $umsatz_gesamt+$row['umsatz'];
-            $array[$typ] = array( 'name' => full_name($typ), 'verbrauch' => $row['verbrauch'], 'umsatz' => round($row['umsatz'],2));
-        }
-    } 
-    ?>
-    <div id="umsatz">Tagesumsatz: <?php echo $umsatz_gesamt." €";?></div>
-    <div id="detail">Details:</div>
-    <table id="left" >
-        <tr>
-            <td class="name legend">&nbsp;Artikel</td>
-            <td class="legend">Verbrauch</td>
-            <td class="legend">Umsatz</td>
-        </tr>
+    </div>
+    <hr>
+    <div class="table">
         <?php 
-        foreach (waren('kasten') as $typ) {
-            if ($typ == "effect") {
+        $umsatz_gesamt="0";
+        foreach (waren() as $typ) {
+            if (isset($_POST['clean'])) {
+                if ($typ == "barbara" or $typ == "mexi" or $typ == "hasel" or $typ == "effect") {
+
+                } else {
+                    $sql = "SELECT * FROM $typ WHERE datum = '".$_POST['datum']."'";
+                    $result = mysqli_query($con,$sql);
+                    $row = mysqli_fetch_array($result);
+                    $umsatz_gesamt = $umsatz_gesamt+$row['umsatz_clean'];
+                    $array[$typ] = array( 'name' => full_name($typ), 'verbrauch' => $row['verbrauch_clean'], 'umsatz' => round($row['umsatz_clean'],2));
+                }
             }
             else {
-                echo "<tr><td class=name>&nbsp;".$array[$typ]['name']."</td>";
-                echo "<td>".$array[$typ]['verbrauch']." Flaschen&nbsp; </td>";
-                echo "<td>".$array[$typ]['umsatz']." €&nbsp; </td></tr>";
+                $sql = "SELECT * FROM $typ WHERE datum = '".$_POST['datum']."'";
+                $result = mysqli_query($con,$sql);
+                $row = mysqli_fetch_array($result);
+                $umsatz_gesamt = $umsatz_gesamt+$row['umsatz'];
+                $array[$typ] = array( 'name' => full_name($typ), 'verbrauch' => $row['verbrauch'], 'umsatz' => round($row['umsatz'],2));
             }
-        }
+        } 
         ?>
-    </table>
-    <table id="right">
-        <tr>
-            <td class="name legend" >&nbsp;Artikel</td>
-            <td class="legend">Verbrauch</td>
-            <td class="legend">Umsatz</td>
-        </tr>
-        <?php
-        foreach (waren('flasche') as $typ) {
-            if ($typ == "barbara" or $typ == "mexi" or $typ == "hasel"){}
-              else {
-                 echo "<tr><td class=name>&nbsp;".$array[$typ]['name']."</td>";
-                echo "<td>".$array[$typ]['verbrauch']." Liter&nbsp; </td>";
-                echo "<td>".$array[$typ]['umsatz']." €&nbsp; </td></tr>";
+        <div id="umsatz">Tagesumsatz: <?php echo $umsatz_gesamt." €";?></div>
+        <div id="detail">Details:</div>
+        <table id="left" >
+            <tr>
+                <td class="name legend">&nbsp;Artikel</td>
+                <td class="legend">Verbrauch</td>
+                <td class="legend">Umsatz</td>
+            </tr>
+            <?php 
+            foreach (waren('kasten') as $typ) {
+                if (isset($_POST['clean'])) {
+                    if ($typ == "effect") {
+                    } else {
+                        echo "<tr><td class=name>&nbsp;".$array[$typ]['name']."</td>";
+                        echo "<td>".$array[$typ]['verbrauch']." Flaschen&nbsp; </td>";
+                        echo "<td>".$array[$typ]['umsatz']." €&nbsp; </td></tr>";
+                    }
+                } else {
+                    echo "<tr><td class=name>&nbsp;".$array[$typ]['name']."</td>";
+                    echo "<td>".$array[$typ]['verbrauch']." Flaschen&nbsp; </td>";
+                    echo "<td>".$array[$typ]['umsatz']." €&nbsp; </td></tr>";
+                }
             }
-        }
-        ?>
-    </table>
-</div>
+            ?>
+        </table>
+        <table id="right">
+            <tr>
+                <td class="name legend" >&nbsp;Artikel</td>
+                <td class="legend">Verbrauch</td>
+                <td class="legend">Umsatz</td>
+            </tr>
+            <?php
+            foreach (waren('flasche') as $typ) {
+                if (isset($_POST['clean'])) {
+                    if ($typ == "barbara" or $typ == "mexi" or $typ == "hasel"){}
+                      else {
+                       echo "<tr><td class=name>&nbsp;".$array[$typ]['name']."</td>";
+                       echo "<td>".$array[$typ]['verbrauch']." Liter&nbsp; </td>";
+                       echo "<td>".$array[$typ]['umsatz']." €&nbsp; </td></tr>";
+                   }
+               } else {
+                   echo "<tr><td class=name>&nbsp;".$array[$typ]['name']."</td>";
+                   echo "<td>".$array[$typ]['verbrauch']." Liter&nbsp; </td>";
+                   echo "<td>".$array[$typ]['umsatz']." €&nbsp; </td></tr>";
+               }
+           }
+           ?>
+       </table>
+   </div>
 </body>
 </html>

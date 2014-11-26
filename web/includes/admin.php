@@ -124,9 +124,11 @@ function bestand ($typ) {
 // 
 // Abrechnung
 // 
-function umsatz ($foo="bar") {
+function umsatz ($month,$year) {
     global $con;
-    $sql="SELECT * FROM abrechnung";
+    $from=date("Y-m-d",strtotime("$year-$month-01"));
+    $to=date("Y-m-d",strtotime("$year-".($month+1)."-01"));
+    $sql="SELECT * FROM abrechnung WHERE datum BETWEEN '".$from."' AND '".$to."'";
     $result = mysqli_query($con,$sql);
     $temp=array();
     while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
