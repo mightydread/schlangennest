@@ -103,9 +103,12 @@ function info ($typ) {
     while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {$a['st']=$row['einheit'];$a['art']=$row['art'];$a['preis']=$row['preis'];}
     return $a;
 }
-function tabelle ($typ) {
+function tabelle ($typ,$month,$year) {
     global $con;
-    $sql = "SELECT * FROM ".$typ."";
+    $from=date("Y-m-d",strtotime("$year-$month-01"));
+    if ($month=="12") {  $to=date("Y-m-d",strtotime(($year+1)."-01-01"));}
+    else { $to=date("Y-m-d",strtotime("$year-".($month+1)."-01"));}
+    $sql = "SELECT * FROM ".$typ." WHERE datum BETWEEN '".$from."' AND '".$to."'";
     $result = mysqli_query($con,$sql);
     $temp=array();
     while ($row = mysqli_fetch_array($result,MYSQLI_ASSOC)) {
@@ -119,7 +122,7 @@ function bestand ($typ) {
     $result = mysqli_query($con,$sql);
     $row = mysqli_fetch_array($result);
     //    print_r($row);
-    echo "<nobr>".full_name($typ).":</nobr></br>".$row['i_g']."/".$row['i_k']." ";
+    echo full_name($typ).": ".$row['i_g']." | ".$row['i_k'];
 }
 // 
 // Abrechnung
@@ -127,7 +130,8 @@ function bestand ($typ) {
 function umsatz ($month,$year) {
     global $con;
     $from=date("Y-m-d",strtotime("$year-$month-01"));
-    $to=date("Y-m-d",strtotime("$year-".($month+1)."-01"));
+    if ($month=="12") {  $to=date("Y-m-d",strtotime(($year+1)."-01-01"));}
+    else { $to=date("Y-m-d",strtotime("$year-".($month+1)."-01"));}
     $sql="SELECT * FROM abrechnung WHERE datum BETWEEN '".$from."' AND '".$to."'";
     $result = mysqli_query($con,$sql);
     $temp=array();

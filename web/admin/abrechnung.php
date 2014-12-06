@@ -51,9 +51,10 @@
             <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=9&year=14">September 14</a></li>
             <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=10&year=14">Oktober 14</a></li>
             <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=11&year=14">November 14</a></li>
-       <!-- <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=12&year=14">Dezember 14</a></li>
+            <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=12&year=14">Dezember 14</a></li>
             <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=1&year=15">Januar 15</a></li>
-            <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=2&year=15">Februar 15</a></li> -->
+            <li><a href="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?month=2&year=15">Februar 15</a></li>
+            </ul>
         </div>
         <br>
         <div id="umsatz_panel">

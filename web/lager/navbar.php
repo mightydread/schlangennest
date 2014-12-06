@@ -1,4 +1,5 @@
 <?php include 'icons_lager.svg' ?>
+<?php if (!isset($_SESSION['populated'])){populate_session(get_date());} ?>
 <div class="nav">
     <ul>
         <li><a href="/"><svg><use xlink:href="#lager_zurueck" /></svg></a></li>

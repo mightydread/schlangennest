@@ -9,7 +9,6 @@
     <?php require 'lager.php' ?>
 </head>
 <body>
-<?php populate_session(get_date()); ?>
    <div id="wrap">
    <?php include 'navbar.php' ?>
     <div>

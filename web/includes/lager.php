@@ -73,6 +73,7 @@ function populate_session ($datum) {
         $_SESSION[$typ]['art']=$info[$typ]['art'];
         $_SESSION[$typ]['preis']=$info[$typ]['preis'];
     }
+    $_SESSION['populated']="yes";
 }
 function add_row ($typ,$datum) {
     global $con;

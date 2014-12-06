@@ -15,7 +15,7 @@
 
 <?php 
 foreach (waren() as $key) {
-$sql="ALTER TABLE `scandale`.`".$key."` ADD COLUMN `hole` DECIMAL(10,1) NULL AFTER `abgang`;";
+$sql="DELETE FROM `scandale`.`".$key."` WHERE datum='2014-12-01';";
     echo $sql;
     echo "<br>";
     }
