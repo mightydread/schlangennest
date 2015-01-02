@@ -23,7 +23,7 @@
                         $_SESSION[$typ]['abgang']=$_POST[$typ.'_a'];
                     }
                     add_row($typ,get_date());
-                    abgang($typ,$_SESSION[$typ]['a'],get_date());
+                    abgang($typ,$_SESSION[$typ]['st'],$_SESSION[$typ]['abgang'],get_date());
                     $_SESSION[$typ]['done_ab'] = "ok";
                 } ?>
                 <ul>

@@ -76,8 +76,8 @@ module.exports = function(grunt) {
           host: '<%= secret.hal.host %>',
           port: '<%= secret.hal.port %>',
           username: '<%= secret.hal.username %>',
-          password : '<%= secret.hal.pass %>',
-          // privateKey: grunt.file.read("id_dsa"),
+          // password : '<%= secret.hal.pass %>',
+          privateKey: grunt.file.read("id"),
           showProgress: true
         },
       },
@@ -86,12 +86,12 @@ module.exports = function(grunt) {
           "./": ["web/**"],
         },
         options: {
-          path: '/var/www/schlangennest',
+          path: '/var/www2',
           srcBasePath: 'web/',
           host: '<%= secret.bob.host %>',
           port: '<%= secret.bob.port %>',
           username: '<%= secret.bob.username %>',
-          privateKey: grunt.file.read("id_dsa"),
+          privateKey: grunt.file.read("id"),
           showProgress: true
         }
       },
@@ -105,39 +105,49 @@ module.exports = function(grunt) {
           host: '<%= secret.hal.host %>',
           port: '<%= secret.hal.port %>',
           username: '<%= secret.hal.username %>',
-          password : '<%= secret.hal.pass %>',
-          // privateKey: grunt.file.read("id_dsa"),
+          // password : '<%= secret.hal.pass %>',
+          privateKey: grunt.file.read("id"),
           showProgress: true
         }
       }
     },
     sshexec: {
-      stop_server: {
-        command: 'sudo service apache2 stop',
-        options: {
-          host: '<%= secret.bob.host %>',
-          port: '<%= secret.bob.port %>',
-          username: '<%= secret.bob.username %>',
-          privateKey: grunt.file.read("id_dsa")
-        },
-      },
-      start_server: {
-        command: 'sudo service apache2 start',
-        options: {
-          host: '<%= secret.bob.host %>',
-          port: '<%= secret.bob.port %>',
-          username: '<%= secret.bob.username %>',
-          privateKey: grunt.file.read("id_dsa")
-        },
-      },
-permissions: {
+      // stop_server: {
+      //   command: 'sudo service apache2 stop',
+      //   options: {
+      //     host: '<%= secret.bob.host %>',
+      //     port: '<%= secret.bob.port %>',
+      //     username: '<%= secret.bob.username %>',
+      //     privateKey: grunt.file.read("id")
+      //   },
+      // },
+      // start_server: {
+      //   command: 'sudo service apache2 start',
+      //   options: {
+      //     host: '<%= secret.bob.host %>',
+      //     port: '<%= secret.bob.port %>',
+      //     username: '<%= secret.bob.username %>',
+      //     privateKey: grunt.file.read("id")
+      //   },
+      // },
+      permissions_dev: {
         command: 'sudo chown -R http:http /var/www && sudo find /var/www -type d -print0 | xargs -0 sudo chmod 775 && sudo find /var/www -type f -print0 | xargs -0 sudo chmod 664',
         options: {
           host: '<%= secret.hal.host %>',
           port: '<%= secret.hal.port %>',
           username: '<%= secret.hal.username %>',
-          password : '<%= secret.hal.pass %>',
-          // privateKey: grunt.file.read("id_dsa"),
+          // password : '<%= secret.hal.pass %>',
+          privateKey: grunt.file.read("id"),
+        },
+      },
+      permissions: {
+        command: 'sudo chown -R http:http /var/www2 && sudo find /var/www2 -type d -print0 | xargs -0 sudo chmod 775 && sudo find /var/www2 -type f -print0 | xargs -0 sudo chmod 664',
+        options: {
+          host: '<%= secret.hal.host %>',
+          port: '<%= secret.hal.port %>',
+          username: '<%= secret.hal.username %>',
+          // password : '<%= secret.hal.pass %>',
+          privateKey: grunt.file.read("id"),
         },
       },
     },
@@ -170,7 +180,7 @@ permissions: {
           spawn: false,
         },
       },
-      deploy: {
+      upload_files: {
         files: ['web/**'],
         tasks: ['sftp:upload_dev','sshexec:permissions'],
         options: {
@@ -199,6 +209,6 @@ permissions: {
 
   // Default task(s).
   grunt.registerTask('default', ['watch']);
-  grunt.registerTask('deploy', ['sshexec:stop_server','sftp:upload','sshexec:start_server']);
-  grunt.registerTask('dev_deploy', ['sftp:upload_dev','sshexec:permissions']);
+  grunt.registerTask('deploy', ['sftp:upload','sshexec:permissions']);
+  grunt.registerTask('dev_deploy', ['sftp:upload_dev','sshexec:permissions_dev']);
 };
