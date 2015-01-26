@@ -10,7 +10,7 @@
     <div id="wrap">
         <?php include 'navbar.php' ?>
         <div id="ratte_intro">
-        <?php include '../media/images/ratte.svg' ?>
+        <?php include 'ratte.svg' ?>
         </div>
     </body>
 </html>

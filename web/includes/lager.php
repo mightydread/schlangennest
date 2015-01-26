@@ -86,34 +86,12 @@ function add_row ($typ,$datum) {
         if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
     }
 }
-function add_row_hole ($typ,$datum) {
-    global $con;
-    $sql = "SELECT 1 FROM hole WHERE typ ='".$typ."' LIMIT 1";
-    $result = mysqli_query($con,$sql);
-    if (mysqli_fetch_row($result)) { 
-    }
-    else {
-        $sql = "INSERT INTO hole (last_buy,typ) VALUES ('".$datum."','".$typ."')";
-        if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
-    }
-}
 function letzte_inv ($typ,$datum) {
     global $con;
     $sql = "SELECT * FROM ".$typ." WHERE datum !='".$datum."' ORDER BY datum DESC LIMIT 1";
     $result = mysqli_query($con,$sql);
     $row[] = mysqli_fetch_array($result,MYSQLI_ASSOC);
     return $row[0];
-}
-function check_hole ($typ) {
-    global $con;
-    $sql = "SELECT * FROM $typ WHERE typ ='".$typ."' ORDER BY typ DESC LIMIT 1";
-    $result = mysqli_query($con,$sql);
-    if (mysqli_fetch_row($result)) { 
-        return 1;
-    }
-    else {
-        return 0;
-    }
 }
 function verbrauch ($typ,$st,$art,$preis,$datum) {
     global $con;
@@ -125,21 +103,9 @@ function verbrauch ($typ,$st,$art,$preis,$datum) {
     $invent = ($inv[1]['i_g']*$st)+$inv[1]['i_k'];
     $invent2 = ($inv[2]['i_g']*$st)+$inv[2]['i_k']-($inv[2]['zugang']*$st)+$inv[2]['abgang'];
     $verbrauch = $invent - $invent2;
-    if (round($verbrauch/4,1) < $inv[1]['hole']) { 
-        if ($art == "flasche") {
-            $verbrauch_clean = $verbrauch-round($verbrauch/4,1);
-            $hole = $inv[1]['hole']-round($verbrauch/4,1);
-        } elseif ($art == "kasten") {
-            $verbrauch_clean = $verbrauch-round($verbrauch/4);
-            $hole = $inv[1]['hole']-round($verbrauch/4);
-        }
-    } elseif (round($verbrauch/4) >= $inv[1]['hole']) {
-        $verbrauch_clean =$verbrauch-$inv[1]['hole'];
-        $hole = $inv[1]['hole']-$inv[1]['hole'];
-    }
-    if ($art == "flasche") {$umsatz = ($verbrauch*($preis / $st));$umsatz_clean = ($verbrauch_clean*($preis / $st));}
-    elseif ($art == "kasten") {$umsatz = ($verbrauch*$preis);$umsatz_clean = ($verbrauch_clean*$preis);}
-    $sql = "UPDATE ".$typ." SET hole=".$hole.", verbrauch=".$verbrauch.", verbrauch_clean=".$verbrauch_clean.", umsatz=".round($umsatz,2).", umsatz_clean=".round($umsatz_clean,2)." WHERE datum='".$inv[1]['datum']."'";
+    if ($art == "flasche") {$umsatz = ($verbrauch*($preis / $st));}
+    elseif ($art == "kasten") {$umsatz = ($verbrauch*$preis);}
+    $sql = "UPDATE ".$typ." SET hole=".$hole.", verbrauch=".$verbrauch.", umsatz=".round($umsatz,2)." WHERE datum='".$inv[1]['datum']."'";
     if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
 }
 function inventur ($typ,$st,$i_g,$i_k,$datum) {
@@ -191,17 +157,6 @@ function abgang ($typ,$st,$anzahl,$datum) {
         $sql = "UPDATE ".$typ." SET i_g=".$i_g.", i_k='".$i_k."', abgang=".$anzahl." WHERE datum='".$datum."'";
         if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
     }
-}
-function hole ($typ,$st,$anzahl,$datum) {
-    global $con;
-    $sql = "SELECT * FROM ".$typ." WHERE datum ='".$datum."' ORDER BY datum DESC LIMIT 1";
-    $result = mysqli_query($con,$sql);
-    // $array_temp=array();
-    $array_temp=mysqli_fetch_array($result,MYSQLI_ASSOC);
-    $anzahl = $anzahl*$st;
-    $anzahl = $anzahl + $array_temp['hole'];
-    $sql = "UPDATE $typ SET hole=".$anzahl.", i_g='".$array_temp['i_g']."', i_k='".$array_temp['i_k']."' WHERE datum ='".$datum."'";
-    if (!mysqli_query($con,$sql)) { die('Error: ' . mysqli_error($con)); }
 }
 function safety_check ($typ,$i_g,$i_k,$datum) {
     global $con;

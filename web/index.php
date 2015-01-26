@@ -11,7 +11,6 @@
 <div id="wrap">
         <div class="big_menu">
             <a href="admin"><svg class="red"><use xlink:href="#icons_admin" /></svg></a>
-            <a href="door"><svg class="green"><use xlink:href="#icons_tuer" /></svg></a>
             <a href="lager"><svg class="green"><use xlink:href="#icons_lager" /></svg></a>
         </div>
     </div>

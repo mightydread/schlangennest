@@ -11,10 +11,8 @@ module.exports = function(grunt) {
         },
         files: {                         // Dictionary of files
           './css/build/unprefixed/admin.css': './css/sass/admin.scss',       // 'destination': 'source'
-          './css/build/unprefixed/check.css': './css/sass/check.scss',       // 'destination': 'source'
           './css/build/unprefixed/lager.css': './css/sass/lager.scss',       // 'destination': 'source'
           './css/build/unprefixed/global.css': './css/sass/global.scss',       // 'destination': 'source'
-          './css/build/unprefixed/print.css': './css/sass/print.scss',
           './css/build/unprefixed/reset.css': './css/sass/reset.scss',
         },
       },
@@ -34,11 +32,6 @@ module.exports = function(grunt) {
       lager : {
         files: {
           './web/includes/icons_lager.svg': ['./icons/svg/lager_*.svg'],
-        },
-      },
-      door : {
-        files: {
-          './web/includes/icons_door.svg': ['./icons/svg/door_*.svg'],
         },
       },
     },
@@ -66,21 +59,6 @@ module.exports = function(grunt) {
       },
     },
     sftp: {
-      css_upload: {
-        files: {
-          "./": ["web/media/css/*"],
-        },
-        options: {
-          path: '/var/www/media/css',
-          srcBasePath: 'web/media/css/',
-          host: '<%= secret.hal.host %>',
-          port: '<%= secret.hal.port %>',
-          username: '<%= secret.hal.username %>',
-          // password : '<%= secret.hal.pass %>',
-          privateKey: grunt.file.read("id"),
-          showProgress: true
-        },
-      },
       upload: {
         files: {
           "./": ["web/**"],
@@ -143,9 +121,9 @@ module.exports = function(grunt) {
       permissions: {
         command: 'sudo chown -R http:http /var/www2 && sudo find /var/www2 -type d -print0 | xargs -0 sudo chmod 775 && sudo find /var/www2 -type f -print0 | xargs -0 sudo chmod 664',
         options: {
-          host: '<%= secret.hal.host %>',
-          port: '<%= secret.hal.port %>',
-          username: '<%= secret.hal.username %>',
+          host: '<%= secret.bob.host %>',
+          port: '<%= secret.bob.port %>',
+          username: '<%= secret.bob.username %>',
           // password : '<%= secret.hal.pass %>',
           privateKey: grunt.file.read("id"),
         },
@@ -154,7 +132,7 @@ module.exports = function(grunt) {
     watch: {
       css: {
         files: ['./css/sass/*.scss'],
-        tasks: ['sass','autoprefixer','cssmin','sftp:css_upload','sshexec:permissions'],
+        tasks: ['sass','autoprefixer','cssmin'],
         options: {
           spawn: false,
         },
@@ -169,13 +147,6 @@ module.exports = function(grunt) {
       svg_lager: {
         files:['./icons/svg/lager_*.svg'],
         tasks: ['svgstore:lager'],
-        options: {
-          spawn: false,
-        },
-      },
-      svg_door: {
-        files:['./icons/svg/door_*.svg'],
-        tasks: ['svgstore:door'],
         options: {
           spawn: false,
         },

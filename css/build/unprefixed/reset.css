@@ -1,0 +1,29 @@
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, img, ul, li, form, label {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  line-height: 1;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+input, select {
+  vertical-align: middle;
+  border-radius: 0;
+  box-shadow: 0;
+}
+
+/*# sourceMappingURL=reset.css.map */

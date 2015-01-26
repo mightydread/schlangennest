@@ -1,10 +1,6 @@
 .sass-cache
 node_modules
-css/build
-.ftppass
-id_dsa
 secret.json
 sftpCache.json
-*.cache
 id
 schlangennest.sublime-workspace
