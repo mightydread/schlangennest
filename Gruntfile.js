@@ -180,13 +180,13 @@ module.exports = function(grunt) {
           spawn: false,
         },
       },
-      upload_files: {
-        files: ['web/**'],
-        tasks: ['sftp:upload_dev','sshexec:permissions'],
-        options: {
-          spawn: false,
-        },
-      },
+      // upload_files: {
+      //   files: ['web/**'],
+      //   tasks: ['sftp:upload_dev','sshexec:permissions'],
+      //   options: {
+      //     spawn: false,
+      //   },
+      // },
       configFiles: {
         files: [ 'Gruntfile.js' ],
         options: {
